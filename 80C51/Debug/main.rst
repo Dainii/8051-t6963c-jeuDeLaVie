@@ -1,7 +1,7 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
                               3 ; Version 3.0.0 #6037 (Oct 31 2010) (MINGW32)
-                              4 ; This file was generated Mon Jan 23 19:50:54 2017
+                              4 ; This file was generated Mon Jan 23 21:01:50 2017
                               5 ;--------------------------------------------------------
                               6 	.module main
                               7 	.optsdcc -mmcs51 --model-large
@@ -446,8 +446,8 @@
                             446 ;testsInError              Allocated with name '_main_testsInError_1_1'
                             447 ;------------------------------------------------------------
                     0000    448 	G$main$0$0 ==.
-                    0000    449 	C$main.c$53$0$0 ==.
-                            450 ;	../main.c:53: void main(void) {
+                    0000    449 	C$main.c$42$0$0 ==.
+                            450 ;	../main.c:42: void main(void) {
                             451 ;	-----------------------------------------
                             452 ;	 function main
                             453 ;	-----------------------------------------
@@ -460,19 +460,19 @@
                     0007    460 	ar7 = 0x07
                     0000    461 	ar0 = 0x00
                     0001    462 	ar1 = 0x01
-                    0000    463 	C$main.c$55$1$1 ==.
-                            464 ;	../main.c:55: STDIO_initialize();
-   0064 12 04 9A            465 	lcall	_STDIO_initialize
-                    0003    466 	C$main.c$57$1$1 ==.
-                            467 ;	../main.c:57: testsInError += testBuffer();
-   0067 12 09 45            468 	lcall	_testBuffer
+                    0000    463 	C$main.c$44$1$1 ==.
+                            464 ;	../main.c:44: STDIO_initialize();
+   0064 12 04 70            465 	lcall	_STDIO_initialize
+                    0003    466 	C$main.c$46$1$1 ==.
+                            467 ;	../main.c:46: testsInError += testBuffer();
+   0067 12 09 1B            468 	lcall	_testBuffer
    006A AA 82               469 	mov	r2,dpl
    006C AB 83               470 	mov	r3,dph
-                    000A    471 	C$main.c$58$1$1 ==.
-                            472 ;	../main.c:58: testsInError += testSnake();
+                    000A    471 	C$main.c$47$1$1 ==.
+                            472 ;	../main.c:47: testsInError += testKeyboard();
    006E C0 02               473 	push	ar2
    0070 C0 03               474 	push	ar3
-   0072 12 1E 05            475 	lcall	_testSnake
+   0072 12 0D D2            475 	lcall	_testKeyboard
    0075 AC 82               476 	mov	r4,dpl
    0077 AD 83               477 	mov	r5,dph
    0079 D0 03               478 	pop	ar3
@@ -483,11 +483,11 @@
    0080 ED                  483 	mov	a,r5
    0081 3B                  484 	addc	a,r3
    0082 FB                  485 	mov	r3,a
-                    001F    486 	C$main.c$59$1$1 ==.
-                            487 ;	../main.c:59: testsInError += testKeyboard();
+                    001F    486 	C$main.c$48$1$1 ==.
+                            487 ;	../main.c:48: testsInError += testGameboard();
    0083 C0 02               488 	push	ar2
    0085 C0 03               489 	push	ar3
-   0087 12 20 55            490 	lcall	_testKeyboard
+   0087 12 19 10            490 	lcall	_testGameboard
    008A AC 82               491 	mov	r4,dpl
    008C AD 83               492 	mov	r5,dph
    008E D0 03               493 	pop	ar3
@@ -498,11 +498,11 @@
    0095 ED                  498 	mov	a,r5
    0096 3B                  499 	addc	a,r3
    0097 FB                  500 	mov	r3,a
-                    0034    501 	C$main.c$60$1$1 ==.
-                            502 ;	../main.c:60: testsInError += testFruit();
+                    0034    501 	C$main.c$49$1$1 ==.
+                            502 ;	../main.c:49: testsInError += testRand();
    0098 C0 02               503 	push	ar2
    009A C0 03               504 	push	ar3
-   009C 12 25 DF            505 	lcall	_testFruit
+   009C 12 19 DF            505 	lcall	_testRand
    009F AC 82               506 	mov	r4,dpl
    00A1 AD 83               507 	mov	r5,dph
    00A3 D0 03               508 	pop	ar3
@@ -513,63 +513,33 @@
    00AA ED                  513 	mov	a,r5
    00AB 3B                  514 	addc	a,r3
    00AC FB                  515 	mov	r3,a
-                    0049    516 	C$main.c$61$1$1 ==.
-                            517 ;	../main.c:61: testsInError += testGameboard();
+                    0049    516 	C$main.c$51$1$1 ==.
+                            517 ;	../main.c:51: printf("%d tests en erreur", testsInError);
    00AD C0 02               518 	push	ar2
    00AF C0 03               519 	push	ar3
-   00B1 12 31 9A            520 	lcall	_testGameboard
-   00B4 AC 82               521 	mov	r4,dpl
-   00B6 AD 83               522 	mov	r5,dph
-   00B8 D0 03               523 	pop	ar3
-   00BA D0 02               524 	pop	ar2
-   00BC EC                  525 	mov	a,r4
-   00BD 2A                  526 	add	a,r2
-   00BE FA                  527 	mov	r2,a
-   00BF ED                  528 	mov	a,r5
-   00C0 3B                  529 	addc	a,r3
-   00C1 FB                  530 	mov	r3,a
-                    005E    531 	C$main.c$62$1$1 ==.
-                            532 ;	../main.c:62: testsInError += testRand();
-   00C2 C0 02               533 	push	ar2
-   00C4 C0 03               534 	push	ar3
-   00C6 12 32 69            535 	lcall	_testRand
-   00C9 AC 82               536 	mov	r4,dpl
-   00CB AD 83               537 	mov	r5,dph
-   00CD D0 03               538 	pop	ar3
-   00CF D0 02               539 	pop	ar2
-   00D1 EC                  540 	mov	a,r4
-   00D2 2A                  541 	add	a,r2
-   00D3 FA                  542 	mov	r2,a
-   00D4 ED                  543 	mov	a,r5
-   00D5 3B                  544 	addc	a,r3
-   00D6 FB                  545 	mov	r3,a
-                    0073    546 	C$main.c$64$1$1 ==.
-                            547 ;	../main.c:64: printf("%d tests en erreur", testsInError);
-   00D7 C0 02               548 	push	ar2
-   00D9 C0 03               549 	push	ar3
-   00DB 74 B2               550 	mov	a,#__str_0
-   00DD C0 E0               551 	push	acc
-   00DF 74 3D               552 	mov	a,#(__str_0 >> 8)
-   00E1 C0 E0               553 	push	acc
-   00E3 74 80               554 	mov	a,#0x80
-   00E5 C0 E0               555 	push	acc
-   00E7 12 35 7C            556 	lcall	_printf
-   00EA E5 81               557 	mov	a,sp
-   00EC 24 FB               558 	add	a,#0xfb
-   00EE F5 81               559 	mov	sp,a
-                    008C    560 	C$main.c$66$1$1 ==.
-                            561 ;	../main.c:66: while(1);
-   00F0                     562 00102$:
-                    008C    563 	C$main.c$67$1$1 ==.
-                    008C    564 	XG$main$0$0 ==.
-   00F0 80 FE               565 	sjmp	00102$
-                            566 	.area CSEG    (CODE)
-                            567 	.area CONST   (CODE)
-                    0000    568 Fmain$_str_0$0$0 == .
-   3DB2                     569 __str_0:
-   3DB2 25 64 20 74 65 73   570 	.ascii "%d tests en erreur"
+   00B1 74 28               520 	mov	a,#__str_0
+   00B3 C0 E0               521 	push	acc
+   00B5 74 25               522 	mov	a,#(__str_0 >> 8)
+   00B7 C0 E0               523 	push	acc
+   00B9 74 80               524 	mov	a,#0x80
+   00BB C0 E0               525 	push	acc
+   00BD 12 1C F2            526 	lcall	_printf
+   00C0 E5 81               527 	mov	a,sp
+   00C2 24 FB               528 	add	a,#0xfb
+   00C4 F5 81               529 	mov	sp,a
+                    0062    530 	C$main.c$53$1$1 ==.
+                            531 ;	../main.c:53: while(1);
+   00C6                     532 00102$:
+                    0062    533 	C$main.c$54$1$1 ==.
+                    0062    534 	XG$main$0$0 ==.
+   00C6 80 FE               535 	sjmp	00102$
+                            536 	.area CSEG    (CODE)
+                            537 	.area CONST   (CODE)
+                    0000    538 Fmain$_str_0$0$0 == .
+   2528                     539 __str_0:
+   2528 25 64 20 74 65 73   540 	.ascii "%d tests en erreur"
         74 73 20 65 6E 20
         65 72 72 65 75 72
-   3DC4 00                  571 	.db 0x00
-                            572 	.area XINIT   (CODE)
-                            573 	.area CABS    (ABS,CODE)
+   253A 00                  541 	.db 0x00
+                            542 	.area XINIT   (CODE)
+                            543 	.area CABS    (ABS,CODE)

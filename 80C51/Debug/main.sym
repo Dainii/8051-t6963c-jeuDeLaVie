@@ -54,42 +54,16 @@ Symbol Table
  18 A$main$518                                                     0049 GR
  18 A$main$519                                                     004B GR
  18 A$main$520                                                     004D GR
- 18 A$main$521                                                     0050 GR
- 18 A$main$522                                                     0052 GR
- 18 A$main$523                                                     0054 GR
- 18 A$main$524                                                     0056 GR
- 18 A$main$525                                                     0058 GR
+ 18 A$main$521                                                     004F GR
+ 18 A$main$522                                                     0051 GR
+ 18 A$main$523                                                     0053 GR
+ 18 A$main$524                                                     0055 GR
+ 18 A$main$525                                                     0057 GR
  18 A$main$526                                                     0059 GR
- 18 A$main$527                                                     005A GR
- 18 A$main$528                                                     005B GR
- 18 A$main$529                                                     005C GR
- 18 A$main$530                                                     005D GR
- 18 A$main$533                                                     005E GR
- 18 A$main$534                                                     0060 GR
+ 18 A$main$527                                                     005C GR
+ 18 A$main$528                                                     005E GR
+ 18 A$main$529                                                     0060 GR
  18 A$main$535                                                     0062 GR
- 18 A$main$536                                                     0065 GR
- 18 A$main$537                                                     0067 GR
- 18 A$main$538                                                     0069 GR
- 18 A$main$539                                                     006B GR
- 18 A$main$540                                                     006D GR
- 18 A$main$541                                                     006E GR
- 18 A$main$542                                                     006F GR
- 18 A$main$543                                                     0070 GR
- 18 A$main$544                                                     0071 GR
- 18 A$main$545                                                     0072 GR
- 18 A$main$548                                                     0073 GR
- 18 A$main$549                                                     0075 GR
- 18 A$main$550                                                     0077 GR
- 18 A$main$551                                                     0079 GR
- 18 A$main$552                                                     007B GR
- 18 A$main$553                                                     007D GR
- 18 A$main$554                                                     007F GR
- 18 A$main$555                                                     0081 GR
- 18 A$main$556                                                     0083 GR
- 18 A$main$557                                                     0086 GR
- 18 A$main$558                                                     0088 GR
- 18 A$main$559                                                     008A GR
- 18 A$main$565                                                     008C GR
     A.0                                                            00E0 
     A.1                                                            00E1 
     A.2                                                            00E2 
@@ -117,17 +91,15 @@ Symbol Table
     B.5                                                            00F5 
     B.6                                                            00F6 
     B.7                                                            00F7 
- 18 C$main.c$53$0$0                                             =  0000 GR
- 18 C$main.c$55$1$1                                             =  0000 GR
- 18 C$main.c$57$1$1                                             =  0003 GR
- 18 C$main.c$58$1$1                                             =  000A GR
- 18 C$main.c$59$1$1                                             =  001F GR
- 18 C$main.c$60$1$1                                             =  0034 GR
- 18 C$main.c$61$1$1                                             =  0049 GR
- 18 C$main.c$62$1$1                                             =  005E GR
- 18 C$main.c$64$1$1                                             =  0073 GR
- 18 C$main.c$66$1$1                                             =  008C GR
- 18 C$main.c$67$1$1                                             =  008C GR
+ 18 C$main.c$42$0$0                                             =  0000 GR
+ 18 C$main.c$44$1$1                                             =  0000 GR
+ 18 C$main.c$46$1$1                                             =  0003 GR
+ 18 C$main.c$47$1$1                                             =  000A GR
+ 18 C$main.c$48$1$1                                             =  001F GR
+ 18 C$main.c$49$1$1                                             =  0034 GR
+ 18 C$main.c$51$1$1                                             =  0049 GR
+ 18 C$main.c$53$1$1                                             =  0062 GR
+ 18 C$main.c$54$1$1                                             =  0062 GR
     CPRL2                                                          00C8 
     CT2                                                            00C9 
     CY                                                             00D7 
@@ -387,7 +359,7 @@ Symbol Table
     TR1                                                            008E 
     TR2                                                            00CA 
     TXD                                                            00B1 
- 18 XG$main$0$0                                                 =  008C GR
+ 18 XG$main$0$0                                                 =  0062 GR
     _AC                                                         =  00D6 G
     _ACC                                                        =  00E0 G
     _B                                                          =  00F0 G
@@ -509,11 +481,9 @@ Symbol Table
  18 _main                                                          0000 GR
     _printf                                                        **** GX
     _testBuffer                                                    **** GX
-    _testFruit                                                     **** GX
     _testGameboard                                                 **** GX
     _testKeyboard                                                  **** GX
     _testRand                                                      **** GX
-    _testSnake                                                     **** GX
     a                                                              00E0 
     a.0                                                            00E0 
     a.1                                                            00E1 
@@ -727,7 +697,7 @@ Area Table
   15 GSINIT5                                    size    0   flags 20
   16 GSINIT                                     size    0   flags 20
   17 GSFINAL                                    size    3   flags 20
-  18 CSEG                                       size   8E   flags 20
+  18 CSEG                                       size   64   flags 20
   19 CONST                                      size   13   flags 20
   1A XINIT                                      size    0   flags 20
   1B CABS                                       size    0   flags 28

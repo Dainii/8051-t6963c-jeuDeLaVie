@@ -23,21 +23,11 @@ void GMB_copyFromRomToCg(unsigned char positionInRom, unsigned char cgCode) {
  * Initialise les caractères utilisés pendant le jeu.
  */
 void GMB_initialize() {
-	GMB_copyFromRomToCg( 0, OBSTACLE_A);
-	GMB_copyFromRomToCg( 1, OBSTACLE_B);
-	GMB_copyFromRomToCg( 2, OBSTACLE_C);
-	GMB_copyFromRomToCg( 3, OBSTACLE_D);
-	GMB_copyFromRomToCg( 4, OBSTACLE_E);
-	GMB_copyFromRomToCg( 5, OBSTACLE_F);
-	GMB_copyFromRomToCg( 6, OBSTACLE_G);
-	GMB_copyFromRomToCg( 7, OBSTACLE_H);
-
-	GMB_copyFromRomToCg( 8, SNAKE_BODY);
-	GMB_copyFromRomToCg( 9, SNAKE_SWALLOW);
-	GMB_copyFromRomToCg(10, SNAKE_HEAD);
-	GMB_copyFromRomToCg(11, SNAKE_DEAD);
-
-	GMB_copyFromRomToCg(12, FRUIT);
+	GMB_copyFromRomToCg( 0, COLOR_ALLIVE);
+	GMB_copyFromRomToCg( 1, COLOR_BORN);
+	GMB_copyFromRomToCg( 2, COLOR_DEAD);
+ 	GMB_copyFromRomToCg( 3, COLOR_DYING);
+	GMB_copyFromRomToCg( 4, MUR);
 }
 
 /**
@@ -52,37 +42,37 @@ void GMB_draw(unsigned char x0, unsigned char y0, unsigned char x1, unsigned cha
 
 	// Première ligne
 	// Coin supérieur gauche
-	T6963C_writeAt(x0, y0, OBSTACLE_A);
+	T6963C_writeAt(x0, y0, MUR);
 
 	// Coin supérieur droit
-	T6963C_writeAt(x1, y0, OBSTACLE_C);
+	T6963C_writeAt(x1, y0, MUR);
 
 	// Le reste de la ligne
 	for (x = x0 + 1; x < x1; x++){
-		T6963C_writeAt(x, y0, OBSTACLE_B);
+		T6963C_writeAt(x, y0, MUR);
 	}
 
 
 	// Dernière ligne
 	// Coin inférieur gauche
-	T6963C_writeAt(x0, y1, OBSTACLE_F);
+	T6963C_writeAt(x0, y1, MUR);
 
 	// Coin inférieur droit
-	T6963C_writeAt(x1, y1, OBSTACLE_H);
+	T6963C_writeAt(x1, y1, MUR);
 
 	// Le reste de la ligne
 	for (x = x0 + 1; x < x1; x++){
-		T6963C_writeAt(x, y1, OBSTACLE_G);
+		T6963C_writeAt(x, y1, MUR);
 	}
 
 
 	// Le reste de l'écran
 	for (y = y0 + 1; y < y1; y++){
 		// Premier caratère
-		T6963C_writeAt(x1, y, OBSTACLE_E);
+		T6963C_writeAt(x1, y, MUR);
 
 		// Dernier caratère
-		T6963C_writeAt(x0, y, OBSTACLE_D);
+		T6963C_writeAt(x0, y, MUR);
 	}
 }
 
@@ -136,36 +126,36 @@ void GMB_display(unsigned char x0, unsigned char y0, char *text) {
 
 	// Première ligne
 	// Coin supérieur gauche
-	T6963C_writeAt(x0, y0, OBSTACLE_A);
+	T6963C_writeAt(x0, y0, MUR);
 
 	// Coin supérieur droit
-	T6963C_writeAt(x1, y0, OBSTACLE_C);
+	T6963C_writeAt(x1, y0, MUR);
 
 	// Le reste de la ligne
 	for (x = x0 + 1; x < x1; x++){
-		T6963C_writeAt(x, y0, OBSTACLE_B);
+		T6963C_writeAt(x, y0, MUR);
 	}
 
 
 	// Dernière ligne
 	// Coin inférieur gauche
-	T6963C_writeAt(x0, y1, OBSTACLE_F);
+	T6963C_writeAt(x0, y1, MUR);
 
 	// Coin inférieur droit
-	T6963C_writeAt(x1, y1, OBSTACLE_H);
+	T6963C_writeAt(x1, y1, MUR);
 
 	// Le reste de la ligne
 	for (x = x0 + 1; x < x1; x++){
-		T6963C_writeAt(x, y1, OBSTACLE_G);
+		T6963C_writeAt(x, y1, MUR);
 	}
 
 
 	// Le reste de l'écran
 	// Premier caratère
-	T6963C_writeAt(x1, y0 + 1, OBSTACLE_E);
+	T6963C_writeAt(x1, y0 + 1, MUR);
 
 	// Dernier caratère
-	T6963C_writeAt(x0, y0 + 1, OBSTACLE_D);
+	T6963C_writeAt(x0, y0 + 1, MUR);
 	
 	// Imprime le texte
 	for (x = x0 + 1; x < x1; x++){
@@ -177,11 +167,11 @@ void GMB_display(unsigned char x0, unsigned char y0, char *text) {
 #ifdef TEST
 int bddGameboardDraw() {
 	BddExpectedContent c = {
-		"ABBBBBBBBC",
-		"D........E",
-		"D........E",
-		"D........E",
-		"FGGGGGGGGH"
+		"2222222222",
+		"2........2",
+		"2........2",
+		"2........2",
+		"2222222222"
 	};
 
 	BDD_clear();
@@ -206,9 +196,9 @@ int bddGameboardClear() {
 int bddGameboardDisplay() {
 	BddExpectedContent c = {
 		"..........",
-		".ABBBBBC..",
-		".D TXT E..",
-		".FGGGGGH..",
+		".2222222..",
+		".2 TXT 2..",
+		".2222222..",
 		".........."
 	};
 

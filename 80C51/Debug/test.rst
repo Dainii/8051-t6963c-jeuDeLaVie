@@ -1,7 +1,7 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
                               3 ; Version 3.0.0 #6037 (Oct 31 2010) (MINGW32)
-                              4 ; This file was generated Mon Jan 23 19:50:55 2017
+                              4 ; This file was generated Mon Jan 23 21:01:50 2017
                               5 ;--------------------------------------------------------
                               6 	.module test
                               7 	.optsdcc -mmcs51 --model-large
@@ -451,7 +451,7 @@
                             451 ;	-----------------------------------------
                             452 ;	 function assertEquals
                             453 ;	-----------------------------------------
-   05CC                     454 _assertEquals:
+   05A2                     454 _assertEquals:
                     0002    455 	ar2 = 0x02
                     0003    456 	ar3 = 0x03
                     0004    457 	ar4 = 0x04
@@ -462,62 +462,62 @@
                     0001    462 	ar1 = 0x01
                     0000    463 	C$test.c$17$1$1 ==.
                             464 ;	../test.c:17: if (value != expectedValue) {
-   05CC AA 83               465 	mov	r2,dph
-   05CE E5 82               466 	mov	a,dpl
-   05D0 90 10 30            467 	mov	dptr,#_assertEquals_value_1_1
-   05D3 F0                  468 	movx	@dptr,a
-   05D4 A3                  469 	inc	dptr
-   05D5 CA                  470 	xch	a,r2
-   05D6 F0                  471 	movx	@dptr,a
-   05D7 FB                  472 	mov	r3,a
-   05D8 90 10 2B            473 	mov	dptr,#_assertEquals_PARM_2
-   05DB E0                  474 	movx	a,@dptr
-   05DC FC                  475 	mov	r4,a
-   05DD A3                  476 	inc	dptr
-   05DE E0                  477 	movx	a,@dptr
-   05DF FD                  478 	mov	r5,a
-   05E0 EA                  479 	mov	a,r2
-   05E1 B5 04 06            480 	cjne	a,ar4,00106$
-   05E4 EB                  481 	mov	a,r3
-   05E5 B5 05 02            482 	cjne	a,ar5,00106$
-   05E8 80 2F               483 	sjmp	00102$
-   05EA                     484 00106$:
+   05A2 AA 83               465 	mov	r2,dph
+   05A4 E5 82               466 	mov	a,dpl
+   05A6 90 10 30            467 	mov	dptr,#_assertEquals_value_1_1
+   05A9 F0                  468 	movx	@dptr,a
+   05AA A3                  469 	inc	dptr
+   05AB CA                  470 	xch	a,r2
+   05AC F0                  471 	movx	@dptr,a
+   05AD FB                  472 	mov	r3,a
+   05AE 90 10 2B            473 	mov	dptr,#_assertEquals_PARM_2
+   05B1 E0                  474 	movx	a,@dptr
+   05B2 FC                  475 	mov	r4,a
+   05B3 A3                  476 	inc	dptr
+   05B4 E0                  477 	movx	a,@dptr
+   05B5 FD                  478 	mov	r5,a
+   05B6 EA                  479 	mov	a,r2
+   05B7 B5 04 06            480 	cjne	a,ar4,00106$
+   05BA EB                  481 	mov	a,r3
+   05BB B5 05 02            482 	cjne	a,ar5,00106$
+   05BE 80 2F               483 	sjmp	00102$
+   05C0                     484 00106$:
                     001E    485 	C$test.c$18$2$2 ==.
                             486 ;	../test.c:18: printf("%s: attendu %d, trouvé %d\r\n", testId, expectedValue, value);
-   05EA C0 02               487 	push	ar2
-   05EC C0 03               488 	push	ar3
-   05EE C0 04               489 	push	ar4
-   05F0 C0 05               490 	push	ar5
-   05F2 90 10 2D            491 	mov	dptr,#_assertEquals_PARM_3
-   05F5 E0                  492 	movx	a,@dptr
-   05F6 C0 E0               493 	push	acc
-   05F8 A3                  494 	inc	dptr
-   05F9 E0                  495 	movx	a,@dptr
-   05FA C0 E0               496 	push	acc
-   05FC A3                  497 	inc	dptr
-   05FD E0                  498 	movx	a,@dptr
-   05FE C0 E0               499 	push	acc
-   0600 74 C5               500 	mov	a,#__str_0
-   0602 C0 E0               501 	push	acc
-   0604 74 3D               502 	mov	a,#(__str_0 >> 8)
-   0606 C0 E0               503 	push	acc
-   0608 74 80               504 	mov	a,#0x80
-   060A C0 E0               505 	push	acc
-   060C 12 35 7C            506 	lcall	_printf
-   060F E5 81               507 	mov	a,sp
-   0611 24 F6               508 	add	a,#0xf6
-   0613 F5 81               509 	mov	sp,a
+   05C0 C0 02               487 	push	ar2
+   05C2 C0 03               488 	push	ar3
+   05C4 C0 04               489 	push	ar4
+   05C6 C0 05               490 	push	ar5
+   05C8 90 10 2D            491 	mov	dptr,#_assertEquals_PARM_3
+   05CB E0                  492 	movx	a,@dptr
+   05CC C0 E0               493 	push	acc
+   05CE A3                  494 	inc	dptr
+   05CF E0                  495 	movx	a,@dptr
+   05D0 C0 E0               496 	push	acc
+   05D2 A3                  497 	inc	dptr
+   05D3 E0                  498 	movx	a,@dptr
+   05D4 C0 E0               499 	push	acc
+   05D6 74 3B               500 	mov	a,#__str_0
+   05D8 C0 E0               501 	push	acc
+   05DA 74 25               502 	mov	a,#(__str_0 >> 8)
+   05DC C0 E0               503 	push	acc
+   05DE 74 80               504 	mov	a,#0x80
+   05E0 C0 E0               505 	push	acc
+   05E2 12 1C F2            506 	lcall	_printf
+   05E5 E5 81               507 	mov	a,sp
+   05E7 24 F6               508 	add	a,#0xf6
+   05E9 F5 81               509 	mov	sp,a
                     0049    510 	C$test.c$19$2$2 ==.
                             511 ;	../test.c:19: return 1;
-   0615 90 00 01            512 	mov	dptr,#0x0001
+   05EB 90 00 01            512 	mov	dptr,#0x0001
                     004C    513 	C$test.c$21$1$1 ==.
                             514 ;	../test.c:21: return 0;
                     004C    515 	C$test.c$22$1$1 ==.
                     004C    516 	XG$assertEquals$0$0 ==.
-   0618 22                  517 	ret
-   0619                     518 00102$:
-   0619 90 00 00            519 	mov	dptr,#0x0000
-   061C 22                  520 	ret
+   05EE 22                  517 	ret
+   05EF                     518 00102$:
+   05EF 90 00 00            519 	mov	dptr,#0x0000
+   05F2 22                  520 	ret
                             521 ;------------------------------------------------------------
                             522 ;Allocation info for local variables in function 'assertNotEquals'
                             523 ;------------------------------------------------------------
@@ -531,83 +531,83 @@
                             531 ;	-----------------------------------------
                             532 ;	 function assertNotEquals
                             533 ;	-----------------------------------------
-   061D                     534 _assertNotEquals:
+   05F3                     534 _assertNotEquals:
                     0051    535 	C$test.c$33$1$1 ==.
                             536 ;	../test.c:33: if (value == notExpectedValue) {
-   061D AA 83               537 	mov	r2,dph
-   061F E5 82               538 	mov	a,dpl
-   0621 90 10 37            539 	mov	dptr,#_assertNotEquals_value_1_1
-   0624 F0                  540 	movx	@dptr,a
-   0625 A3                  541 	inc	dptr
-   0626 CA                  542 	xch	a,r2
-   0627 F0                  543 	movx	@dptr,a
-   0628 FB                  544 	mov	r3,a
-   0629 90 10 32            545 	mov	dptr,#_assertNotEquals_PARM_2
-   062C E0                  546 	movx	a,@dptr
-   062D FC                  547 	mov	r4,a
-   062E A3                  548 	inc	dptr
-   062F E0                  549 	movx	a,@dptr
-   0630 FD                  550 	mov	r5,a
-   0631 EA                  551 	mov	a,r2
-   0632 B5 04 2F            552 	cjne	a,ar4,00102$
-   0635 EB                  553 	mov	a,r3
-   0636 B5 05 2B            554 	cjne	a,ar5,00102$
+   05F3 AA 83               537 	mov	r2,dph
+   05F5 E5 82               538 	mov	a,dpl
+   05F7 90 10 37            539 	mov	dptr,#_assertNotEquals_value_1_1
+   05FA F0                  540 	movx	@dptr,a
+   05FB A3                  541 	inc	dptr
+   05FC CA                  542 	xch	a,r2
+   05FD F0                  543 	movx	@dptr,a
+   05FE FB                  544 	mov	r3,a
+   05FF 90 10 32            545 	mov	dptr,#_assertNotEquals_PARM_2
+   0602 E0                  546 	movx	a,@dptr
+   0603 FC                  547 	mov	r4,a
+   0604 A3                  548 	inc	dptr
+   0605 E0                  549 	movx	a,@dptr
+   0606 FD                  550 	mov	r5,a
+   0607 EA                  551 	mov	a,r2
+   0608 B5 04 2F            552 	cjne	a,ar4,00102$
+   060B EB                  553 	mov	a,r3
+   060C B5 05 2B            554 	cjne	a,ar5,00102$
                     006D    555 	C$test.c$34$2$2 ==.
                             556 ;	../test.c:34: printf("%s: ne devrait pas egal a %d\r\n", testId, notExpectedValue);
-   0639 C0 04               557 	push	ar4
-   063B C0 05               558 	push	ar5
-   063D 90 10 34            559 	mov	dptr,#_assertNotEquals_PARM_3
-   0640 E0                  560 	movx	a,@dptr
-   0641 C0 E0               561 	push	acc
-   0643 A3                  562 	inc	dptr
-   0644 E0                  563 	movx	a,@dptr
-   0645 C0 E0               564 	push	acc
-   0647 A3                  565 	inc	dptr
-   0648 E0                  566 	movx	a,@dptr
-   0649 C0 E0               567 	push	acc
-   064B 74 E1               568 	mov	a,#__str_1
-   064D C0 E0               569 	push	acc
-   064F 74 3D               570 	mov	a,#(__str_1 >> 8)
-   0651 C0 E0               571 	push	acc
-   0653 74 80               572 	mov	a,#0x80
-   0655 C0 E0               573 	push	acc
-   0657 12 35 7C            574 	lcall	_printf
-   065A E5 81               575 	mov	a,sp
-   065C 24 F8               576 	add	a,#0xf8
-   065E F5 81               577 	mov	sp,a
+   060F C0 04               557 	push	ar4
+   0611 C0 05               558 	push	ar5
+   0613 90 10 34            559 	mov	dptr,#_assertNotEquals_PARM_3
+   0616 E0                  560 	movx	a,@dptr
+   0617 C0 E0               561 	push	acc
+   0619 A3                  562 	inc	dptr
+   061A E0                  563 	movx	a,@dptr
+   061B C0 E0               564 	push	acc
+   061D A3                  565 	inc	dptr
+   061E E0                  566 	movx	a,@dptr
+   061F C0 E0               567 	push	acc
+   0621 74 57               568 	mov	a,#__str_1
+   0623 C0 E0               569 	push	acc
+   0625 74 25               570 	mov	a,#(__str_1 >> 8)
+   0627 C0 E0               571 	push	acc
+   0629 74 80               572 	mov	a,#0x80
+   062B C0 E0               573 	push	acc
+   062D 12 1C F2            574 	lcall	_printf
+   0630 E5 81               575 	mov	a,sp
+   0632 24 F8               576 	add	a,#0xf8
+   0634 F5 81               577 	mov	sp,a
                     0094    578 	C$test.c$35$2$2 ==.
                             579 ;	../test.c:35: return 1;
-   0660 90 00 01            580 	mov	dptr,#0x0001
+   0636 90 00 01            580 	mov	dptr,#0x0001
                     0097    581 	C$test.c$37$1$1 ==.
                             582 ;	../test.c:37: return 0;
                     0097    583 	C$test.c$38$1$1 ==.
                     0097    584 	XG$assertNotEquals$0$0 ==.
-   0663 22                  585 	ret
-   0664                     586 00102$:
-   0664 90 00 00            587 	mov	dptr,#0x0000
-   0667 22                  588 	ret
+   0639 22                  585 	ret
+   063A                     586 00102$:
+   063A 90 00 00            587 	mov	dptr,#0x0000
+   063D 22                  588 	ret
                             589 	.area CSEG    (CODE)
                             590 	.area CONST   (CODE)
                     0000    591 Ftest$_str_0$0$0 == .
-   3DC5                     592 __str_0:
-   3DC5 25 73 3A 20 61 74   593 	.ascii "%s: attendu %d, trouv"
+   253B                     592 __str_0:
+   253B 25 73 3A 20 61 74   593 	.ascii "%s: attendu %d, trouv"
         74 65 6E 64 75 20
         25 64 2C 20 74 72
         6F 75 76
-   3DDA E9                  594 	.db 0xE9
-   3DDB 20 25 64            595 	.ascii " %d"
-   3DDE 0D                  596 	.db 0x0D
-   3DDF 0A                  597 	.db 0x0A
-   3DE0 00                  598 	.db 0x00
+   2550 E9                  594 	.db 0xE9
+   2551 20 25 64            595 	.ascii " %d"
+   2554 0D                  596 	.db 0x0D
+   2555 0A                  597 	.db 0x0A
+   2556 00                  598 	.db 0x00
                     001C    599 Ftest$_str_1$0$0 == .
-   3DE1                     600 __str_1:
-   3DE1 25 73 3A 20 6E 65   601 	.ascii "%s: ne devrait pas egal a %d"
+   2557                     600 __str_1:
+   2557 25 73 3A 20 6E 65   601 	.ascii "%s: ne devrait pas egal a %d"
         20 64 65 76 72 61
         69 74 20 70 61 73
         20 65 67 61 6C 20
         61 20 25 64
-   3DFD 0D                  602 	.db 0x0D
-   3DFE 0A                  603 	.db 0x0A
-   3DFF 00                  604 	.db 0x00
+   2573 0D                  602 	.db 0x0D
+   2574 0A                  603 	.db 0x0A
+   2575 00                  604 	.db 0x00
                             605 	.area XINIT   (CODE)
                             606 	.area CABS    (ABS,CODE)
