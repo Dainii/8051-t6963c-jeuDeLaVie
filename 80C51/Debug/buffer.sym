@@ -1,0 +1,982 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods + Flat24  (Intel 8051), page 1.
+
+Symbol Table
+
+    .__.ABS.                                                    =  0000 G
+    A                                                              00E0 
+ 17 A$buffer$142                                                   0000 GR
+ 17 A$buffer$143                                                   0002 GR
+ 17 A$buffer$144                                                   0005 GR
+ 17 A$buffer$147                                                   0006 GR
+ 17 A$buffer$148                                                   0009 GR
+ 17 A$buffer$149                                                   000A GR
+ 17 A$buffer$150                                                   000B GR
+ 17 A$buffer$151                                                   000D GR
+ 17 A$buffer$152                                                   000E GR
+ 17 A$buffer$153                                                   000F GR
+ 17 A$buffer$154                                                   0011 GR
+ 17 A$buffer$155                                                   0012 GR
+ 17 A$buffer$156                                                   0015 GR
+ 17 A$buffer$157                                                   0016 GR
+ 17 A$buffer$158                                                   0018 GR
+ 17 A$buffer$159                                                   001A GR
+ 17 A$buffer$162                                                   001B GR
+ 17 A$buffer$163                                                   001E GR
+ 17 A$buffer$164                                                   001F GR
+ 17 A$buffer$165                                                   0020 GR
+ 17 A$buffer$168                                                   0021 GR
+ 17 A$buffer$183                                                   0022 GR
+ 17 A$buffer$184                                                   0025 GR
+ 17 A$buffer$185                                                   0026 GR
+ 17 A$buffer$186                                                   0027 GR
+ 17 A$buffer$187                                                   0029 GR
+ 17 A$buffer$188                                                   002B GR
+ 17 A$buffer$189                                                   002C GR
+ 17 A$buffer$190                                                   002E GR
+ 17 A$buffer$191                                                   0030 GR
+ 17 A$buffer$192                                                   0031 GR
+ 17 A$buffer$193                                                   0034 GR
+ 17 A$buffer$196                                                   0035 GR
+ 17 A$buffer$197                                                   0038 GR
+ 17 A$buffer$198                                                   0039 GR
+ 17 A$buffer$199                                                   003A GR
+ 17 A$buffer$202                                                   003B GR
+ 17 A$buffer$203                                                   003E GR
+ 17 A$buffer$206                                                   003F GR
+ 17 A$buffer$207                                                   0041 GR
+ 17 A$buffer$221                                                   0042 GR
+ 17 A$buffer$224                                                   0045 GR
+ 17 A$buffer$225                                                   0046 GR
+ 17 A$buffer$226                                                   0047 GR
+ 17 A$buffer$227                                                   004A GR
+ 17 A$buffer$230                                                   004B GR
+ 17 A$buffer$245                                                   004C GR
+ 17 A$buffer$246                                                   004F GR
+ 17 A$buffer$249                                                   0052 GR
+ 17 A$buffer$250                                                   0055 GR
+ 17 A$buffer$251                                                   0057 GR
+ 17 A$buffer$252                                                   0058 GR
+ 17 A$buffer$253                                                   0059 GR
+ 17 A$buffer$254                                                   005B GR
+ 17 A$buffer$255                                                   005C GR
+ 17 A$buffer$256                                                   005F GR
+ 17 A$buffer$257                                                   0061 GR
+ 17 A$buffer$258                                                   0062 GR
+ 17 A$buffer$259                                                   0063 GR
+ 17 A$buffer$260                                                   0064 GR
+ 17 A$buffer$261                                                   0065 GR
+ 17 A$buffer$262                                                   0068 GR
+ 17 A$buffer$263                                                   006A GR
+ 17 A$buffer$264                                                   006B GR
+ 17 A$buffer$265                                                   006C GR
+ 17 A$buffer$266                                                   006E GR
+ 17 A$buffer$267                                                   006F GR
+ 17 A$buffer$268                                                   0070 GR
+ 17 A$buffer$269                                                   0072 GR
+ 17 A$buffer$270                                                   0073 GR
+ 17 A$buffer$271                                                   0075 GR
+ 17 A$buffer$272                                                   0077 GR
+ 17 A$buffer$273                                                   007A GR
+ 17 A$buffer$274                                                   007C GR
+ 17 A$buffer$277                                                   007E GR
+ 17 A$buffer$278                                                   0081 GR
+ 17 A$buffer$279                                                   0083 GR
+ 17 A$buffer$280                                                   0085 GR
+ 17 A$buffer$283                                                   0088 GR
+ 17 A$buffer$284                                                   008B GR
+ 17 A$buffer$287                                                   008E GR
+ 17 A$buffer$288                                                   0091 GR
+ 17 A$buffer$291                                                   0094 GR
+ 17 A$buffer$292                                                   0097 GR
+ 17 A$buffer$293                                                   0099 GR
+ 17 A$buffer$294                                                   009A GR
+ 17 A$buffer$295                                                   009B GR
+ 17 A$buffer$296                                                   009D GR
+ 17 A$buffer$297                                                   009E GR
+ 17 A$buffer$298                                                   00A1 GR
+ 17 A$buffer$299                                                   00A3 GR
+ 17 A$buffer$300                                                   00A4 GR
+ 17 A$buffer$301                                                   00A5 GR
+ 17 A$buffer$302                                                   00A6 GR
+ 17 A$buffer$303                                                   00A7 GR
+ 17 A$buffer$304                                                   00AA GR
+ 17 A$buffer$305                                                   00AC GR
+ 17 A$buffer$306                                                   00AD GR
+ 17 A$buffer$307                                                   00AE GR
+ 17 A$buffer$308                                                   00B0 GR
+ 17 A$buffer$309                                                   00B1 GR
+ 17 A$buffer$310                                                   00B2 GR
+ 17 A$buffer$311                                                   00B4 GR
+ 17 A$buffer$312                                                   00B5 GR
+ 17 A$buffer$313                                                   00B7 GR
+ 17 A$buffer$314                                                   00B9 GR
+ 17 A$buffer$315                                                   00BC GR
+ 17 A$buffer$316                                                   00BE GR
+ 17 A$buffer$317                                                   00C0 GR
+ 17 A$buffer$318                                                   00C2 GR
+ 17 A$buffer$319                                                   00C4 GR
+ 17 A$buffer$320                                                   00C5 GR
+ 17 A$buffer$321                                                   00C6 GR
+ 17 A$buffer$322                                                   00C7 GR
+ 17 A$buffer$323                                                   00C8 GR
+ 17 A$buffer$324                                                   00C9 GR
+ 17 A$buffer$327                                                   00CA GR
+ 17 A$buffer$328                                                   00CC GR
+ 17 A$buffer$329                                                   00CE GR
+ 17 A$buffer$330                                                   00D1 GR
+ 17 A$buffer$331                                                   00D3 GR
+ 17 A$buffer$332                                                   00D4 GR
+ 17 A$buffer$333                                                   00D5 GR
+ 17 A$buffer$334                                                   00D7 GR
+ 17 A$buffer$335                                                   00D8 GR
+ 17 A$buffer$336                                                   00DB GR
+ 17 A$buffer$337                                                   00DD GR
+ 17 A$buffer$338                                                   00DE GR
+ 17 A$buffer$339                                                   00DF GR
+ 17 A$buffer$340                                                   00E0 GR
+ 17 A$buffer$341                                                   00E1 GR
+ 17 A$buffer$342                                                   00E4 GR
+ 17 A$buffer$343                                                   00E6 GR
+ 17 A$buffer$344                                                   00E7 GR
+ 17 A$buffer$345                                                   00E8 GR
+ 17 A$buffer$346                                                   00EA GR
+ 17 A$buffer$347                                                   00EB GR
+ 17 A$buffer$348                                                   00EC GR
+ 17 A$buffer$349                                                   00EE GR
+ 17 A$buffer$350                                                   00EF GR
+ 17 A$buffer$351                                                   00F1 GR
+ 17 A$buffer$352                                                   00F3 GR
+ 17 A$buffer$353                                                   00F6 GR
+ 17 A$buffer$354                                                   00F8 GR
+ 17 A$buffer$355                                                   00FA GR
+ 17 A$buffer$356                                                   00FC GR
+ 17 A$buffer$357                                                   00FE GR
+ 17 A$buffer$358                                                   00FF GR
+ 17 A$buffer$359                                                   0100 GR
+ 17 A$buffer$360                                                   0101 GR
+ 17 A$buffer$361                                                   0102 GR
+ 17 A$buffer$362                                                   0103 GR
+ 17 A$buffer$365                                                   0104 GR
+ 17 A$buffer$366                                                   0106 GR
+ 17 A$buffer$367                                                   0108 GR
+ 17 A$buffer$368                                                   010B GR
+ 17 A$buffer$369                                                   010D GR
+ 17 A$buffer$370                                                   010E GR
+ 17 A$buffer$371                                                   010F GR
+ 17 A$buffer$372                                                   0111 GR
+ 17 A$buffer$373                                                   0112 GR
+ 17 A$buffer$374                                                   0115 GR
+ 17 A$buffer$375                                                   0117 GR
+ 17 A$buffer$376                                                   0118 GR
+ 17 A$buffer$377                                                   0119 GR
+ 17 A$buffer$378                                                   011A GR
+ 17 A$buffer$379                                                   011B GR
+ 17 A$buffer$380                                                   011E GR
+ 17 A$buffer$381                                                   0120 GR
+ 17 A$buffer$382                                                   0121 GR
+ 17 A$buffer$383                                                   0122 GR
+ 17 A$buffer$384                                                   0124 GR
+ 17 A$buffer$385                                                   0125 GR
+ 17 A$buffer$386                                                   0126 GR
+ 17 A$buffer$387                                                   0128 GR
+ 17 A$buffer$388                                                   0129 GR
+ 17 A$buffer$389                                                   012B GR
+ 17 A$buffer$390                                                   012D GR
+ 17 A$buffer$391                                                   0130 GR
+ 17 A$buffer$392                                                   0132 GR
+ 17 A$buffer$393                                                   0134 GR
+ 17 A$buffer$394                                                   0136 GR
+ 17 A$buffer$395                                                   0138 GR
+ 17 A$buffer$396                                                   0139 GR
+ 17 A$buffer$397                                                   013A GR
+ 17 A$buffer$398                                                   013B GR
+ 17 A$buffer$399                                                   013C GR
+ 17 A$buffer$404                                                   013D GR
+ 17 A$buffer$405                                                   013F GR
+ 17 A$buffer$406                                                   0141 GR
+ 17 A$buffer$421                                                   0142 GR
+ 17 A$buffer$422                                                   0145 GR
+ 17 A$buffer$425                                                   0148 GR
+ 17 A$buffer$426                                                   014B GR
+ 17 A$buffer$429                                                   014E GR
+ 17 A$buffer$432                                                   0151 GR
+ 17 A$buffer$433                                                   0154 GR
+ 17 A$buffer$436                                                   0157 GR
+ 17 A$buffer$437                                                   015A GR
+ 17 A$buffer$438                                                   015C GR
+ 17 A$buffer$439                                                   015D GR
+ 17 A$buffer$440                                                   015E GR
+ 17 A$buffer$441                                                   0160 GR
+ 17 A$buffer$442                                                   0161 GR
+ 17 A$buffer$443                                                   0164 GR
+ 17 A$buffer$444                                                   0166 GR
+ 17 A$buffer$445                                                   0167 GR
+ 17 A$buffer$446                                                   0168 GR
+ 17 A$buffer$447                                                   0169 GR
+ 17 A$buffer$448                                                   016A GR
+ 17 A$buffer$449                                                   016D GR
+ 17 A$buffer$450                                                   016F GR
+ 17 A$buffer$451                                                   0170 GR
+ 17 A$buffer$452                                                   0171 GR
+ 17 A$buffer$453                                                   0173 GR
+ 17 A$buffer$454                                                   0174 GR
+ 17 A$buffer$455                                                   0175 GR
+ 17 A$buffer$456                                                   0177 GR
+ 17 A$buffer$457                                                   0178 GR
+ 17 A$buffer$458                                                   017A GR
+ 17 A$buffer$463                                                   017C GR
+ 17 A$buffer$478                                                   017F GR
+ 17 A$buffer$481                                                   0182 GR
+ 17 A$buffer$482                                                   0185 GR
+ 17 A$buffer$483                                                   0186 GR
+ 17 A$buffer$484                                                   0187 GR
+ 17 A$buffer$485                                                   0188 GR
+ 17 A$buffer$487                                                   0189 GR
+ 17 A$buffer$488                                                   018C GR
+ 17 A$buffer$489                                                   018D GR
+ 17 A$buffer$490                                                   018E GR
+ 17 A$buffer$491                                                   018F GR
+ 17 A$buffer$492                                                   0190 GR
+ 17 A$buffer$493                                                   0191 GR
+ 17 A$buffer$494                                                   0192 GR
+ 17 A$buffer$495                                                   0193 GR
+ 17 A$buffer$496                                                   0195 GR
+ 17 A$buffer$497                                                   0196 GR
+ 17 A$buffer$498                                                   0198 GR
+ 17 A$buffer$499                                                   019A GR
+ 17 A$buffer$502                                                   019C GR
+ 17 A$buffer$503                                                   019F GR
+ 17 A$buffer$504                                                   01A1 GR
+ 17 A$buffer$505                                                   01A2 GR
+ 17 A$buffer$506                                                   01A3 GR
+ 17 A$buffer$507                                                   01A4 GR
+ 17 A$buffer$508                                                   01A5 GR
+ 17 A$buffer$509                                                   01A7 GR
+ 17 A$buffer$510                                                   01A9 GR
+ 17 A$buffer$511                                                   01AB GR
+ 17 A$buffer$512                                                   01AD GR
+ 17 A$buffer$513                                                   01B0 GR
+ 17 A$buffer$514                                                   01B3 GR
+ 17 A$buffer$515                                                   01B5 GR
+ 17 A$buffer$518                                                   01B7 GR
+ 17 A$buffer$519                                                   01BA GR
+ 17 A$buffer$520                                                   01BC GR
+ 17 A$buffer$521                                                   01BD GR
+ 17 A$buffer$522                                                   01BE GR
+ 17 A$buffer$523                                                   01BF GR
+ 17 A$buffer$524                                                   01C0 GR
+ 17 A$buffer$525                                                   01C1 GR
+ 17 A$buffer$526                                                   01C2 GR
+ 17 A$buffer$530                                                   01C4 GR
+ 17 A$buffer$531                                                   01C7 GR
+ 17 A$buffer$532                                                   01C8 GR
+ 17 A$buffer$533                                                   01C9 GR
+ 17 A$buffer$534                                                   01CA GR
+ 17 A$buffer$536                                                   01CB GR
+ 17 A$buffer$537                                                   01CE GR
+ 17 A$buffer$538                                                   01CF GR
+ 17 A$buffer$539                                                   01D0 GR
+ 17 A$buffer$540                                                   01D1 GR
+ 17 A$buffer$541                                                   01D2 GR
+ 17 A$buffer$542                                                   01D3 GR
+ 17 A$buffer$543                                                   01D4 GR
+ 17 A$buffer$544                                                   01D5 GR
+ 17 A$buffer$545                                                   01D7 GR
+ 17 A$buffer$546                                                   01D8 GR
+ 17 A$buffer$547                                                   01DA GR
+ 17 A$buffer$548                                                   01DC GR
+ 17 A$buffer$551                                                   01DE GR
+ 17 A$buffer$552                                                   01E0 GR
+ 17 A$buffer$553                                                   01E2 GR
+ 17 A$buffer$554                                                   01E5 GR
+ 17 A$buffer$555                                                   01E7 GR
+ 17 A$buffer$556                                                   01E9 GR
+ 17 A$buffer$557                                                   01EB GR
+ 17 A$buffer$558                                                   01EC GR
+ 17 A$buffer$559                                                   01ED GR
+ 17 A$buffer$560                                                   01EF GR
+ 17 A$buffer$561                                                   01F0 GR
+ 17 A$buffer$562                                                   01F3 GR
+ 17 A$buffer$563                                                   01F5 GR
+ 17 A$buffer$564                                                   01F6 GR
+ 17 A$buffer$565                                                   01F7 GR
+ 17 A$buffer$566                                                   01F8 GR
+ 17 A$buffer$567                                                   01F9 GR
+ 17 A$buffer$568                                                   01FB GR
+ 17 A$buffer$569                                                   01FD GR
+ 17 A$buffer$570                                                   01FF GR
+ 17 A$buffer$571                                                   0201 GR
+ 17 A$buffer$572                                                   0203 GR
+ 17 A$buffer$573                                                   0205 GR
+ 17 A$buffer$574                                                   0208 GR
+ 17 A$buffer$575                                                   020A GR
+ 17 A$buffer$576                                                   020C GR
+ 17 A$buffer$577                                                   020E GR
+ 17 A$buffer$578                                                   0210 GR
+ 17 A$buffer$579                                                   0213 GR
+ 17 A$buffer$580                                                   0214 GR
+ 17 A$buffer$581                                                   0215 GR
+ 17 A$buffer$582                                                   0216 GR
+ 17 A$buffer$583                                                   0217 GR
+ 17 A$buffer$584                                                   0218 GR
+ 17 A$buffer$585                                                   021B GR
+ 17 A$buffer$586                                                   021D GR
+ 17 A$buffer$587                                                   021E GR
+ 17 A$buffer$588                                                   021F GR
+ 17 A$buffer$589                                                   0221 GR
+ 17 A$buffer$590                                                   0222 GR
+ 17 A$buffer$591                                                   0223 GR
+ 17 A$buffer$592                                                   0225 GR
+ 17 A$buffer$593                                                   0226 GR
+ 17 A$buffer$594                                                   0228 GR
+ 17 A$buffer$595                                                   022A GR
+ 17 A$buffer$596                                                   022D GR
+ 17 A$buffer$597                                                   022F GR
+ 17 A$buffer$598                                                   0232 GR
+ 17 A$buffer$599                                                   0234 GR
+ 17 A$buffer$600                                                   0236 GR
+ 17 A$buffer$601                                                   0238 GR
+ 17 A$buffer$604                                                   023A GR
+ 17 A$buffer$605                                                   023D GR
+ 17 A$buffer$609                                                   023E GR
+ 17 A$buffer$610                                                   0241 GR
+ 17 A$buffer$611                                                   0243 GR
+ 17 A$buffer$612                                                   0244 GR
+ 17 A$buffer$613                                                   0245 GR
+ 17 A$buffer$614                                                   0246 GR
+ 17 A$buffer$615                                                   0247 GR
+ 17 A$buffer$616                                                   0248 GR
+ 17 A$buffer$617                                                   0249 GR
+ 17 A$buffer$621                                                   024C GR
+ 17 A$buffer$624                                                   024F GR
+ 17 A$buffer$639                                                   0250 GR
+ 17 A$buffer$640                                                   0253 GR
+ 17 A$buffer$641                                                   0255 GR
+ 17 A$buffer$642                                                   0256 GR
+ 17 A$buffer$643                                                   0257 GR
+ 17 A$buffer$644                                                   0258 GR
+ 17 A$buffer$646                                                   0259 GR
+ 17 A$buffer$647                                                   025C GR
+ 17 A$buffer$648                                                   025D GR
+ 17 A$buffer$649                                                   025E GR
+ 17 A$buffer$650                                                   025F GR
+ 17 A$buffer$651                                                   0260 GR
+ 17 A$buffer$652                                                   0261 GR
+ 17 A$buffer$653                                                   0262 GR
+ 17 A$buffer$654                                                   0263 GR
+ 17 A$buffer$655                                                   0265 GR
+ 17 A$buffer$656                                                   0266 GR
+ 17 A$buffer$657                                                   0268 GR
+ 17 A$buffer$658                                                   026A GR
+ 17 A$buffer$661                                                   026C GR
+ 17 A$buffer$662                                                   026F GR
+ 17 A$buffer$663                                                   0271 GR
+ 17 A$buffer$664                                                   0272 GR
+ 17 A$buffer$665                                                   0273 GR
+ 17 A$buffer$666                                                   0274 GR
+ 17 A$buffer$667                                                   0275 GR
+ 17 A$buffer$668                                                   0277 GR
+ 17 A$buffer$669                                                   0279 GR
+ 17 A$buffer$670                                                   027B GR
+ 17 A$buffer$671                                                   027D GR
+ 17 A$buffer$672                                                   0280 GR
+ 17 A$buffer$673                                                   0282 GR
+ 17 A$buffer$674                                                   0284 GR
+ 17 A$buffer$675                                                   0286 GR
+ 17 A$buffer$676                                                   0288 GR
+ 17 A$buffer$677                                                   028A GR
+ 17 A$buffer$678                                                   028C GR
+ 17 A$buffer$681                                                   028F GR
+ 17 A$buffer$682                                                   0292 GR
+ 17 A$buffer$683                                                   0294 GR
+ 17 A$buffer$684                                                   0296 GR
+ 17 A$buffer$685                                                   0298 GR
+ 17 A$buffer$686                                                   0299 GR
+ 17 A$buffer$687                                                   029A GR
+ 17 A$buffer$688                                                   029C GR
+ 17 A$buffer$689                                                   029D GR
+ 17 A$buffer$690                                                   02A0 GR
+ 17 A$buffer$691                                                   02A1 GR
+ 17 A$buffer$692                                                   02A2 GR
+ 17 A$buffer$693                                                   02A3 GR
+ 17 A$buffer$694                                                   02A4 GR
+ 17 A$buffer$695                                                   02A5 GR
+ 17 A$buffer$696                                                   02A8 GR
+ 17 A$buffer$697                                                   02AA GR
+ 17 A$buffer$698                                                   02AB GR
+ 17 A$buffer$699                                                   02AC GR
+ 17 A$buffer$700                                                   02AE GR
+ 17 A$buffer$701                                                   02AF GR
+ 17 A$buffer$702                                                   02B0 GR
+ 17 A$buffer$703                                                   02B2 GR
+ 17 A$buffer$704                                                   02B3 GR
+ 17 A$buffer$705                                                   02B5 GR
+ 17 A$buffer$706                                                   02B7 GR
+ 17 A$buffer$707                                                   02BA GR
+ 17 A$buffer$708                                                   02BC GR
+ 17 A$buffer$709                                                   02BF GR
+ 17 A$buffer$710                                                   02C1 GR
+ 17 A$buffer$711                                                   02C3 GR
+ 17 A$buffer$712                                                   02C5 GR
+ 17 A$buffer$715                                                   02C7 GR
+ 17 A$buffer$716                                                   02CA GR
+ 17 A$buffer$720                                                   02CB GR
+ 17 A$buffer$721                                                   02CE GR
+ 17 A$buffer$722                                                   02D0 GR
+ 17 A$buffer$723                                                   02D1 GR
+ 17 A$buffer$724                                                   02D2 GR
+ 17 A$buffer$725                                                   02D3 GR
+ 17 A$buffer$726                                                   02D4 GR
+ 17 A$buffer$727                                                   02D5 GR
+ 17 A$buffer$728                                                   02D6 GR
+ 17 A$buffer$732                                                   02D9 GR
+ 17 A$buffer$735                                                   02DC GR
+ 17 A$buffer$750                                                   02DD GR
+ 17 A$buffer$751                                                   02E0 GR
+ 17 A$buffer$752                                                   02E2 GR
+ 17 A$buffer$755                                                   02E4 GR
+ 17 A$buffer$756                                                   02E6 GR
+ 17 A$buffer$757                                                   02E8 GR
+ 17 A$buffer$758                                                   02EB GR
+ 17 A$buffer$759                                                   02ED GR
+ 17 A$buffer$760                                                   02EF GR
+ 17 A$buffer$761                                                   02F1 GR
+ 17 A$buffer$762                                                   02F3 GR
+ 17 A$buffer$763                                                   02F4 GR
+ 17 A$buffer$764                                                   02F5 GR
+ 17 A$buffer$765                                                   02F6 GR
+ 17 A$buffer$766                                                   02F7 GR
+ 17 A$buffer$767                                                   02F8 GR
+ 17 A$buffer$770                                                   02F9 GR
+ 17 A$buffer$771                                                   02FB GR
+ 17 A$buffer$772                                                   02FD GR
+ 17 A$buffer$773                                                   0300 GR
+ 17 A$buffer$774                                                   0302 GR
+ 17 A$buffer$775                                                   0304 GR
+ 17 A$buffer$776                                                   0306 GR
+ 17 A$buffer$777                                                   0308 GR
+ 17 A$buffer$778                                                   0309 GR
+ 17 A$buffer$779                                                   030A GR
+ 17 A$buffer$780                                                   030B GR
+ 17 A$buffer$781                                                   030C GR
+ 17 A$buffer$782                                                   030D GR
+ 17 A$buffer$785                                                   030E GR
+ 17 A$buffer$786                                                   0310 GR
+ 17 A$buffer$787                                                   0312 GR
+ 17 A$buffer$788                                                   0315 GR
+ 17 A$buffer$789                                                   0317 GR
+ 17 A$buffer$790                                                   0319 GR
+ 17 A$buffer$791                                                   031B GR
+ 17 A$buffer$792                                                   031D GR
+ 17 A$buffer$793                                                   031E GR
+ 17 A$buffer$794                                                   031F GR
+ 17 A$buffer$795                                                   0320 GR
+ 17 A$buffer$796                                                   0321 GR
+ 17 A$buffer$801                                                   0322 GR
+ 17 A$buffer$802                                                   0324 GR
+ 17 A$buffer$803                                                   0326 GR
+    A.0                                                            00E0 
+    A.1                                                            00E1 
+    A.2                                                            00E2 
+    A.3                                                            00E3 
+    A.4                                                            00E4 
+    A.5                                                            00E5 
+    A.6                                                            00E6 
+    A.7                                                            00E7 
+    AC                                                             00D6 
+    ACC                                                            00E0 
+    ACC.0                                                          00E0 
+    ACC.1                                                          00E1 
+    ACC.2                                                          00E2 
+    ACC.3                                                          00E3 
+    ACC.4                                                          00E4 
+    ACC.5                                                          00E5 
+    ACC.6                                                          00E6 
+    ACC.7                                                          00E7 
+    B                                                              00F0 
+    B.0                                                            00F0 
+    B.1                                                            00F1 
+    B.2                                                            00F2 
+    B.3                                                            00F3 
+    B.4                                                            00F4 
+    B.5                                                            00F5 
+    B.6                                                            00F6 
+    B.7                                                            00F7 
+ 17 C$buffer.c$100$3$3                                          =  02C7 GR
+ 17 C$buffer.c$104$1$1                                          =  02D9 GR
+ 17 C$buffer.c$105$1$1                                          =  02DC GR
+ 17 C$buffer.c$107$1$1                                          =  02DD GR
+ 17 C$buffer.c$110$1$1                                          =  02DD GR
+ 17 C$buffer.c$111$1$1                                          =  02E4 GR
+ 17 C$buffer.c$112$1$1                                          =  02F9 GR
+ 17 C$buffer.c$113$1$1                                          =  030E GR
+ 17 C$buffer.c$115$1$1                                          =  0322 GR
+ 17 C$buffer.c$116$1$1                                          =  0322 GR
+ 17 C$buffer.c$22$0$0                                           =  0000 GR
+ 17 C$buffer.c$23$1$1                                           =  0006 GR
+ 17 C$buffer.c$24$1$1                                           =  001B GR
+ 17 C$buffer.c$25$1$1                                           =  0021 GR
+ 17 C$buffer.c$31$1$1                                           =  0022 GR
+ 17 C$buffer.c$32$1$1                                           =  0022 GR
+ 17 C$buffer.c$33$1$1                                           =  0035 GR
+ 17 C$buffer.c$34$1$1                                           =  003B GR
+ 17 C$buffer.c$35$1$1                                           =  003F GR
+ 17 C$buffer.c$40$1$1                                           =  0042 GR
+ 17 C$buffer.c$41$1$1                                           =  0042 GR
+ 17 C$buffer.c$42$1$1                                           =  0045 GR
+ 17 C$buffer.c$43$1$1                                           =  004B GR
+ 17 C$buffer.c$47$1$1                                           =  004C GR
+ 17 C$buffer.c$50$1$1                                           =  004C GR
+ 17 C$buffer.c$51$1$1                                           =  0052 GR
+ 17 C$buffer.c$53$1$1                                           =  007E GR
+ 17 C$buffer.c$54$1$1                                           =  0088 GR
+ 17 C$buffer.c$55$1$1                                           =  008E GR
+ 17 C$buffer.c$57$1$1                                           =  0094 GR
+ 17 C$buffer.c$58$1$1                                           =  00CA GR
+ 17 C$buffer.c$59$1$1                                           =  0104 GR
+ 17 C$buffer.c$61$1$1                                           =  013D GR
+ 17 C$buffer.c$62$1$1                                           =  013D GR
+ 17 C$buffer.c$64$1$1                                           =  0142 GR
+ 17 C$buffer.c$67$1$1                                           =  0142 GR
+ 17 C$buffer.c$68$1$1                                           =  0148 GR
+ 17 C$buffer.c$69$1$1                                           =  014E GR
+ 17 C$buffer.c$70$1$1                                           =  0151 GR
+ 17 C$buffer.c$71$1$1                                           =  0157 GR
+ 17 C$buffer.c$73$1$1                                           =  017C GR
+ 17 C$buffer.c$74$1$1                                           =  017C GR
+ 17 C$buffer.c$76$1$1                                           =  017F GR
+ 17 C$buffer.c$79$1$1                                           =  017F GR
+ 17 C$buffer.c$81$1$1                                           =  01B7 GR
+ 17 C$buffer.c$82$1$1                                           =  019C GR
+ 17 C$buffer.c$85$1$1                                           =  023E GR
+ 17 C$buffer.c$86$2$3                                           =  01DE GR
+ 17 C$buffer.c$87$3$4                                           =  023A GR
+ 17 C$buffer.c$91$1$1                                           =  024C GR
+ 17 C$buffer.c$92$1$1                                           =  024F GR
+ 17 C$buffer.c$94$1$1                                           =  0250 GR
+ 17 C$buffer.c$97$1$1                                           =  02CB GR
+ 17 C$buffer.c$98$1$1                                           =  026C GR
+ 17 C$buffer.c$99$2$2                                           =  028F GR
+    CPRL2                                                          00C8 
+    CT2                                                            00C9 
+    CY                                                             00D7 
+    DPH                                                            0083 
+    DPL                                                            0082 
+    EA                                                             00AF 
+    ES                                                             00AC 
+    ET0                                                            00A9 
+    ET1                                                            00AB 
+    ET2                                                            00AD 
+    EX0                                                            00A8 
+    EX1                                                            00AA 
+    EXEN2                                                          00CB 
+    EXF2                                                           00CE 
+    F0                                                             00D5 
+ 19 Fbuffer$__xinit_in$0$0                                      =  0000 GR
+ 19 Fbuffer$__xinit_out$0$0                                     =  0001 GR
+ 18 Fbuffer$_str_0$0$0                                          =  0000 GR
+ 18 Fbuffer$_str_1$0$0                                          =  0006 GR
+ 18 Fbuffer$_str_2$0$0                                          =  000C GR
+ 18 Fbuffer$_str_3$0$0                                          =  0012 GR
+ 18 Fbuffer$_str_4$0$0                                          =  0019 GR
+ 18 Fbuffer$_str_5$0$0                                          =  0020 GR
+ 17 G$BUFFER_clear$0$0                                          =  0042 GR
+ 17 G$BUFFER_in$0$0                                             =  0000 GR
+ 17 G$BUFFER_out$0$0                                            =  0022 GR
+  B G$buffer$0$0                                                =  0000 GR
+  D G$in$0$0                                                    =  0000 GR
+  D G$out$0$0                                                   =  0001 GR
+ 17 G$testBuffer$0$0                                            =  02DD GR
+ 17 G$testBufferClear$0$0                                       =  0142 GR
+ 17 G$testBufferLimit$0$0                                       =  017F GR
+ 17 G$testBufferLotsOfChar$0$0                                  =  0250 GR
+ 17 G$testBufferOneAndThreeChar$0$0                             =  004C GR
+    IE                                                             00A8 
+    IE.0                                                           00A8 
+    IE.1                                                           00A9 
+    IE.2                                                           00AA 
+    IE.3                                                           00AB 
+    IE.4                                                           00AC 
+    IE.5                                                           00AD 
+    IE.7                                                           00AF 
+    IE0                                                            0089 
+    IE1                                                            008B 
+    INT0                                                           00B2 
+    INT1                                                           00B3 
+    IP                                                             00B8 
+    IP.0                                                           00B8 
+    IP.1                                                           00B9 
+    IP.2                                                           00BA 
+    IP.3                                                           00BB 
+    IP.4                                                           00BC 
+    IP.5                                                           00BD 
+    IT0                                                            0088 
+    IT1                                                            008A 
+  B LBUFFER_in$c$1$1                                            =  00FA GR
+  B LBUFFER_out$c$1$1                                           =  00FB GR
+  B LtestBufferLimit$n$1$1                                      =  00FC GR
+  B LtestBufferLotsOfChar$n$1$1                                 =  00FE GR
+    OV                                                             00D2 
+    P                                                              00D0 
+    P0                                                             0080 
+    P0.0                                                           0080 
+    P0.1                                                           0081 
+    P0.2                                                           0082 
+    P0.3                                                           0083 
+    P0.4                                                           0084 
+    P0.5                                                           0085 
+    P0.6                                                           0086 
+    P0.7                                                           0087 
+    P1                                                             0090 
+    P1.0                                                           0090 
+    P1.1                                                           0091 
+    P1.2                                                           0092 
+    P1.3                                                           0093 
+    P1.4                                                           0094 
+    P1.5                                                           0095 
+    P1.6                                                           0096 
+    P1.7                                                           0097 
+    P2                                                             00A0 
+    P2.0                                                           00A0 
+    P2.1                                                           00A1 
+    P2.2                                                           00A2 
+    P2.3                                                           00A3 
+    P2.4                                                           00A4 
+    P2.5                                                           00A5 
+    P2.6                                                           00A6 
+    P2.7                                                           00A7 
+    P3                                                             00B0 
+    P3.0                                                           00B0 
+    P3.1                                                           00B1 
+    P3.2                                                           00B2 
+    P3.3                                                           00B3 
+    P3.4                                                           00B4 
+    P3.5                                                           00B5 
+    P3.6                                                           00B6 
+    P3.7                                                           00B7 
+    PCON                                                           0087 
+    PS                                                             00BC 
+    PSW                                                            00D0 
+    PSW.0                                                          00D0 
+    PSW.1                                                          00D1 
+    PSW.2                                                          00D2 
+    PSW.3                                                          00D3 
+    PSW.4                                                          00D4 
+    PSW.5                                                          00D5 
+    PSW.6                                                          00D6 
+    PSW.7                                                          00D7 
+    PT0                                                            00B9 
+    PT1                                                            00BB 
+    PT2                                                            00BD 
+    PX0                                                            00B8 
+    PX1                                                            00BA 
+    RB8                                                            009A 
+    RCAP2H                                                         00CB 
+    RCAP2L                                                         00CA 
+    RCLK                                                           00CD 
+    REN                                                            009C 
+    RI                                                             0098 
+    RS0                                                            00D3 
+    RS1                                                            00D4 
+    RXD                                                            00B0 
+    SBUF                                                           0099 
+    SCON                                                           0098 
+    SCON.0                                                         0098 
+    SCON.1                                                         0099 
+    SCON.2                                                         009A 
+    SCON.3                                                         009B 
+    SCON.4                                                         009C 
+    SCON.5                                                         009D 
+    SCON.6                                                         009E 
+    SCON.7                                                         009F 
+    SM0                                                            009F 
+    SM1                                                            009E 
+    SM2                                                            009D 
+    SP                                                             0081 
+    T2CON                                                          00C8 
+    T2CON.0                                                        00C8 
+    T2CON.1                                                        00C9 
+    T2CON.2                                                        00CA 
+    T2CON.3                                                        00CB 
+    T2CON.4                                                        00CC 
+    T2CON.5                                                        00CD 
+    T2CON.6                                                        00CE 
+    T2CON.7                                                        00CF 
+    TB8                                                            009B 
+    TCLK                                                           00CC 
+    TCON                                                           0088 
+    TCON.0                                                         0088 
+    TCON.1                                                         0089 
+    TCON.2                                                         008A 
+    TCON.3                                                         008B 
+    TCON.4                                                         008C 
+    TCON.5                                                         008D 
+    TCON.6                                                         008E 
+    TCON.7                                                         008F 
+    TF0                                                            008D 
+    TF1                                                            008F 
+    TF2                                                            00CF 
+    TH0                                                            008C 
+    TH1                                                            008D 
+    TH2                                                            00CD 
+    TI                                                             0099 
+    TL0                                                            008A 
+    TL1                                                            008B 
+    TL2                                                            00CC 
+    TMOD                                                           0089 
+    TR0                                                            008C 
+    TR1                                                            008E 
+    TR2                                                            00CA 
+    TXD                                                            00B1 
+ 17 XG$BUFFER_clear$0$0                                         =  004B GR
+ 17 XG$BUFFER_in$0$0                                            =  0021 GR
+ 17 XG$BUFFER_out$0$0                                           =  003F GR
+ 17 XG$testBuffer$0$0                                           =  0322 GR
+ 17 XG$testBufferClear$0$0                                      =  017C GR
+ 17 XG$testBufferLimit$0$0                                      =  024F GR
+ 17 XG$testBufferLotsOfChar$0$0                                 =  02DC GR
+ 17 XG$testBufferOneAndThreeChar$0$0                            =  013D GR
+ 17 _BUFFER_clear                                                  0042 GR
+ 17 _BUFFER_in                                                     0000 GR
+  B _BUFFER_in_c_1_1                                               00FA R
+ 17 _BUFFER_out                                                    0022 GR
+  B _BUFFER_out_c_1_1                                              00FB R
+    __modsint                                                      **** GX
+    __modsint_PARM_2                                               **** GX
+ 18 __str_0                                                        0000 R
+ 18 __str_1                                                        0006 R
+ 18 __str_2                                                        000C R
+ 18 __str_3                                                        0012 R
+ 18 __str_4                                                        0019 R
+ 18 __str_5                                                        0020 R
+ 19 __xinit__in                                                    0000 R
+ 19 __xinit__out                                                   0001 R
+    _assertEquals                                                  **** GX
+    _assertEquals_PARM_2                                           **** GX
+    _assertEquals_PARM_3                                           **** GX
+  B _buffer                                                        0000 GR
+  D _in                                                            0000 GR
+  D _out                                                           0001 GR
+ 17 _testBuffer                                                    02DD GR
+ 17 _testBufferClear                                               0142 GR
+ 17 _testBufferLimit                                               017F GR
+  B _testBufferLimit_n_1_1                                         00FC R
+ 17 _testBufferLotsOfChar                                          0250 GR
+  B _testBufferLotsOfChar_n_1_1                                    00FE R
+ 17 _testBufferOneAndThreeChar                                     004C GR
+    a                                                              00E0 
+    a.0                                                            00E0 
+    a.1                                                            00E1 
+    a.2                                                            00E2 
+    a.3                                                            00E3 
+    a.4                                                            00E4 
+    a.5                                                            00E5 
+    a.6                                                            00E6 
+    a.7                                                            00E7 
+    ac                                                             00D6 
+    acc                                                            00E0 
+    acc.0                                                          00E0 
+    acc.1                                                          00E1 
+    acc.2                                                          00E2 
+    acc.3                                                          00E3 
+    acc.4                                                          00E4 
+    acc.5                                                          00E5 
+    acc.6                                                          00E6 
+    acc.7                                                          00E7 
+    ar0                                                         =  0000 
+    ar1                                                         =  0001 
+    ar2                                                         =  0002 
+    ar3                                                         =  0003 
+    ar4                                                         =  0004 
+    ar5                                                         =  0005 
+    ar6                                                         =  0006 
+    ar7                                                         =  0007 
+    b                                                              00F0 
+    b.0                                                            00F0 
+    b.1                                                            00F1 
+    b.2                                                            00F2 
+    b.3                                                            00F3 
+    b.4                                                            00F4 
+    b.5                                                            00F5 
+    b.6                                                            00F6 
+    b.7                                                            00F7 
+    cprl2                                                          00C8 
+    ct2                                                            00C9 
+    cy                                                             00D7 
+    dph                                                            0083 
+    dpl                                                            0082 
+    ea                                                             00AF 
+    es                                                             00AC 
+    et0                                                            00A9 
+    et1                                                            00AB 
+    et2                                                            00AD 
+    ex0                                                            00A8 
+    ex1                                                            00AA 
+    exen2                                                          00CB 
+    exf2                                                           00CE 
+    f0                                                             00D5 
+    ie                                                             00A8 
+    ie.0                                                           00A8 
+    ie.1                                                           00A9 
+    ie.2                                                           00AA 
+    ie.3                                                           00AB 
+    ie.4                                                           00AC 
+    ie.5                                                           00AD 
+    ie.7                                                           00AF 
+    ie0                                                            0089 
+    ie1                                                            008B 
+    int0                                                           00B2 
+    int1                                                           00B3 
+    ip                                                             00B8 
+    ip.0                                                           00B8 
+    ip.1                                                           00B9 
+    ip.2                                                           00BA 
+    ip.3                                                           00BB 
+    ip.4                                                           00BC 
+    ip.5                                                           00BD 
+    it0                                                            0088 
+    it1                                                            008A 
+    ov                                                             00D2 
+    p                                                              00D0 
+    p0                                                             0080 
+    p0.0                                                           0080 
+    p0.1                                                           0081 
+    p0.2                                                           0082 
+    p0.3                                                           0083 
+    p0.4                                                           0084 
+    p0.5                                                           0085 
+    p0.6                                                           0086 
+    p0.7                                                           0087 
+    p1                                                             0090 
+    p1.0                                                           0090 
+    p1.1                                                           0091 
+    p1.2                                                           0092 
+    p1.3                                                           0093 
+    p1.4                                                           0094 
+    p1.5                                                           0095 
+    p1.6                                                           0096 
+    p1.7                                                           0097 
+    p2                                                             00A0 
+    p2.0                                                           00A0 
+    p2.1                                                           00A1 
+    p2.2                                                           00A2 
+    p2.3                                                           00A3 
+    p2.4                                                           00A4 
+    p2.5                                                           00A5 
+    p2.6                                                           00A6 
+    p2.7                                                           00A7 
+    p3                                                             00B0 
+    p3.0                                                           00B0 
+    p3.1                                                           00B1 
+    p3.2                                                           00B2 
+    p3.3                                                           00B3 
+    p3.4                                                           00B4 
+    p3.5                                                           00B5 
+    p3.6                                                           00B6 
+    p3.7                                                           00B7 
+    pcon                                                           0087 
+    ps                                                             00BC 
+    psw                                                            00D0 
+    psw.0                                                          00D0 
+    psw.1                                                          00D1 
+    psw.2                                                          00D2 
+    psw.3                                                          00D3 
+    psw.4                                                          00D4 
+    psw.5                                                          00D5 
+    psw.6                                                          00D6 
+    psw.7                                                          00D7 
+    pt0                                                            00B9 
+    pt1                                                            00BB 
+    pt2                                                            00BD 
+    px0                                                            00B8 
+    px1                                                            00BA 
+    rb8                                                            009A 
+    rcap2h                                                         00CB 
+    rcap2l                                                         00CA 
+    rclk                                                           00CD 
+    ren                                                            009C 
+    ri                                                             0098 
+    rs0                                                            00D3 
+    rs1                                                            00D4 
+    rxd                                                            00B0 
+    sbuf                                                           0099 
+    scon                                                           0098 
+    scon.0                                                         0098 
+    scon.1                                                         0099 
+    scon.2                                                         009A 
+    scon.3                                                         009B 
+    scon.4                                                         009C 
+    scon.5                                                         009D 
+    scon.6                                                         009E 
+    scon.7                                                         009F 
+    sm0                                                            009F 
+    sm1                                                            009E 
+    sm2                                                            009D 
+    sp                                                             0081 
+    t2con                                                          00C8 
+    t2con.0                                                        00C8 
+    t2con.1                                                        00C9 
+    t2con.2                                                        00CA 
+    t2con.3                                                        00CB 
+    t2con.4                                                        00CC 
+    t2con.5                                                        00CD 
+    t2con.6                                                        00CE 
+    t2con.7                                                        00CF 
+    tb8                                                            009B 
+    tclk                                                           00CC 
+    tcon                                                           0088 
+    tcon.0                                                         0088 
+    tcon.1                                                         0089 
+    tcon.2                                                         008A 
+    tcon.3                                                         008B 
+    tcon.4                                                         008C 
+    tcon.5                                                         008D 
+    tcon.6                                                         008E 
+    tcon.7                                                         008F 
+    tf0                                                            008D 
+    tf1                                                            008F 
+    tf2                                                            00CF 
+    th0                                                            008C 
+    th1                                                            008D 
+    th2                                                            00CD 
+    ti                                                             0099 
+    tl0                                                            008A 
+    tl1                                                            008B 
+    tl2                                                            00CC 
+    tmod                                                           0089 
+    tr0                                                            008C 
+    tr1                                                            008E 
+    tr2                                                            00CA 
+    txd                                                            00B1 
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods + Flat24  (Intel 8051), page 2.
+
+Area Table
+
+   0 _CODE                                      size    0   flags 0
+   1 RSEG                                       size    0   flags 8
+   2 RSEG0                                      size    0   flags 8
+   3 RSEG1                                      size    0   flags 8
+   4 REG_BANK_0                                 size    8   flags 4
+   5 DSEG                                       size    0   flags 0
+   6 OSEG                                       size    0   flags 4
+   7 ISEG                                       size    0   flags 0
+   8 IABS                                       size    0   flags 8
+   9 BSEG                                       size    0   flags 80
+   A PSEG                                       size    0   flags 50
+   B XSEG                                       size  100   flags 40
+   C XABS                                       size    0   flags 48
+   D XISEG                                      size    2   flags 40
+   E HOME                                       size    0   flags 20
+   F GSINIT0                                    size    0   flags 20
+  10 GSINIT1                                    size    0   flags 20
+  11 GSINIT2                                    size    0   flags 20
+  12 GSINIT3                                    size    0   flags 20
+  13 GSINIT4                                    size    0   flags 20
+  14 GSINIT5                                    size    0   flags 20
+  15 GSINIT                                     size    0   flags 20
+  16 GSFINAL                                    size    0   flags 20
+  17 CSEG                                       size  327   flags 20
+  18 CONST                                      size   27   flags 20
+  19 XINIT                                      size    2   flags 20
+  1A CABS                                       size    0   flags 28
