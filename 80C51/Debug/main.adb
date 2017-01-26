@@ -1,7 +1,7 @@
 M:main
 F:G$main$0$0({2}DF,SV:S),C,0,0,0,0,0
 T:Fmain$__00010000[({0}S:S$x$0$0({1}SC:U),Z,0,0)({1}S:S$y$0$0({1}SC:U),Z,0,0)]
-T:Fmain$__00010001[({0}S:S$direction$0$0({1}SC:U),Z,0,0)({1}S:S$position$0$0({2}ST__00010000:S),Z,0,0)({3}S:S$status$0$0({1}SC:U),Z,0,0)({4}S:S$caloriesLeft$0$0({1}SC:U),Z,0,0)]
+T:Fmain$__00010001[({0}S:S$position$0$0({2}ST__00010000:S),Z,0,0)({2}S:S$actuel$0$0({1}SC:U),Z,0,0)({3}S:S$prochain$0$0({1}SC:U),Z,0,0)]
 T:Fmain$tm[({0}S:S$tm_sec$0$0({1}SC:U),Z,0,0)({1}S:S$tm_min$0$0({1}SC:U),Z,0,0)({2}S:S$tm_hour$0$0({1}SC:U),Z,0,0)({3}S:S$tm_mday$0$0({1}SC:U),Z,0,0)({4}S:S$tm_mon$0$0({1}SC:U),Z,0,0)({5}S:S$tm_year$0$0({2}SI:S),Z,0,0)({7}S:S$tm_wday$0$0({1}SC:U),Z,0,0)({8}S:S$tm_yday$0$0({2}SI:S),Z,0,0)({10}S:S$tm_isdst$0$0({1}SC:U),Z,0,0)({11}S:S$tm_hundredth$0$0({1}SC:U),Z,0,0)]
 S:Lmain$testsInError$1$1({2}SI:S),F,0,0
 S:G$ACC$0$0({1}SC:U),I,0,0
@@ -129,11 +129,9 @@ S:G$BUFFER_clear$0$0({2}DF,SV:S),C,0,0
 S:G$testBuffer$0$0({2}DF,SI:S),C,0,0
 S:G$KEYBOARD_readArrows$0$0({2}DF,SC:U),C,0,0
 S:G$testKeyboard$0$0({2}DF,SI:S),C,0,0
-S:G$SNAKE_move$0$0({2}DF,SV:S),C,0,0
-S:G$SNAKE_liveOrDie$0$0({2}DF,SV:S),C,0,0
-S:G$SNAKE_show$0$0({2}DF,SV:S),C,0,0
-S:G$SNAKE_turn$0$0({2}DF,SV:S),C,0,0
-S:G$SNAKE_iterate$0$0({2}DF,SC:U),C,0,0
+S:G$CELL_liveOrDie$0$0({2}DF,SV:S),C,0,0
+S:G$CELL_next_status$0$0({2}DF,SV:S),C,0,0
+S:G$CELL_switch_status$0$0({2}DF,SV:S),C,0,0
 S:G$testSnake$0$0({2}DF,SI:S),C,0,0
 S:G$FRUIT_placeInFreeSpace$0$0({2}DF,SV:S),C,0,0
 S:G$FRUIT_random$0$0({2}DF,SV:S),C,0,0

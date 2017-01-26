@@ -1,0 +1,1782 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : free open source ANSI-C Compiler
+                              3 ; Version 3.0.0 #6037 (Oct 31 2010) (MINGW32)
+                              4 ; This file was generated Mon Jan 23 21:01:52 2017
+                              5 ;--------------------------------------------------------
+                              6 	.module gameboard
+                              7 	.optsdcc -mmcs51 --model-large
+                              8 	
+                              9 ;--------------------------------------------------------
+                             10 ; Public variables in this module
+                             11 ;--------------------------------------------------------
+                             12 	.globl _bddGameboardDisplay
+                             13 	.globl _bddGameboardClear
+                             14 	.globl _bddGameboardDraw
+                             15 	.globl _GMB_copyFromRomToCg
+                             16 	.globl _GMB_display_PARM_3
+                             17 	.globl _GMB_display_PARM_2
+                             18 	.globl _GMB_clear_PARM_4
+                             19 	.globl _GMB_clear_PARM_3
+                             20 	.globl _GMB_clear_PARM_2
+                             21 	.globl _GMB_draw_PARM_4
+                             22 	.globl _GMB_draw_PARM_3
+                             23 	.globl _GMB_draw_PARM_2
+                             24 	.globl _GMB_copyFromRomToCg_PARM_2
+                             25 	.globl _GMB_initialize
+                             26 	.globl _GMB_draw
+                             27 	.globl _GMB_clear
+                             28 	.globl _GMB_display
+                             29 	.globl _testGameboard
+                             30 ;--------------------------------------------------------
+                             31 ; special function registers
+                             32 ;--------------------------------------------------------
+                             33 	.area RSEG    (ABS,DATA)
+   0000                      34 	.org 0x0000
+                             35 ;--------------------------------------------------------
+                             36 ; special function bits
+                             37 ;--------------------------------------------------------
+                             38 	.area RSEG    (ABS,DATA)
+   0000                      39 	.org 0x0000
+                             40 ;--------------------------------------------------------
+                             41 ; overlayable register banks
+                             42 ;--------------------------------------------------------
+                             43 	.area REG_BANK_0	(REL,OVR,DATA)
+   0000                      44 	.ds 8
+                             45 ;--------------------------------------------------------
+                             46 ; internal ram data
+                             47 ;--------------------------------------------------------
+                             48 	.area DSEG    (DATA)
+                    0000     49 LGMB_display$sloc0$1$0==.
+   0000                      50 _GMB_display_sloc0_1_0:
+   0000                      51 	.ds 1
+                    0001     52 LGMB_display$sloc1$1$0==.
+   0001                      53 _GMB_display_sloc1_1_0:
+   0001                      54 	.ds 3
+                             55 ;--------------------------------------------------------
+                             56 ; overlayable items in internal ram 
+                             57 ;--------------------------------------------------------
+                             58 	.area OSEG    (OVR,DATA)
+                             59 ;--------------------------------------------------------
+                             60 ; indirectly addressable internal ram data
+                             61 ;--------------------------------------------------------
+                             62 	.area ISEG    (DATA)
+                             63 ;--------------------------------------------------------
+                             64 ; absolute internal ram data
+                             65 ;--------------------------------------------------------
+                             66 	.area IABS    (ABS,DATA)
+                             67 	.area IABS    (ABS,DATA)
+                             68 ;--------------------------------------------------------
+                             69 ; bit data
+                             70 ;--------------------------------------------------------
+                             71 	.area BSEG    (BIT)
+                             72 ;--------------------------------------------------------
+                             73 ; paged external ram data
+                             74 ;--------------------------------------------------------
+                             75 	.area PSEG    (PAG,XDATA)
+                             76 ;--------------------------------------------------------
+                             77 ; external ram data
+                             78 ;--------------------------------------------------------
+                             79 	.area XSEG    (XDATA)
+                    0000     80 LGMB_copyFromRomToCg$cgCode$1$1==.
+   0000                      81 _GMB_copyFromRomToCg_PARM_2:
+   0000                      82 	.ds 1
+                    0001     83 LGMB_copyFromRomToCg$positionInRom$1$1==.
+   0001                      84 _GMB_copyFromRomToCg_positionInRom_1_1:
+   0001                      85 	.ds 1
+                    0002     86 LGMB_draw$y0$1$1==.
+   0002                      87 _GMB_draw_PARM_2:
+   0002                      88 	.ds 1
+                    0003     89 LGMB_draw$x1$1$1==.
+   0003                      90 _GMB_draw_PARM_3:
+   0003                      91 	.ds 1
+                    0004     92 LGMB_draw$y1$1$1==.
+   0004                      93 _GMB_draw_PARM_4:
+   0004                      94 	.ds 1
+                    0005     95 LGMB_draw$x0$1$1==.
+   0005                      96 _GMB_draw_x0_1_1:
+   0005                      97 	.ds 1
+                    0006     98 LGMB_draw$x$1$1==.
+   0006                      99 _GMB_draw_x_1_1:
+   0006                     100 	.ds 1
+                    0007    101 LGMB_draw$y$1$1==.
+   0007                     102 _GMB_draw_y_1_1:
+   0007                     103 	.ds 1
+                    0008    104 LGMB_clear$y0$1$1==.
+   0008                     105 _GMB_clear_PARM_2:
+   0008                     106 	.ds 1
+                    0009    107 LGMB_clear$x1$1$1==.
+   0009                     108 _GMB_clear_PARM_3:
+   0009                     109 	.ds 1
+                    000A    110 LGMB_clear$y1$1$1==.
+   000A                     111 _GMB_clear_PARM_4:
+   000A                     112 	.ds 1
+                    000B    113 LGMB_clear$x0$1$1==.
+   000B                     114 _GMB_clear_x0_1_1:
+   000B                     115 	.ds 1
+                    000C    116 LGMB_clear$x$1$1==.
+   000C                     117 _GMB_clear_x_1_1:
+   000C                     118 	.ds 1
+                    000D    119 LGMB_clear$y$1$1==.
+   000D                     120 _GMB_clear_y_1_1:
+   000D                     121 	.ds 1
+                    000E    122 LGMB_display$y0$1$1==.
+   000E                     123 _GMB_display_PARM_2:
+   000E                     124 	.ds 1
+                    000F    125 LGMB_display$text$1$1==.
+   000F                     126 _GMB_display_PARM_3:
+   000F                     127 	.ds 3
+                    0012    128 LGMB_display$x0$1$1==.
+   0012                     129 _GMB_display_x0_1_1:
+   0012                     130 	.ds 1
+                    0013    131 LGMB_display$x$1$1==.
+   0013                     132 _GMB_display_x_1_1:
+   0013                     133 	.ds 1
+                    0014    134 LGMB_display$i$1$1==.
+   0014                     135 _GMB_display_i_1_1:
+   0014                     136 	.ds 2
+                    0016    137 LbddGameboardDraw$c$1$1==.
+   0016                     138 _bddGameboardDraw_c_1_1:
+   0016                     139 	.ds 55
+                    004D    140 LbddGameboardClear$c$1$1==.
+   004D                     141 _bddGameboardClear_c_1_1:
+   004D                     142 	.ds 55
+                    0084    143 LbddGameboardDisplay$c$1$1==.
+   0084                     144 _bddGameboardDisplay_c_1_1:
+   0084                     145 	.ds 55
+                            146 ;--------------------------------------------------------
+                            147 ; absolute external ram data
+                            148 ;--------------------------------------------------------
+                            149 	.area XABS    (ABS,XDATA)
+                            150 ;--------------------------------------------------------
+                            151 ; external initialized ram data
+                            152 ;--------------------------------------------------------
+                            153 	.area XISEG   (XDATA)
+                            154 	.area HOME    (CODE)
+                            155 	.area GSINIT0 (CODE)
+                            156 	.area GSINIT1 (CODE)
+                            157 	.area GSINIT2 (CODE)
+                            158 	.area GSINIT3 (CODE)
+                            159 	.area GSINIT4 (CODE)
+                            160 	.area GSINIT5 (CODE)
+                            161 	.area GSINIT  (CODE)
+                            162 	.area GSFINAL (CODE)
+                            163 	.area CSEG    (CODE)
+                            164 ;--------------------------------------------------------
+                            165 ; global & static initialisations
+                            166 ;--------------------------------------------------------
+                            167 	.area HOME    (CODE)
+                            168 	.area GSINIT  (CODE)
+                            169 	.area GSFINAL (CODE)
+                            170 	.area GSINIT  (CODE)
+                            171 ;--------------------------------------------------------
+                            172 ; Home
+                            173 ;--------------------------------------------------------
+                            174 	.area HOME    (CODE)
+                            175 	.area HOME    (CODE)
+                            176 ;--------------------------------------------------------
+                            177 ; code
+                            178 ;--------------------------------------------------------
+                            179 	.area CSEG    (CODE)
+                            180 ;------------------------------------------------------------
+                            181 ;Allocation info for local variables in function 'GMB_copyFromRomToCg'
+                            182 ;------------------------------------------------------------
+                            183 ;cgCode                    Allocated with name '_GMB_copyFromRomToCg_PARM_2'
+                            184 ;positionInRom             Allocated with name '_GMB_copyFromRomToCg_positionInRom_1_1'
+                            185 ;rom_cg_address            Allocated with name '_GMB_copyFromRomToCg_rom_cg_address_1_1'
+                            186 ;video_cg_address          Allocated with name '_GMB_copyFromRomToCg_video_cg_address_1_1'
+                            187 ;------------------------------------------------------------
+                    0000    188 	G$GMB_copyFromRomToCg$0$0 ==.
+                    0000    189 	C$gameboard.c$16$0$0 ==.
+                            190 ;	../gameboard.c:16: void GMB_copyFromRomToCg(unsigned char positionInRom, unsigned char cgCode) {
+                            191 ;	-----------------------------------------
+                            192 ;	 function GMB_copyFromRomToCg
+                            193 ;	-----------------------------------------
+   0000                     194 _GMB_copyFromRomToCg:
+                    0002    195 	ar2 = 0x02
+                    0003    196 	ar3 = 0x03
+                    0004    197 	ar4 = 0x04
+                    0005    198 	ar5 = 0x05
+                    0006    199 	ar6 = 0x06
+                    0007    200 	ar7 = 0x07
+                    0000    201 	ar0 = 0x00
+                    0001    202 	ar1 = 0x01
+   0000 E5 82               203 	mov	a,dpl
+                    0002    204 	C$gameboard.c$17$1$1 ==.
+                            205 ;	../gameboard.c:17: unsigned char *rom_cg_address = (unsigned char __xdata *) (ROM_CG_ADDRESS + positionInRom * 8);
+   0002 90s00r01            206 	mov	dptr,#_GMB_copyFromRomToCg_positionInRom_1_1
+   0005 F0                  207 	movx	@dptr,a
+   0006 75 F0 08            208 	mov	b,#0x08
+   0009 A4                  209 	mul	ab
+   000A FA                  210 	mov	r2,a
+   000B AB F0               211 	mov	r3,b
+   000D 7C 00               212 	mov	r4,#0x00
+                    000F    213 	C$gameboard.c$18$1$1 ==.
+                            214 ;	../gameboard.c:18: unsigned int video_cg_address = cgCode * 8 + T6963C_ZONE_CG;
+   000F 90s00r00            215 	mov	dptr,#_GMB_copyFromRomToCg_PARM_2
+   0012 E0                  216 	movx	a,@dptr
+   0013 75 F0 08            217 	mov	b,#0x08
+   0016 A4                  218 	mul	ab
+   0017 FD                  219 	mov	r5,a
+   0018 74 18               220 	mov	a,#0x18
+   001A 25 F0               221 	add	a,b
+   001C FE                  222 	mov	r6,a
+                    001D    223 	C$gameboard.c$19$1$1 ==.
+                            224 ;	../gameboard.c:19: T6963C_autoWrite(video_cg_address, rom_cg_address, 8);
+   001D 90s00r00            225 	mov	dptr,#_T6963C_autoWrite_PARM_2
+   0020 EA                  226 	mov	a,r2
+   0021 F0                  227 	movx	@dptr,a
+   0022 A3                  228 	inc	dptr
+   0023 EB                  229 	mov	a,r3
+   0024 F0                  230 	movx	@dptr,a
+   0025 A3                  231 	inc	dptr
+   0026 EC                  232 	mov	a,r4
+   0027 F0                  233 	movx	@dptr,a
+   0028 90s00r00            234 	mov	dptr,#_T6963C_autoWrite_PARM_3
+   002B 74 08               235 	mov	a,#0x08
+   002D F0                  236 	movx	@dptr,a
+   002E A3                  237 	inc	dptr
+   002F E4                  238 	clr	a
+   0030 F0                  239 	movx	@dptr,a
+   0031 8D 82               240 	mov	dpl,r5
+   0033 8E 83               241 	mov	dph,r6
+                    0035    242 	C$gameboard.c$20$1$1 ==.
+                    0035    243 	XG$GMB_copyFromRomToCg$0$0 ==.
+   0035 02s00r00            244 	ljmp	_T6963C_autoWrite
+                            245 ;------------------------------------------------------------
+                            246 ;Allocation info for local variables in function 'GMB_initialize'
+                            247 ;------------------------------------------------------------
+                            248 ;------------------------------------------------------------
+                    0038    249 	G$GMB_initialize$0$0 ==.
+                    0038    250 	C$gameboard.c$25$1$1 ==.
+                            251 ;	../gameboard.c:25: void GMB_initialize() {
+                            252 ;	-----------------------------------------
+                            253 ;	 function GMB_initialize
+                            254 ;	-----------------------------------------
+   0038                     255 _GMB_initialize:
+                    0038    256 	C$gameboard.c$26$1$1 ==.
+                            257 ;	../gameboard.c:26: GMB_copyFromRomToCg( 0, COLOR_ALLIVE);
+   0038 90s00r00            258 	mov	dptr,#_GMB_copyFromRomToCg_PARM_2
+   003B 74 21               259 	mov	a,#0x21
+   003D F0                  260 	movx	@dptr,a
+   003E 75 82 00            261 	mov	dpl,#0x00
+   0041 12s00r00            262 	lcall	_GMB_copyFromRomToCg
+                    0044    263 	C$gameboard.c$27$1$1 ==.
+                            264 ;	../gameboard.c:27: GMB_copyFromRomToCg( 1, COLOR_BORN);
+   0044 90s00r00            265 	mov	dptr,#_GMB_copyFromRomToCg_PARM_2
+   0047 74 22               266 	mov	a,#0x22
+   0049 F0                  267 	movx	@dptr,a
+   004A 75 82 01            268 	mov	dpl,#0x01
+   004D 12s00r00            269 	lcall	_GMB_copyFromRomToCg
+                    0050    270 	C$gameboard.c$28$1$1 ==.
+                            271 ;	../gameboard.c:28: GMB_copyFromRomToCg( 2, COLOR_DEAD);
+   0050 90s00r00            272 	mov	dptr,#_GMB_copyFromRomToCg_PARM_2
+   0053 74 25               273 	mov	a,#0x25
+   0055 F0                  274 	movx	@dptr,a
+   0056 75 82 02            275 	mov	dpl,#0x02
+   0059 12s00r00            276 	lcall	_GMB_copyFromRomToCg
+                    005C    277 	C$gameboard.c$29$1$1 ==.
+                            278 ;	../gameboard.c:29: GMB_copyFromRomToCg( 3, COLOR_DYING);
+   005C 90s00r00            279 	mov	dptr,#_GMB_copyFromRomToCg_PARM_2
+   005F 74 24               280 	mov	a,#0x24
+   0061 F0                  281 	movx	@dptr,a
+   0062 75 82 03            282 	mov	dpl,#0x03
+   0065 12s00r00            283 	lcall	_GMB_copyFromRomToCg
+                    0068    284 	C$gameboard.c$30$1$1 ==.
+                            285 ;	../gameboard.c:30: GMB_copyFromRomToCg( 4, MUR);
+   0068 90s00r00            286 	mov	dptr,#_GMB_copyFromRomToCg_PARM_2
+   006B 74 12               287 	mov	a,#0x12
+   006D F0                  288 	movx	@dptr,a
+   006E 75 82 04            289 	mov	dpl,#0x04
+                    0071    290 	C$gameboard.c$31$1$1 ==.
+                    0071    291 	XG$GMB_initialize$0$0 ==.
+   0071 02s00r00            292 	ljmp	_GMB_copyFromRomToCg
+                            293 ;------------------------------------------------------------
+                            294 ;Allocation info for local variables in function 'GMB_draw'
+                            295 ;------------------------------------------------------------
+                            296 ;y0                        Allocated with name '_GMB_draw_PARM_2'
+                            297 ;x1                        Allocated with name '_GMB_draw_PARM_3'
+                            298 ;y1                        Allocated with name '_GMB_draw_PARM_4'
+                            299 ;x0                        Allocated with name '_GMB_draw_x0_1_1'
+                            300 ;x                         Allocated with name '_GMB_draw_x_1_1'
+                            301 ;y                         Allocated with name '_GMB_draw_y_1_1'
+                            302 ;------------------------------------------------------------
+                    0074    303 	G$GMB_draw$0$0 ==.
+                    0074    304 	C$gameboard.c$40$1$1 ==.
+                            305 ;	../gameboard.c:40: void GMB_draw(unsigned char x0, unsigned char y0, unsigned char x1, unsigned char y1) {
+                            306 ;	-----------------------------------------
+                            307 ;	 function GMB_draw
+                            308 ;	-----------------------------------------
+   0074                     309 _GMB_draw:
+   0074 E5 82               310 	mov	a,dpl
+                    0076    311 	C$gameboard.c$45$1$1 ==.
+                            312 ;	../gameboard.c:45: T6963C_writeAt(x0, y0, MUR);
+   0076 90s00r05            313 	mov	dptr,#_GMB_draw_x0_1_1
+   0079 F0                  314 	movx	@dptr,a
+   007A FA                  315 	mov	r2,a
+   007B 90s00r02            316 	mov	dptr,#_GMB_draw_PARM_2
+   007E E0                  317 	movx	a,@dptr
+   007F FB                  318 	mov	r3,a
+   0080 90s00r00            319 	mov	dptr,#_T6963C_writeAt_PARM_2
+   0083 F0                  320 	movx	@dptr,a
+   0084 90s00r00            321 	mov	dptr,#_T6963C_writeAt_PARM_3
+   0087 74 12               322 	mov	a,#0x12
+   0089 F0                  323 	movx	@dptr,a
+   008A 8A 82               324 	mov	dpl,r2
+   008C C0 02               325 	push	ar2
+   008E C0 03               326 	push	ar3
+   0090 12s00r00            327 	lcall	_T6963C_writeAt
+   0093 D0 03               328 	pop	ar3
+                    0095    329 	C$gameboard.c$48$1$1 ==.
+                            330 ;	../gameboard.c:48: T6963C_writeAt(x1, y0, MUR);
+   0095 90s00r03            331 	mov	dptr,#_GMB_draw_PARM_3
+   0098 E0                  332 	movx	a,@dptr
+   0099 FC                  333 	mov	r4,a
+   009A 90s00r00            334 	mov	dptr,#_T6963C_writeAt_PARM_2
+   009D EB                  335 	mov	a,r3
+   009E F0                  336 	movx	@dptr,a
+   009F 90s00r00            337 	mov	dptr,#_T6963C_writeAt_PARM_3
+   00A2 74 12               338 	mov	a,#0x12
+   00A4 F0                  339 	movx	@dptr,a
+   00A5 8C 82               340 	mov	dpl,r4
+   00A7 C0 03               341 	push	ar3
+   00A9 C0 04               342 	push	ar4
+   00AB 12s00r00            343 	lcall	_T6963C_writeAt
+   00AE D0 04               344 	pop	ar4
+   00B0 D0 03               345 	pop	ar3
+   00B2 D0 02               346 	pop	ar2
+                    00B4    347 	C$gameboard.c$51$1$1 ==.
+                            348 ;	../gameboard.c:51: for (x = x0 + 1; x < x1; x++){
+   00B4 90s00r06            349 	mov	dptr,#_GMB_draw_x_1_1
+   00B7 EA                  350 	mov	a,r2
+   00B8 04                  351 	inc	a
+   00B9 F0                  352 	movx	@dptr,a
+   00BA                     353 00101$:
+   00BA 90s00r06            354 	mov	dptr,#_GMB_draw_x_1_1
+   00BD E0                  355 	movx	a,@dptr
+   00BE FD                  356 	mov	r5,a
+   00BF B5 04 00            357 	cjne	a,ar4,00121$
+   00C2                     358 00121$:
+   00C2 50 28               359 	jnc	00104$
+                    00C4    360 	C$gameboard.c$52$2$2 ==.
+                            361 ;	../gameboard.c:52: T6963C_writeAt(x, y0, MUR);
+   00C4 90s00r00            362 	mov	dptr,#_T6963C_writeAt_PARM_2
+   00C7 EB                  363 	mov	a,r3
+   00C8 F0                  364 	movx	@dptr,a
+   00C9 90s00r00            365 	mov	dptr,#_T6963C_writeAt_PARM_3
+   00CC 74 12               366 	mov	a,#0x12
+   00CE F0                  367 	movx	@dptr,a
+   00CF 8D 82               368 	mov	dpl,r5
+   00D1 C0 02               369 	push	ar2
+   00D3 C0 03               370 	push	ar3
+   00D5 C0 04               371 	push	ar4
+   00D7 C0 05               372 	push	ar5
+   00D9 12s00r00            373 	lcall	_T6963C_writeAt
+   00DC D0 05               374 	pop	ar5
+   00DE D0 04               375 	pop	ar4
+   00E0 D0 03               376 	pop	ar3
+   00E2 D0 02               377 	pop	ar2
+                    00E4    378 	C$gameboard.c$51$1$1 ==.
+                            379 ;	../gameboard.c:51: for (x = x0 + 1; x < x1; x++){
+   00E4 90s00r06            380 	mov	dptr,#_GMB_draw_x_1_1
+   00E7 ED                  381 	mov	a,r5
+   00E8 04                  382 	inc	a
+   00E9 F0                  383 	movx	@dptr,a
+   00EA 80 CE               384 	sjmp	00101$
+   00EC                     385 00104$:
+                    00EC    386 	C$gameboard.c$58$1$1 ==.
+                            387 ;	../gameboard.c:58: T6963C_writeAt(x0, y1, MUR);
+   00EC 90s00r04            388 	mov	dptr,#_GMB_draw_PARM_4
+   00EF E0                  389 	movx	a,@dptr
+   00F0 FD                  390 	mov	r5,a
+   00F1 90s00r00            391 	mov	dptr,#_T6963C_writeAt_PARM_2
+   00F4 F0                  392 	movx	@dptr,a
+   00F5 90s00r00            393 	mov	dptr,#_T6963C_writeAt_PARM_3
+   00F8 74 12               394 	mov	a,#0x12
+   00FA F0                  395 	movx	@dptr,a
+   00FB 8A 82               396 	mov	dpl,r2
+   00FD C0 02               397 	push	ar2
+   00FF C0 03               398 	push	ar3
+   0101 C0 04               399 	push	ar4
+   0103 C0 05               400 	push	ar5
+   0105 12s00r00            401 	lcall	_T6963C_writeAt
+   0108 D0 05               402 	pop	ar5
+   010A D0 04               403 	pop	ar4
+                    010C    404 	C$gameboard.c$61$1$1 ==.
+                            405 ;	../gameboard.c:61: T6963C_writeAt(x1, y1, MUR);
+   010C 90s00r00            406 	mov	dptr,#_T6963C_writeAt_PARM_2
+   010F ED                  407 	mov	a,r5
+   0110 F0                  408 	movx	@dptr,a
+   0111 90s00r00            409 	mov	dptr,#_T6963C_writeAt_PARM_3
+   0114 74 12               410 	mov	a,#0x12
+   0116 F0                  411 	movx	@dptr,a
+   0117 8C 82               412 	mov	dpl,r4
+   0119 C0 04               413 	push	ar4
+   011B C0 05               414 	push	ar5
+   011D 12s00r00            415 	lcall	_T6963C_writeAt
+   0120 D0 05               416 	pop	ar5
+   0122 D0 04               417 	pop	ar4
+   0124 D0 03               418 	pop	ar3
+   0126 D0 02               419 	pop	ar2
+                    0128    420 	C$gameboard.c$64$1$1 ==.
+                            421 ;	../gameboard.c:64: for (x = x0 + 1; x < x1; x++){
+   0128 90s00r06            422 	mov	dptr,#_GMB_draw_x_1_1
+   012B EA                  423 	mov	a,r2
+   012C 04                  424 	inc	a
+   012D F0                  425 	movx	@dptr,a
+   012E                     426 00105$:
+   012E 90s00r06            427 	mov	dptr,#_GMB_draw_x_1_1
+   0131 E0                  428 	movx	a,@dptr
+   0132 FE                  429 	mov	r6,a
+   0133 B5 04 00            430 	cjne	a,ar4,00123$
+   0136                     431 00123$:
+   0136 50 2C               432 	jnc	00108$
+                    0138    433 	C$gameboard.c$65$2$3 ==.
+                            434 ;	../gameboard.c:65: T6963C_writeAt(x, y1, MUR);
+   0138 90s00r00            435 	mov	dptr,#_T6963C_writeAt_PARM_2
+   013B ED                  436 	mov	a,r5
+   013C F0                  437 	movx	@dptr,a
+   013D 90s00r00            438 	mov	dptr,#_T6963C_writeAt_PARM_3
+   0140 74 12               439 	mov	a,#0x12
+   0142 F0                  440 	movx	@dptr,a
+   0143 8E 82               441 	mov	dpl,r6
+   0145 C0 02               442 	push	ar2
+   0147 C0 03               443 	push	ar3
+   0149 C0 04               444 	push	ar4
+   014B C0 05               445 	push	ar5
+   014D C0 06               446 	push	ar6
+   014F 12s00r00            447 	lcall	_T6963C_writeAt
+   0152 D0 06               448 	pop	ar6
+   0154 D0 05               449 	pop	ar5
+   0156 D0 04               450 	pop	ar4
+   0158 D0 03               451 	pop	ar3
+   015A D0 02               452 	pop	ar2
+                    015C    453 	C$gameboard.c$64$1$1 ==.
+                            454 ;	../gameboard.c:64: for (x = x0 + 1; x < x1; x++){
+   015C 90s00r06            455 	mov	dptr,#_GMB_draw_x_1_1
+   015F EE                  456 	mov	a,r6
+   0160 04                  457 	inc	a
+   0161 F0                  458 	movx	@dptr,a
+   0162 80 CA               459 	sjmp	00105$
+   0164                     460 00108$:
+                    0164    461 	C$gameboard.c$70$1$1 ==.
+                            462 ;	../gameboard.c:70: for (y = y0 + 1; y < y1; y++){
+   0164 90s00r07            463 	mov	dptr,#_GMB_draw_y_1_1
+   0167 EB                  464 	mov	a,r3
+   0168 04                  465 	inc	a
+   0169 F0                  466 	movx	@dptr,a
+   016A                     467 00109$:
+   016A 90s00r07            468 	mov	dptr,#_GMB_draw_y_1_1
+   016D E0                  469 	movx	a,@dptr
+   016E FB                  470 	mov	r3,a
+   016F B5 05 00            471 	cjne	a,ar5,00125$
+   0172                     472 00125$:
+   0172 50 48               473 	jnc	00113$
+                    0174    474 	C$gameboard.c$72$2$4 ==.
+                            475 ;	../gameboard.c:72: T6963C_writeAt(x1, y, MUR);
+   0174 90s00r00            476 	mov	dptr,#_T6963C_writeAt_PARM_2
+   0177 EB                  477 	mov	a,r3
+   0178 F0                  478 	movx	@dptr,a
+   0179 90s00r00            479 	mov	dptr,#_T6963C_writeAt_PARM_3
+   017C 74 12               480 	mov	a,#0x12
+   017E F0                  481 	movx	@dptr,a
+   017F 8C 82               482 	mov	dpl,r4
+   0181 C0 02               483 	push	ar2
+   0183 C0 03               484 	push	ar3
+   0185 C0 04               485 	push	ar4
+   0187 C0 05               486 	push	ar5
+   0189 12s00r00            487 	lcall	_T6963C_writeAt
+   018C D0 05               488 	pop	ar5
+   018E D0 04               489 	pop	ar4
+   0190 D0 03               490 	pop	ar3
+   0192 D0 02               491 	pop	ar2
+                    0194    492 	C$gameboard.c$75$2$4 ==.
+                            493 ;	../gameboard.c:75: T6963C_writeAt(x0, y, MUR);
+   0194 90s00r00            494 	mov	dptr,#_T6963C_writeAt_PARM_2
+   0197 EB                  495 	mov	a,r3
+   0198 F0                  496 	movx	@dptr,a
+   0199 90s00r00            497 	mov	dptr,#_T6963C_writeAt_PARM_3
+   019C 74 12               498 	mov	a,#0x12
+   019E F0                  499 	movx	@dptr,a
+   019F 8A 82               500 	mov	dpl,r2
+   01A1 C0 02               501 	push	ar2
+   01A3 C0 03               502 	push	ar3
+   01A5 C0 04               503 	push	ar4
+   01A7 C0 05               504 	push	ar5
+   01A9 12s00r00            505 	lcall	_T6963C_writeAt
+   01AC D0 05               506 	pop	ar5
+   01AE D0 04               507 	pop	ar4
+   01B0 D0 03               508 	pop	ar3
+   01B2 D0 02               509 	pop	ar2
+                    01B4    510 	C$gameboard.c$70$1$1 ==.
+                            511 ;	../gameboard.c:70: for (y = y0 + 1; y < y1; y++){
+   01B4 90s00r07            512 	mov	dptr,#_GMB_draw_y_1_1
+   01B7 EB                  513 	mov	a,r3
+   01B8 04                  514 	inc	a
+   01B9 F0                  515 	movx	@dptr,a
+   01BA 80 AE               516 	sjmp	00109$
+   01BC                     517 00113$:
+                    01BC    518 	C$gameboard.c$77$1$1 ==.
+                    01BC    519 	XG$GMB_draw$0$0 ==.
+   01BC 22                  520 	ret
+                            521 ;------------------------------------------------------------
+                            522 ;Allocation info for local variables in function 'GMB_clear'
+                            523 ;------------------------------------------------------------
+                            524 ;y0                        Allocated with name '_GMB_clear_PARM_2'
+                            525 ;x1                        Allocated with name '_GMB_clear_PARM_3'
+                            526 ;y1                        Allocated with name '_GMB_clear_PARM_4'
+                            527 ;x0                        Allocated with name '_GMB_clear_x0_1_1'
+                            528 ;x                         Allocated with name '_GMB_clear_x_1_1'
+                            529 ;y                         Allocated with name '_GMB_clear_y_1_1'
+                            530 ;------------------------------------------------------------
+                    01BD    531 	G$GMB_clear$0$0 ==.
+                    01BD    532 	C$gameboard.c$85$1$1 ==.
+                            533 ;	../gameboard.c:85: void GMB_clear(unsigned char x0, unsigned char y0, unsigned char x1, unsigned char y1) {
+                            534 ;	-----------------------------------------
+                            535 ;	 function GMB_clear
+                            536 ;	-----------------------------------------
+   01BD                     537 _GMB_clear:
+   01BD E5 82               538 	mov	a,dpl
+                    01BF    539 	C$gameboard.c$89$1$1 ==.
+                            540 ;	../gameboard.c:89: for (x = x0; x <= x1; x++){
+   01BF 90s00r0B            541 	mov	dptr,#_GMB_clear_x0_1_1
+   01C2 F0                  542 	movx	@dptr,a
+   01C3 FA                  543 	mov	r2,a
+   01C4 90s00r0C            544 	mov	dptr,#_GMB_clear_x_1_1
+   01C7 F0                  545 	movx	@dptr,a
+   01C8 90s00r08            546 	mov	dptr,#_GMB_clear_PARM_2
+   01CB E0                  547 	movx	a,@dptr
+   01CC FB                  548 	mov	r3,a
+   01CD 90s00r09            549 	mov	dptr,#_GMB_clear_PARM_3
+   01D0 E0                  550 	movx	a,@dptr
+   01D1 FC                  551 	mov	r4,a
+   01D2                     552 00101$:
+   01D2 90s00r0C            553 	mov	dptr,#_GMB_clear_x_1_1
+   01D5 E0                  554 	movx	a,@dptr
+   01D6 FD                  555 	mov	r5,a
+   01D7 EC                  556 	mov	a,r4
+   01D8 B5 05 00            557 	cjne	a,ar5,00127$
+   01DB                     558 00127$:
+   01DB 40 27               559 	jc	00104$
+                    01DD    560 	C$gameboard.c$90$2$2 ==.
+                            561 ;	../gameboard.c:90: T6963C_writeAt(x, y0, EMPTY);
+   01DD 90s00r00            562 	mov	dptr,#_T6963C_writeAt_PARM_2
+   01E0 EB                  563 	mov	a,r3
+   01E1 F0                  564 	movx	@dptr,a
+   01E2 90s00r00            565 	mov	dptr,#_T6963C_writeAt_PARM_3
+   01E5 E4                  566 	clr	a
+   01E6 F0                  567 	movx	@dptr,a
+   01E7 8D 82               568 	mov	dpl,r5
+   01E9 C0 02               569 	push	ar2
+   01EB C0 03               570 	push	ar3
+   01ED C0 04               571 	push	ar4
+   01EF C0 05               572 	push	ar5
+   01F1 12s00r00            573 	lcall	_T6963C_writeAt
+   01F4 D0 05               574 	pop	ar5
+   01F6 D0 04               575 	pop	ar4
+   01F8 D0 03               576 	pop	ar3
+   01FA D0 02               577 	pop	ar2
+                    01FC    578 	C$gameboard.c$89$1$1 ==.
+                            579 ;	../gameboard.c:89: for (x = x0; x <= x1; x++){
+   01FC 90s00r0C            580 	mov	dptr,#_GMB_clear_x_1_1
+   01FF ED                  581 	mov	a,r5
+   0200 04                  582 	inc	a
+   0201 F0                  583 	movx	@dptr,a
+   0202 80 CE               584 	sjmp	00101$
+   0204                     585 00104$:
+                    0204    586 	C$gameboard.c$94$1$1 ==.
+                            587 ;	../gameboard.c:94: for (x = x0; x <= x1; x++){
+   0204 90s00r0C            588 	mov	dptr,#_GMB_clear_x_1_1
+   0207 EA                  589 	mov	a,r2
+   0208 F0                  590 	movx	@dptr,a
+   0209 90s00r0A            591 	mov	dptr,#_GMB_clear_PARM_4
+   020C E0                  592 	movx	a,@dptr
+   020D FD                  593 	mov	r5,a
+   020E                     594 00105$:
+   020E 90s00r0C            595 	mov	dptr,#_GMB_clear_x_1_1
+   0211 E0                  596 	movx	a,@dptr
+   0212 FE                  597 	mov	r6,a
+   0213 EC                  598 	mov	a,r4
+   0214 B5 06 00            599 	cjne	a,ar6,00129$
+   0217                     600 00129$:
+   0217 40 2B               601 	jc	00108$
+                    0219    602 	C$gameboard.c$95$2$3 ==.
+                            603 ;	../gameboard.c:95: T6963C_writeAt(x, y1, EMPTY);
+   0219 90s00r00            604 	mov	dptr,#_T6963C_writeAt_PARM_2
+   021C ED                  605 	mov	a,r5
+   021D F0                  606 	movx	@dptr,a
+   021E 90s00r00            607 	mov	dptr,#_T6963C_writeAt_PARM_3
+   0221 E4                  608 	clr	a
+   0222 F0                  609 	movx	@dptr,a
+   0223 8E 82               610 	mov	dpl,r6
+   0225 C0 02               611 	push	ar2
+   0227 C0 03               612 	push	ar3
+   0229 C0 04               613 	push	ar4
+   022B C0 05               614 	push	ar5
+   022D C0 06               615 	push	ar6
+   022F 12s00r00            616 	lcall	_T6963C_writeAt
+   0232 D0 06               617 	pop	ar6
+   0234 D0 05               618 	pop	ar5
+   0236 D0 04               619 	pop	ar4
+   0238 D0 03               620 	pop	ar3
+   023A D0 02               621 	pop	ar2
+                    023C    622 	C$gameboard.c$94$1$1 ==.
+                            623 ;	../gameboard.c:94: for (x = x0; x <= x1; x++){
+   023C 90s00r0C            624 	mov	dptr,#_GMB_clear_x_1_1
+   023F EE                  625 	mov	a,r6
+   0240 04                  626 	inc	a
+   0241 F0                  627 	movx	@dptr,a
+   0242 80 CA               628 	sjmp	00105$
+   0244                     629 00108$:
+                    0244    630 	C$gameboard.c$99$1$1 ==.
+                            631 ;	../gameboard.c:99: for (y = y0 + 1; y < y1; y++){
+   0244 90s00r0D            632 	mov	dptr,#_GMB_clear_y_1_1
+   0247 EB                  633 	mov	a,r3
+   0248 04                  634 	inc	a
+   0249 F0                  635 	movx	@dptr,a
+   024A EA                  636 	mov	a,r2
+   024B 04                  637 	inc	a
+   024C FB                  638 	mov	r3,a
+   024D                     639 00113$:
+   024D 90s00r0D            640 	mov	dptr,#_GMB_clear_y_1_1
+   0250 E0                  641 	movx	a,@dptr
+   0251 FE                  642 	mov	r6,a
+   0252 B5 05 00            643 	cjne	a,ar5,00131$
+   0255                     644 00131$:
+   0255 40 01               645 	jc	00132$
+   0257 22                  646 	ret
+   0258                     647 00132$:
+                    0258    648 	C$gameboard.c$101$2$4 ==.
+                            649 ;	../gameboard.c:101: T6963C_writeAt(x1, y, EMPTY);
+   0258 90s00r00            650 	mov	dptr,#_T6963C_writeAt_PARM_2
+   025B EE                  651 	mov	a,r6
+   025C F0                  652 	movx	@dptr,a
+   025D 90s00r00            653 	mov	dptr,#_T6963C_writeAt_PARM_3
+   0260 E4                  654 	clr	a
+   0261 F0                  655 	movx	@dptr,a
+   0262 8C 82               656 	mov	dpl,r4
+   0264 C0 02               657 	push	ar2
+   0266 C0 03               658 	push	ar3
+   0268 C0 04               659 	push	ar4
+   026A C0 05               660 	push	ar5
+   026C C0 06               661 	push	ar6
+   026E 12s00r00            662 	lcall	_T6963C_writeAt
+   0271 D0 06               663 	pop	ar6
+   0273 D0 05               664 	pop	ar5
+   0275 D0 04               665 	pop	ar4
+   0277 D0 03               666 	pop	ar3
+   0279 D0 02               667 	pop	ar2
+                    027B    668 	C$gameboard.c$104$2$4 ==.
+                            669 ;	../gameboard.c:104: T6963C_writeAt(x0, y, EMPTY);
+   027B 90s00r00            670 	mov	dptr,#_T6963C_writeAt_PARM_2
+   027E EE                  671 	mov	a,r6
+   027F F0                  672 	movx	@dptr,a
+   0280 90s00r00            673 	mov	dptr,#_T6963C_writeAt_PARM_3
+   0283 E4                  674 	clr	a
+   0284 F0                  675 	movx	@dptr,a
+   0285 8A 82               676 	mov	dpl,r2
+   0287 C0 02               677 	push	ar2
+   0289 C0 03               678 	push	ar3
+   028B C0 04               679 	push	ar4
+   028D C0 05               680 	push	ar5
+   028F C0 06               681 	push	ar6
+   0291 12s00r00            682 	lcall	_T6963C_writeAt
+   0294 D0 06               683 	pop	ar6
+   0296 D0 05               684 	pop	ar5
+   0298 D0 04               685 	pop	ar4
+   029A D0 03               686 	pop	ar3
+   029C D0 02               687 	pop	ar2
+                    029E    688 	C$gameboard.c$107$2$4 ==.
+                            689 ;	../gameboard.c:107: for(x = x0 + 1; x < x1; x++){
+   029E 90s00r0C            690 	mov	dptr,#_GMB_clear_x_1_1
+   02A1 EB                  691 	mov	a,r3
+   02A2 F0                  692 	movx	@dptr,a
+   02A3                     693 00109$:
+   02A3 90s00r0C            694 	mov	dptr,#_GMB_clear_x_1_1
+   02A6 E0                  695 	movx	a,@dptr
+   02A7 FF                  696 	mov	r7,a
+   02A8 B5 04 00            697 	cjne	a,ar4,00133$
+   02AB                     698 00133$:
+   02AB 50 2F               699 	jnc	00115$
+                    02AD    700 	C$gameboard.c$108$3$5 ==.
+                            701 ;	../gameboard.c:108: T6963C_writeAt(x, y, EMPTY);
+   02AD 90s00r00            702 	mov	dptr,#_T6963C_writeAt_PARM_2
+   02B0 EE                  703 	mov	a,r6
+   02B1 F0                  704 	movx	@dptr,a
+   02B2 90s00r00            705 	mov	dptr,#_T6963C_writeAt_PARM_3
+   02B5 E4                  706 	clr	a
+   02B6 F0                  707 	movx	@dptr,a
+   02B7 8F 82               708 	mov	dpl,r7
+   02B9 C0 02               709 	push	ar2
+   02BB C0 03               710 	push	ar3
+   02BD C0 04               711 	push	ar4
+   02BF C0 05               712 	push	ar5
+   02C1 C0 06               713 	push	ar6
+   02C3 C0 07               714 	push	ar7
+   02C5 12s00r00            715 	lcall	_T6963C_writeAt
+   02C8 D0 07               716 	pop	ar7
+   02CA D0 06               717 	pop	ar6
+   02CC D0 05               718 	pop	ar5
+   02CE D0 04               719 	pop	ar4
+   02D0 D0 03               720 	pop	ar3
+   02D2 D0 02               721 	pop	ar2
+                    02D4    722 	C$gameboard.c$107$2$4 ==.
+                            723 ;	../gameboard.c:107: for(x = x0 + 1; x < x1; x++){
+   02D4 90s00r0C            724 	mov	dptr,#_GMB_clear_x_1_1
+   02D7 EF                  725 	mov	a,r7
+   02D8 04                  726 	inc	a
+   02D9 F0                  727 	movx	@dptr,a
+   02DA 80 C7               728 	sjmp	00109$
+   02DC                     729 00115$:
+                    02DC    730 	C$gameboard.c$99$1$1 ==.
+                            731 ;	../gameboard.c:99: for (y = y0 + 1; y < y1; y++){
+   02DC 90s00r0D            732 	mov	dptr,#_GMB_clear_y_1_1
+   02DF E0                  733 	movx	a,@dptr
+   02E0 24 01               734 	add	a,#0x01
+   02E2 F0                  735 	movx	@dptr,a
+                    02E3    736 	C$gameboard.c$111$1$1 ==.
+                    02E3    737 	XG$GMB_clear$0$0 ==.
+   02E3 02s02r4D            738 	ljmp	00113$
+                            739 ;------------------------------------------------------------
+                            740 ;Allocation info for local variables in function 'GMB_display'
+                            741 ;------------------------------------------------------------
+                            742 ;sloc0                     Allocated with name '_GMB_display_sloc0_1_0'
+                            743 ;sloc1                     Allocated with name '_GMB_display_sloc1_1_0'
+                            744 ;y0                        Allocated with name '_GMB_display_PARM_2'
+                            745 ;text                      Allocated with name '_GMB_display_PARM_3'
+                            746 ;x0                        Allocated with name '_GMB_display_x0_1_1'
+                            747 ;x                         Allocated with name '_GMB_display_x_1_1'
+                            748 ;i                         Allocated with name '_GMB_display_i_1_1'
+                            749 ;longueurTexte             Allocated with name '_GMB_display_longueurTexte_1_1'
+                            750 ;x1                        Allocated with name '_GMB_display_x1_1_1'
+                            751 ;y1                        Allocated with name '_GMB_display_y1_1_1'
+                            752 ;------------------------------------------------------------
+                    02E6    753 	G$GMB_display$0$0 ==.
+                    02E6    754 	C$gameboard.c$120$1$1 ==.
+                            755 ;	../gameboard.c:120: void GMB_display(unsigned char x0, unsigned char y0, char *text) {
+                            756 ;	-----------------------------------------
+                            757 ;	 function GMB_display
+                            758 ;	-----------------------------------------
+   02E6                     759 _GMB_display:
+   02E6 E5 82               760 	mov	a,dpl
+   02E8 90s00r12            761 	mov	dptr,#_GMB_display_x0_1_1
+   02EB F0                  762 	movx	@dptr,a
+                    02EC    763 	C$gameboard.c$122$1$1 ==.
+                            764 ;	../gameboard.c:122: unsigned i = 0;
+   02EC 90s00r14            765 	mov	dptr,#_GMB_display_i_1_1
+   02EF E4                  766 	clr	a
+   02F0 F0                  767 	movx	@dptr,a
+   02F1 A3                  768 	inc	dptr
+   02F2 F0                  769 	movx	@dptr,a
+                    02F3    770 	C$gameboard.c$123$1$1 ==.
+                            771 ;	../gameboard.c:123: unsigned char longueurTexte = strlen(text);
+   02F3 90s00r0F            772 	mov	dptr,#_GMB_display_PARM_3
+   02F6 E0                  773 	movx	a,@dptr
+   02F7 FA                  774 	mov	r2,a
+   02F8 A3                  775 	inc	dptr
+   02F9 E0                  776 	movx	a,@dptr
+   02FA FB                  777 	mov	r3,a
+   02FB A3                  778 	inc	dptr
+   02FC E0                  779 	movx	a,@dptr
+   02FD FC                  780 	mov	r4,a
+   02FE 8A 82               781 	mov	dpl,r2
+   0300 8B 83               782 	mov	dph,r3
+   0302 8C F0               783 	mov	b,r4
+   0304 12s00r00            784 	lcall	_strlen
+   0307 AA 82               785 	mov	r2,dpl
+                    0309    786 	C$gameboard.c$124$1$1 ==.
+                            787 ;	../gameboard.c:124: unsigned char x1 = x0 + longueurTexte + 1;
+   0309 90s00r12            788 	mov	dptr,#_GMB_display_x0_1_1
+   030C E0                  789 	movx	a,@dptr
+   030D FB                  790 	mov	r3,a
+   030E 2A                  791 	add	a,r2
+   030F 04                  792 	inc	a
+   0310 FA                  793 	mov	r2,a
+                    0311    794 	C$gameboard.c$125$1$1 ==.
+                            795 ;	../gameboard.c:125: unsigned char y1 = y0 + 2;
+   0311 90s00r0E            796 	mov	dptr,#_GMB_display_PARM_2
+   0314 E0                  797 	movx	a,@dptr
+   0315 FC                  798 	mov	r4,a
+   0316 24 02               799 	add	a,#0x02
+   0318 FD                  800 	mov	r5,a
+                    0319    801 	C$gameboard.c$129$1$1 ==.
+                            802 ;	../gameboard.c:129: T6963C_writeAt(x0, y0, MUR);
+   0319 90s00r00            803 	mov	dptr,#_T6963C_writeAt_PARM_2
+   031C EC                  804 	mov	a,r4
+   031D F0                  805 	movx	@dptr,a
+   031E 90s00r00            806 	mov	dptr,#_T6963C_writeAt_PARM_3
+   0321 74 12               807 	mov	a,#0x12
+   0323 F0                  808 	movx	@dptr,a
+   0324 8B 82               809 	mov	dpl,r3
+   0326 C0 02               810 	push	ar2
+   0328 C0 03               811 	push	ar3
+   032A C0 04               812 	push	ar4
+   032C C0 05               813 	push	ar5
+   032E 12s00r00            814 	lcall	_T6963C_writeAt
+   0331 D0 05               815 	pop	ar5
+   0333 D0 04               816 	pop	ar4
+   0335 D0 03               817 	pop	ar3
+   0337 D0 02               818 	pop	ar2
+                    0339    819 	C$gameboard.c$132$1$1 ==.
+                            820 ;	../gameboard.c:132: T6963C_writeAt(x1, y0, MUR);
+   0339 90s00r00            821 	mov	dptr,#_T6963C_writeAt_PARM_2
+   033C EC                  822 	mov	a,r4
+   033D F0                  823 	movx	@dptr,a
+   033E 90s00r00            824 	mov	dptr,#_T6963C_writeAt_PARM_3
+   0341 74 12               825 	mov	a,#0x12
+   0343 F0                  826 	movx	@dptr,a
+   0344 8A 82               827 	mov	dpl,r2
+   0346 C0 02               828 	push	ar2
+   0348 C0 03               829 	push	ar3
+   034A C0 04               830 	push	ar4
+   034C C0 05               831 	push	ar5
+   034E 12s00r00            832 	lcall	_T6963C_writeAt
+   0351 D0 05               833 	pop	ar5
+   0353 D0 04               834 	pop	ar4
+   0355 D0 03               835 	pop	ar3
+   0357 D0 02               836 	pop	ar2
+                    0359    837 	C$gameboard.c$135$1$1 ==.
+                            838 ;	../gameboard.c:135: for (x = x0 + 1; x < x1; x++){
+   0359 90s00r13            839 	mov	dptr,#_GMB_display_x_1_1
+   035C EB                  840 	mov	a,r3
+   035D 04                  841 	inc	a
+   035E F0                  842 	movx	@dptr,a
+   035F                     843 00101$:
+   035F 90s00r13            844 	mov	dptr,#_GMB_display_x_1_1
+   0362 E0                  845 	movx	a,@dptr
+   0363 FE                  846 	mov	r6,a
+   0364 B5 02 00            847 	cjne	a,ar2,00121$
+   0367                     848 00121$:
+   0367 50 2C               849 	jnc	00104$
+                    0369    850 	C$gameboard.c$136$2$2 ==.
+                            851 ;	../gameboard.c:136: T6963C_writeAt(x, y0, MUR);
+   0369 90s00r00            852 	mov	dptr,#_T6963C_writeAt_PARM_2
+   036C EC                  853 	mov	a,r4
+   036D F0                  854 	movx	@dptr,a
+   036E 90s00r00            855 	mov	dptr,#_T6963C_writeAt_PARM_3
+   0371 74 12               856 	mov	a,#0x12
+   0373 F0                  857 	movx	@dptr,a
+   0374 8E 82               858 	mov	dpl,r6
+   0376 C0 02               859 	push	ar2
+   0378 C0 03               860 	push	ar3
+   037A C0 04               861 	push	ar4
+   037C C0 05               862 	push	ar5
+   037E C0 06               863 	push	ar6
+   0380 12s00r00            864 	lcall	_T6963C_writeAt
+   0383 D0 06               865 	pop	ar6
+   0385 D0 05               866 	pop	ar5
+   0387 D0 04               867 	pop	ar4
+   0389 D0 03               868 	pop	ar3
+   038B D0 02               869 	pop	ar2
+                    038D    870 	C$gameboard.c$135$1$1 ==.
+                            871 ;	../gameboard.c:135: for (x = x0 + 1; x < x1; x++){
+   038D 90s00r13            872 	mov	dptr,#_GMB_display_x_1_1
+   0390 EE                  873 	mov	a,r6
+   0391 04                  874 	inc	a
+   0392 F0                  875 	movx	@dptr,a
+   0393 80 CA               876 	sjmp	00101$
+   0395                     877 00104$:
+                    0395    878 	C$gameboard.c$142$1$1 ==.
+                            879 ;	../gameboard.c:142: T6963C_writeAt(x0, y1, MUR);
+   0395 90s00r00            880 	mov	dptr,#_T6963C_writeAt_PARM_2
+   0398 ED                  881 	mov	a,r5
+   0399 F0                  882 	movx	@dptr,a
+   039A 90s00r00            883 	mov	dptr,#_T6963C_writeAt_PARM_3
+   039D 74 12               884 	mov	a,#0x12
+   039F F0                  885 	movx	@dptr,a
+   03A0 8B 82               886 	mov	dpl,r3
+   03A2 C0 02               887 	push	ar2
+   03A4 C0 03               888 	push	ar3
+   03A6 C0 04               889 	push	ar4
+   03A8 C0 05               890 	push	ar5
+   03AA 12s00r00            891 	lcall	_T6963C_writeAt
+   03AD D0 05               892 	pop	ar5
+   03AF D0 04               893 	pop	ar4
+   03B1 D0 03               894 	pop	ar3
+   03B3 D0 02               895 	pop	ar2
+                    03B5    896 	C$gameboard.c$145$1$1 ==.
+                            897 ;	../gameboard.c:145: T6963C_writeAt(x1, y1, MUR);
+   03B5 90s00r00            898 	mov	dptr,#_T6963C_writeAt_PARM_2
+   03B8 ED                  899 	mov	a,r5
+   03B9 F0                  900 	movx	@dptr,a
+   03BA 90s00r00            901 	mov	dptr,#_T6963C_writeAt_PARM_3
+   03BD 74 12               902 	mov	a,#0x12
+   03BF F0                  903 	movx	@dptr,a
+   03C0 8A 82               904 	mov	dpl,r2
+   03C2 C0 02               905 	push	ar2
+   03C4 C0 03               906 	push	ar3
+   03C6 C0 04               907 	push	ar4
+   03C8 C0 05               908 	push	ar5
+   03CA 12s00r00            909 	lcall	_T6963C_writeAt
+   03CD D0 05               910 	pop	ar5
+   03CF D0 04               911 	pop	ar4
+   03D1 D0 03               912 	pop	ar3
+   03D3 D0 02               913 	pop	ar2
+                    03D5    914 	C$gameboard.c$148$1$1 ==.
+                            915 ;	../gameboard.c:148: for (x = x0 + 1; x < x1; x++){
+   03D5 90s00r13            916 	mov	dptr,#_GMB_display_x_1_1
+   03D8 EB                  917 	mov	a,r3
+   03D9 04                  918 	inc	a
+   03DA F0                  919 	movx	@dptr,a
+   03DB                     920 00105$:
+   03DB 90s00r13            921 	mov	dptr,#_GMB_display_x_1_1
+   03DE E0                  922 	movx	a,@dptr
+   03DF FE                  923 	mov	r6,a
+   03E0 B5 02 00            924 	cjne	a,ar2,00123$
+   03E3                     925 00123$:
+   03E3 50 2C               926 	jnc	00108$
+                    03E5    927 	C$gameboard.c$149$2$3 ==.
+                            928 ;	../gameboard.c:149: T6963C_writeAt(x, y1, MUR);
+   03E5 90s00r00            929 	mov	dptr,#_T6963C_writeAt_PARM_2
+   03E8 ED                  930 	mov	a,r5
+   03E9 F0                  931 	movx	@dptr,a
+   03EA 90s00r00            932 	mov	dptr,#_T6963C_writeAt_PARM_3
+   03ED 74 12               933 	mov	a,#0x12
+   03EF F0                  934 	movx	@dptr,a
+   03F0 8E 82               935 	mov	dpl,r6
+   03F2 C0 02               936 	push	ar2
+   03F4 C0 03               937 	push	ar3
+   03F6 C0 04               938 	push	ar4
+   03F8 C0 05               939 	push	ar5
+   03FA C0 06               940 	push	ar6
+   03FC 12s00r00            941 	lcall	_T6963C_writeAt
+   03FF D0 06               942 	pop	ar6
+   0401 D0 05               943 	pop	ar5
+   0403 D0 04               944 	pop	ar4
+   0405 D0 03               945 	pop	ar3
+   0407 D0 02               946 	pop	ar2
+                    0409    947 	C$gameboard.c$148$1$1 ==.
+                            948 ;	../gameboard.c:148: for (x = x0 + 1; x < x1; x++){
+   0409 90s00r13            949 	mov	dptr,#_GMB_display_x_1_1
+   040C EE                  950 	mov	a,r6
+   040D 04                  951 	inc	a
+   040E F0                  952 	movx	@dptr,a
+   040F 80 CA               953 	sjmp	00105$
+   0411                     954 00108$:
+                    0411    955 	C$gameboard.c$155$1$1 ==.
+                            956 ;	../gameboard.c:155: T6963C_writeAt(x1, y0 + 1, MUR);
+   0411 EC                  957 	mov	a,r4
+   0412 04                  958 	inc	a
+   0413 FD                  959 	mov	r5,a
+   0414 90s00r00            960 	mov	dptr,#_T6963C_writeAt_PARM_2
+   0417 F0                  961 	movx	@dptr,a
+   0418 90s00r00            962 	mov	dptr,#_T6963C_writeAt_PARM_3
+   041B 74 12               963 	mov	a,#0x12
+   041D F0                  964 	movx	@dptr,a
+   041E 8A 82               965 	mov	dpl,r2
+   0420 C0 02               966 	push	ar2
+   0422 C0 03               967 	push	ar3
+   0424 C0 04               968 	push	ar4
+   0426 C0 05               969 	push	ar5
+   0428 12s00r00            970 	lcall	_T6963C_writeAt
+   042B D0 05               971 	pop	ar5
+   042D D0 04               972 	pop	ar4
+   042F D0 03               973 	pop	ar3
+                    0431    974 	C$gameboard.c$158$1$1 ==.
+                            975 ;	../gameboard.c:158: T6963C_writeAt(x0, y0 + 1, MUR);
+   0431 90s00r00            976 	mov	dptr,#_T6963C_writeAt_PARM_2
+   0434 ED                  977 	mov	a,r5
+   0435 F0                  978 	movx	@dptr,a
+   0436 90s00r00            979 	mov	dptr,#_T6963C_writeAt_PARM_3
+   0439 74 12               980 	mov	a,#0x12
+   043B F0                  981 	movx	@dptr,a
+   043C 8B 82               982 	mov	dpl,r3
+   043E C0 03               983 	push	ar3
+   0440 C0 04               984 	push	ar4
+   0442 12s00r00            985 	lcall	_T6963C_writeAt
+   0445 D0 04               986 	pop	ar4
+   0447 D0 03               987 	pop	ar3
+   0449 D0 02               988 	pop	ar2
+                    044B    989 	C$gameboard.c$161$1$1 ==.
+                            990 ;	../gameboard.c:161: for (x = x0 + 1; x < x1; x++){
+   044B 90s00r13            991 	mov	dptr,#_GMB_display_x_1_1
+   044E EB                  992 	mov	a,r3
+   044F 04                  993 	inc	a
+   0450 F0                  994 	movx	@dptr,a
+   0451 EC                  995 	mov	a,r4
+   0452 04                  996 	inc	a
+   0453 F5*00               997 	mov	_GMB_display_sloc0_1_0,a
+   0455 90s00r0F            998 	mov	dptr,#_GMB_display_PARM_3
+   0458 E0                  999 	movx	a,@dptr
+   0459 F5*01              1000 	mov	_GMB_display_sloc1_1_0,a
+   045B A3                 1001 	inc	dptr
+   045C E0                 1002 	movx	a,@dptr
+   045D F5*02              1003 	mov	(_GMB_display_sloc1_1_0 + 1),a
+   045F A3                 1004 	inc	dptr
+   0460 E0                 1005 	movx	a,@dptr
+   0461 F5*03              1006 	mov	(_GMB_display_sloc1_1_0 + 2),a
+   0463                    1007 00109$:
+   0463 90s00r13           1008 	mov	dptr,#_GMB_display_x_1_1
+   0466 E0                 1009 	movx	a,@dptr
+   0467 FF                 1010 	mov	r7,a
+   0468 B5 02 00           1011 	cjne	a,ar2,00125$
+   046B                    1012 00125$:
+   046B 50 55              1013 	jnc	00113$
+                    046D   1014 	C$gameboard.c$162$1$1 ==.
+                           1015 ;	../gameboard.c:162: T6963C_writeAt(x, y0 + 1, text[i] - 32);
+   046D C0 02              1016 	push	ar2
+   046F 90s00r14           1017 	mov	dptr,#_GMB_display_i_1_1
+   0472 E0                 1018 	movx	a,@dptr
+   0473 F8                 1019 	mov	r0,a
+   0474 A3                 1020 	inc	dptr
+   0475 E0                 1021 	movx	a,@dptr
+   0476 F9                 1022 	mov	r1,a
+   0477 E8                 1023 	mov	a,r0
+   0478 25*01              1024 	add	a,_GMB_display_sloc1_1_0
+   047A FA                 1025 	mov	r2,a
+   047B E9                 1026 	mov	a,r1
+   047C 35*02              1027 	addc	a,(_GMB_display_sloc1_1_0 + 1)
+   047E FB                 1028 	mov	r3,a
+   047F AC*03              1029 	mov	r4,(_GMB_display_sloc1_1_0 + 2)
+   0481 8A 82              1030 	mov	dpl,r2
+   0483 8B 83              1031 	mov	dph,r3
+   0485 8C F0              1032 	mov	b,r4
+   0487 12s00r00           1033 	lcall	__gptrget
+   048A 24 E0              1034 	add	a,#0xe0
+   048C FA                 1035 	mov	r2,a
+   048D 90s00r00           1036 	mov	dptr,#_T6963C_writeAt_PARM_2
+   0490 E5*00              1037 	mov	a,_GMB_display_sloc0_1_0
+   0492 F0                 1038 	movx	@dptr,a
+   0493 90s00r00           1039 	mov	dptr,#_T6963C_writeAt_PARM_3
+   0496 EA                 1040 	mov	a,r2
+   0497 F0                 1041 	movx	@dptr,a
+   0498 8F 82              1042 	mov	dpl,r7
+   049A C0 02              1043 	push	ar2
+   049C C0 07              1044 	push	ar7
+   049E C0 00              1045 	push	ar0
+   04A0 C0 01              1046 	push	ar1
+   04A2 12s00r00           1047 	lcall	_T6963C_writeAt
+   04A5 D0 01              1048 	pop	ar1
+   04A7 D0 00              1049 	pop	ar0
+   04A9 D0 07              1050 	pop	ar7
+   04AB D0 02              1051 	pop	ar2
+                    04AD   1052 	C$gameboard.c$163$2$4 ==.
+                           1053 ;	../gameboard.c:163: i ++;
+   04AD 90s00r14           1054 	mov	dptr,#_GMB_display_i_1_1
+   04B0 74 01              1055 	mov	a,#0x01
+   04B2 28                 1056 	add	a,r0
+   04B3 F0                 1057 	movx	@dptr,a
+   04B4 E4                 1058 	clr	a
+   04B5 39                 1059 	addc	a,r1
+   04B6 A3                 1060 	inc	dptr
+   04B7 F0                 1061 	movx	@dptr,a
+                    04B8   1062 	C$gameboard.c$161$1$1 ==.
+                           1063 ;	../gameboard.c:161: for (x = x0 + 1; x < x1; x++){
+   04B8 90s00r13           1064 	mov	dptr,#_GMB_display_x_1_1
+   04BB EF                 1065 	mov	a,r7
+   04BC 04                 1066 	inc	a
+   04BD F0                 1067 	movx	@dptr,a
+   04BE D0 02              1068 	pop	ar2
+   04C0 80 A1              1069 	sjmp	00109$
+   04C2                    1070 00113$:
+                    04C2   1071 	C$gameboard.c$165$1$1 ==.
+                    04C2   1072 	XG$GMB_display$0$0 ==.
+   04C2 22                 1073 	ret
+                           1074 ;------------------------------------------------------------
+                           1075 ;Allocation info for local variables in function 'bddGameboardDraw'
+                           1076 ;------------------------------------------------------------
+                           1077 ;c                         Allocated with name '_bddGameboardDraw_c_1_1'
+                           1078 ;------------------------------------------------------------
+                    04C3   1079 	G$bddGameboardDraw$0$0 ==.
+                    04C3   1080 	C$gameboard.c$168$1$1 ==.
+                           1081 ;	../gameboard.c:168: int bddGameboardDraw() {
+                           1082 ;	-----------------------------------------
+                           1083 ;	 function bddGameboardDraw
+                           1084 ;	-----------------------------------------
+   04C3                    1085 _bddGameboardDraw:
+                    04C3   1086 	C$gameboard.c$169$1$1 ==.
+                           1087 ;	../gameboard.c:169: BddExpectedContent c = {
+   04C3 90s00r16           1088 	mov	dptr,#_bddGameboardDraw_c_1_1
+   04C6 74 32              1089 	mov	a,#0x32
+   04C8 F0                 1090 	movx	@dptr,a
+   04C9 90s00r17           1091 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0001)
+   04CC 74 32              1092 	mov	a,#0x32
+   04CE F0                 1093 	movx	@dptr,a
+   04CF 90s00r18           1094 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0002)
+   04D2 74 32              1095 	mov	a,#0x32
+   04D4 F0                 1096 	movx	@dptr,a
+   04D5 90s00r19           1097 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0003)
+   04D8 74 32              1098 	mov	a,#0x32
+   04DA F0                 1099 	movx	@dptr,a
+   04DB 90s00r1A           1100 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0004)
+   04DE 74 32              1101 	mov	a,#0x32
+   04E0 F0                 1102 	movx	@dptr,a
+   04E1 90s00r1B           1103 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0005)
+   04E4 74 32              1104 	mov	a,#0x32
+   04E6 F0                 1105 	movx	@dptr,a
+   04E7 90s00r1C           1106 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0006)
+   04EA 74 32              1107 	mov	a,#0x32
+   04EC F0                 1108 	movx	@dptr,a
+   04ED 90s00r1D           1109 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0007)
+   04F0 74 32              1110 	mov	a,#0x32
+   04F2 F0                 1111 	movx	@dptr,a
+   04F3 90s00r1E           1112 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0008)
+   04F6 74 32              1113 	mov	a,#0x32
+   04F8 F0                 1114 	movx	@dptr,a
+   04F9 90s00r1F           1115 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0009)
+   04FC 74 32              1116 	mov	a,#0x32
+   04FE F0                 1117 	movx	@dptr,a
+   04FF 90s00r20           1118 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x000a)
+   0502 E4                 1119 	clr	a
+   0503 F0                 1120 	movx	@dptr,a
+   0504 90s00r21           1121 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x000b)
+   0507 74 32              1122 	mov	a,#0x32
+   0509 F0                 1123 	movx	@dptr,a
+   050A 90s00r22           1124 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x000c)
+   050D 74 2E              1125 	mov	a,#0x2E
+   050F F0                 1126 	movx	@dptr,a
+   0510 90s00r23           1127 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x000d)
+   0513 74 2E              1128 	mov	a,#0x2E
+   0515 F0                 1129 	movx	@dptr,a
+   0516 90s00r24           1130 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x000e)
+   0519 74 2E              1131 	mov	a,#0x2E
+   051B F0                 1132 	movx	@dptr,a
+   051C 90s00r25           1133 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x000f)
+   051F 74 2E              1134 	mov	a,#0x2E
+   0521 F0                 1135 	movx	@dptr,a
+   0522 90s00r26           1136 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0010)
+   0525 74 2E              1137 	mov	a,#0x2E
+   0527 F0                 1138 	movx	@dptr,a
+   0528 90s00r27           1139 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0011)
+   052B 74 2E              1140 	mov	a,#0x2E
+   052D F0                 1141 	movx	@dptr,a
+   052E 90s00r28           1142 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0012)
+   0531 74 2E              1143 	mov	a,#0x2E
+   0533 F0                 1144 	movx	@dptr,a
+   0534 90s00r29           1145 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0013)
+   0537 74 2E              1146 	mov	a,#0x2E
+   0539 F0                 1147 	movx	@dptr,a
+   053A 90s00r2A           1148 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0014)
+   053D 74 32              1149 	mov	a,#0x32
+   053F F0                 1150 	movx	@dptr,a
+   0540 90s00r2B           1151 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0015)
+   0543 E4                 1152 	clr	a
+   0544 F0                 1153 	movx	@dptr,a
+   0545 90s00r2C           1154 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0016)
+   0548 74 32              1155 	mov	a,#0x32
+   054A F0                 1156 	movx	@dptr,a
+   054B 90s00r2D           1157 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0017)
+   054E 74 2E              1158 	mov	a,#0x2E
+   0550 F0                 1159 	movx	@dptr,a
+   0551 90s00r2E           1160 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0018)
+   0554 74 2E              1161 	mov	a,#0x2E
+   0556 F0                 1162 	movx	@dptr,a
+   0557 90s00r2F           1163 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0019)
+   055A 74 2E              1164 	mov	a,#0x2E
+   055C F0                 1165 	movx	@dptr,a
+   055D 90s00r30           1166 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x001a)
+   0560 74 2E              1167 	mov	a,#0x2E
+   0562 F0                 1168 	movx	@dptr,a
+   0563 90s00r31           1169 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x001b)
+   0566 74 2E              1170 	mov	a,#0x2E
+   0568 F0                 1171 	movx	@dptr,a
+   0569 90s00r32           1172 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x001c)
+   056C 74 2E              1173 	mov	a,#0x2E
+   056E F0                 1174 	movx	@dptr,a
+   056F 90s00r33           1175 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x001d)
+   0572 74 2E              1176 	mov	a,#0x2E
+   0574 F0                 1177 	movx	@dptr,a
+   0575 90s00r34           1178 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x001e)
+   0578 74 2E              1179 	mov	a,#0x2E
+   057A F0                 1180 	movx	@dptr,a
+   057B 90s00r35           1181 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x001f)
+   057E 74 32              1182 	mov	a,#0x32
+   0580 F0                 1183 	movx	@dptr,a
+   0581 90s00r36           1184 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0020)
+   0584 E4                 1185 	clr	a
+   0585 F0                 1186 	movx	@dptr,a
+   0586 90s00r37           1187 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0021)
+   0589 74 32              1188 	mov	a,#0x32
+   058B F0                 1189 	movx	@dptr,a
+   058C 90s00r38           1190 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0022)
+   058F 74 2E              1191 	mov	a,#0x2E
+   0591 F0                 1192 	movx	@dptr,a
+   0592 90s00r39           1193 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0023)
+   0595 74 2E              1194 	mov	a,#0x2E
+   0597 F0                 1195 	movx	@dptr,a
+   0598 90s00r3A           1196 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0024)
+   059B 74 2E              1197 	mov	a,#0x2E
+   059D F0                 1198 	movx	@dptr,a
+   059E 90s00r3B           1199 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0025)
+   05A1 74 2E              1200 	mov	a,#0x2E
+   05A3 F0                 1201 	movx	@dptr,a
+   05A4 90s00r3C           1202 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0026)
+   05A7 74 2E              1203 	mov	a,#0x2E
+   05A9 F0                 1204 	movx	@dptr,a
+   05AA 90s00r3D           1205 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0027)
+   05AD 74 2E              1206 	mov	a,#0x2E
+   05AF F0                 1207 	movx	@dptr,a
+   05B0 90s00r3E           1208 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0028)
+   05B3 74 2E              1209 	mov	a,#0x2E
+   05B5 F0                 1210 	movx	@dptr,a
+   05B6 90s00r3F           1211 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0029)
+   05B9 74 2E              1212 	mov	a,#0x2E
+   05BB F0                 1213 	movx	@dptr,a
+   05BC 90s00r40           1214 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x002a)
+   05BF 74 32              1215 	mov	a,#0x32
+   05C1 F0                 1216 	movx	@dptr,a
+   05C2 90s00r41           1217 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x002b)
+   05C5 E4                 1218 	clr	a
+   05C6 F0                 1219 	movx	@dptr,a
+   05C7 90s00r42           1220 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x002c)
+   05CA 74 32              1221 	mov	a,#0x32
+   05CC F0                 1222 	movx	@dptr,a
+   05CD 90s00r43           1223 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x002d)
+   05D0 74 32              1224 	mov	a,#0x32
+   05D2 F0                 1225 	movx	@dptr,a
+   05D3 90s00r44           1226 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x002e)
+   05D6 74 32              1227 	mov	a,#0x32
+   05D8 F0                 1228 	movx	@dptr,a
+   05D9 90s00r45           1229 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x002f)
+   05DC 74 32              1230 	mov	a,#0x32
+   05DE F0                 1231 	movx	@dptr,a
+   05DF 90s00r46           1232 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0030)
+   05E2 74 32              1233 	mov	a,#0x32
+   05E4 F0                 1234 	movx	@dptr,a
+   05E5 90s00r47           1235 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0031)
+   05E8 74 32              1236 	mov	a,#0x32
+   05EA F0                 1237 	movx	@dptr,a
+   05EB 90s00r48           1238 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0032)
+   05EE 74 32              1239 	mov	a,#0x32
+   05F0 F0                 1240 	movx	@dptr,a
+   05F1 90s00r49           1241 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0033)
+   05F4 74 32              1242 	mov	a,#0x32
+   05F6 F0                 1243 	movx	@dptr,a
+   05F7 90s00r4A           1244 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0034)
+   05FA 74 32              1245 	mov	a,#0x32
+   05FC F0                 1246 	movx	@dptr,a
+   05FD 90s00r4B           1247 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0035)
+   0600 74 32              1248 	mov	a,#0x32
+   0602 F0                 1249 	movx	@dptr,a
+   0603 90s00r4C           1250 	mov	dptr,#(_bddGameboardDraw_c_1_1 + 0x0036)
+   0606 E4                 1251 	clr	a
+   0607 F0                 1252 	movx	@dptr,a
+                    0608   1253 	C$gameboard.c$177$1$1 ==.
+                           1254 ;	../gameboard.c:177: BDD_clear();
+   0608 12s00r00           1255 	lcall	_BDD_clear
+                    060B   1256 	C$gameboard.c$178$1$1 ==.
+                           1257 ;	../gameboard.c:178: GMB_draw(BDD_SCREEN_X, BDD_SCREEN_Y, BDD_SCREEN_X + BDD_SCREEN_WIDTH - 1, BDD_SCREEN_Y + BDD_SCREEN_HEIGHT - 1);
+   060B 90s00r02           1258 	mov	dptr,#_GMB_draw_PARM_2
+   060E 74 0A              1259 	mov	a,#0x0A
+   0610 F0                 1260 	movx	@dptr,a
+   0611 90s00r03           1261 	mov	dptr,#_GMB_draw_PARM_3
+   0614 74 1C              1262 	mov	a,#0x1C
+   0616 F0                 1263 	movx	@dptr,a
+   0617 90s00r04           1264 	mov	dptr,#_GMB_draw_PARM_4
+   061A 74 0E              1265 	mov	a,#0x0E
+   061C F0                 1266 	movx	@dptr,a
+   061D 75 82 13           1267 	mov	dpl,#0x13
+   0620 12s00r74           1268 	lcall	_GMB_draw
+                    0623   1269 	C$gameboard.c$179$1$1 ==.
+                           1270 ;	../gameboard.c:179: return BDD_assert(c, "GMBD");
+   0623 90s00r00           1271 	mov	dptr,#_BDD_assert_PARM_2
+   0626 74r00              1272 	mov	a,#__str_2
+   0628 F0                 1273 	movx	@dptr,a
+   0629 A3                 1274 	inc	dptr
+   062A 74s00              1275 	mov	a,#(__str_2 >> 8)
+   062C F0                 1276 	movx	@dptr,a
+   062D A3                 1277 	inc	dptr
+   062E 74 80              1278 	mov	a,#0x80
+   0630 F0                 1279 	movx	@dptr,a
+   0631 90s00r16           1280 	mov	dptr,#_bddGameboardDraw_c_1_1
+   0634 75 F0 00           1281 	mov	b,#0x00
+                    0637   1282 	C$gameboard.c$180$1$1 ==.
+                    0637   1283 	XG$bddGameboardDraw$0$0 ==.
+   0637 02s00r00           1284 	ljmp	_BDD_assert
+                           1285 ;------------------------------------------------------------
+                           1286 ;Allocation info for local variables in function 'bddGameboardClear'
+                           1287 ;------------------------------------------------------------
+                           1288 ;c                         Allocated with name '_bddGameboardClear_c_1_1'
+                           1289 ;------------------------------------------------------------
+                    063A   1290 	G$bddGameboardClear$0$0 ==.
+                    063A   1291 	C$gameboard.c$182$1$1 ==.
+                           1292 ;	../gameboard.c:182: int bddGameboardClear() {
+                           1293 ;	-----------------------------------------
+                           1294 ;	 function bddGameboardClear
+                           1295 ;	-----------------------------------------
+   063A                    1296 _bddGameboardClear:
+                    063A   1297 	C$gameboard.c$183$1$1 ==.
+                           1298 ;	../gameboard.c:183: BddExpectedContent c = {
+   063A 90s00r4D           1299 	mov	dptr,#_bddGameboardClear_c_1_1
+   063D 74 2E              1300 	mov	a,#0x2E
+   063F F0                 1301 	movx	@dptr,a
+   0640 90s00r4E           1302 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0001)
+   0643 74 2E              1303 	mov	a,#0x2E
+   0645 F0                 1304 	movx	@dptr,a
+   0646 90s00r4F           1305 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0002)
+   0649 74 2E              1306 	mov	a,#0x2E
+   064B F0                 1307 	movx	@dptr,a
+   064C 90s00r50           1308 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0003)
+   064F 74 2E              1309 	mov	a,#0x2E
+   0651 F0                 1310 	movx	@dptr,a
+   0652 90s00r51           1311 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0004)
+   0655 74 2E              1312 	mov	a,#0x2E
+   0657 F0                 1313 	movx	@dptr,a
+   0658 90s00r52           1314 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0005)
+   065B 74 2E              1315 	mov	a,#0x2E
+   065D F0                 1316 	movx	@dptr,a
+   065E 90s00r53           1317 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0006)
+   0661 74 2E              1318 	mov	a,#0x2E
+   0663 F0                 1319 	movx	@dptr,a
+   0664 90s00r54           1320 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0007)
+   0667 74 2E              1321 	mov	a,#0x2E
+   0669 F0                 1322 	movx	@dptr,a
+   066A 90s00r55           1323 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0008)
+   066D 74 2E              1324 	mov	a,#0x2E
+   066F F0                 1325 	movx	@dptr,a
+   0670 90s00r56           1326 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0009)
+   0673 74 2E              1327 	mov	a,#0x2E
+   0675 F0                 1328 	movx	@dptr,a
+   0676 90s00r57           1329 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x000a)
+   0679 E4                 1330 	clr	a
+   067A F0                 1331 	movx	@dptr,a
+   067B 90s00r58           1332 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x000b)
+   067E 74 2E              1333 	mov	a,#0x2E
+   0680 F0                 1334 	movx	@dptr,a
+   0681 90s00r59           1335 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x000c)
+   0684 74 20              1336 	mov	a,#0x20
+   0686 F0                 1337 	movx	@dptr,a
+   0687 90s00r5A           1338 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x000d)
+   068A 74 20              1339 	mov	a,#0x20
+   068C F0                 1340 	movx	@dptr,a
+   068D 90s00r5B           1341 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x000e)
+   0690 74 20              1342 	mov	a,#0x20
+   0692 F0                 1343 	movx	@dptr,a
+   0693 90s00r5C           1344 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x000f)
+   0696 74 20              1345 	mov	a,#0x20
+   0698 F0                 1346 	movx	@dptr,a
+   0699 90s00r5D           1347 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0010)
+   069C 74 20              1348 	mov	a,#0x20
+   069E F0                 1349 	movx	@dptr,a
+   069F 90s00r5E           1350 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0011)
+   06A2 74 20              1351 	mov	a,#0x20
+   06A4 F0                 1352 	movx	@dptr,a
+   06A5 90s00r5F           1353 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0012)
+   06A8 74 20              1354 	mov	a,#0x20
+   06AA F0                 1355 	movx	@dptr,a
+   06AB 90s00r60           1356 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0013)
+   06AE 74 20              1357 	mov	a,#0x20
+   06B0 F0                 1358 	movx	@dptr,a
+   06B1 90s00r61           1359 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0014)
+   06B4 74 2E              1360 	mov	a,#0x2E
+   06B6 F0                 1361 	movx	@dptr,a
+   06B7 90s00r62           1362 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0015)
+   06BA E4                 1363 	clr	a
+   06BB F0                 1364 	movx	@dptr,a
+   06BC 90s00r63           1365 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0016)
+   06BF 74 2E              1366 	mov	a,#0x2E
+   06C1 F0                 1367 	movx	@dptr,a
+   06C2 90s00r64           1368 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0017)
+   06C5 74 20              1369 	mov	a,#0x20
+   06C7 F0                 1370 	movx	@dptr,a
+   06C8 90s00r65           1371 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0018)
+   06CB 74 20              1372 	mov	a,#0x20
+   06CD F0                 1373 	movx	@dptr,a
+   06CE 90s00r66           1374 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0019)
+   06D1 74 20              1375 	mov	a,#0x20
+   06D3 F0                 1376 	movx	@dptr,a
+   06D4 90s00r67           1377 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x001a)
+   06D7 74 20              1378 	mov	a,#0x20
+   06D9 F0                 1379 	movx	@dptr,a
+   06DA 90s00r68           1380 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x001b)
+   06DD 74 20              1381 	mov	a,#0x20
+   06DF F0                 1382 	movx	@dptr,a
+   06E0 90s00r69           1383 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x001c)
+   06E3 74 20              1384 	mov	a,#0x20
+   06E5 F0                 1385 	movx	@dptr,a
+   06E6 90s00r6A           1386 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x001d)
+   06E9 74 20              1387 	mov	a,#0x20
+   06EB F0                 1388 	movx	@dptr,a
+   06EC 90s00r6B           1389 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x001e)
+   06EF 74 20              1390 	mov	a,#0x20
+   06F1 F0                 1391 	movx	@dptr,a
+   06F2 90s00r6C           1392 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x001f)
+   06F5 74 2E              1393 	mov	a,#0x2E
+   06F7 F0                 1394 	movx	@dptr,a
+   06F8 90s00r6D           1395 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0020)
+   06FB E4                 1396 	clr	a
+   06FC F0                 1397 	movx	@dptr,a
+   06FD 90s00r6E           1398 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0021)
+   0700 74 2E              1399 	mov	a,#0x2E
+   0702 F0                 1400 	movx	@dptr,a
+   0703 90s00r6F           1401 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0022)
+   0706 74 20              1402 	mov	a,#0x20
+   0708 F0                 1403 	movx	@dptr,a
+   0709 90s00r70           1404 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0023)
+   070C 74 20              1405 	mov	a,#0x20
+   070E F0                 1406 	movx	@dptr,a
+   070F 90s00r71           1407 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0024)
+   0712 74 20              1408 	mov	a,#0x20
+   0714 F0                 1409 	movx	@dptr,a
+   0715 90s00r72           1410 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0025)
+   0718 74 20              1411 	mov	a,#0x20
+   071A F0                 1412 	movx	@dptr,a
+   071B 90s00r73           1413 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0026)
+   071E 74 20              1414 	mov	a,#0x20
+   0720 F0                 1415 	movx	@dptr,a
+   0721 90s00r74           1416 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0027)
+   0724 74 20              1417 	mov	a,#0x20
+   0726 F0                 1418 	movx	@dptr,a
+   0727 90s00r75           1419 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0028)
+   072A 74 20              1420 	mov	a,#0x20
+   072C F0                 1421 	movx	@dptr,a
+   072D 90s00r76           1422 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0029)
+   0730 74 20              1423 	mov	a,#0x20
+   0732 F0                 1424 	movx	@dptr,a
+   0733 90s00r77           1425 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x002a)
+   0736 74 2E              1426 	mov	a,#0x2E
+   0738 F0                 1427 	movx	@dptr,a
+   0739 90s00r78           1428 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x002b)
+   073C E4                 1429 	clr	a
+   073D F0                 1430 	movx	@dptr,a
+   073E 90s00r79           1431 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x002c)
+   0741 74 2E              1432 	mov	a,#0x2E
+   0743 F0                 1433 	movx	@dptr,a
+   0744 90s00r7A           1434 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x002d)
+   0747 74 2E              1435 	mov	a,#0x2E
+   0749 F0                 1436 	movx	@dptr,a
+   074A 90s00r7B           1437 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x002e)
+   074D 74 2E              1438 	mov	a,#0x2E
+   074F F0                 1439 	movx	@dptr,a
+   0750 90s00r7C           1440 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x002f)
+   0753 74 2E              1441 	mov	a,#0x2E
+   0755 F0                 1442 	movx	@dptr,a
+   0756 90s00r7D           1443 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0030)
+   0759 74 2E              1444 	mov	a,#0x2E
+   075B F0                 1445 	movx	@dptr,a
+   075C 90s00r7E           1446 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0031)
+   075F 74 2E              1447 	mov	a,#0x2E
+   0761 F0                 1448 	movx	@dptr,a
+   0762 90s00r7F           1449 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0032)
+   0765 74 2E              1450 	mov	a,#0x2E
+   0767 F0                 1451 	movx	@dptr,a
+   0768 90s00r80           1452 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0033)
+   076B 74 2E              1453 	mov	a,#0x2E
+   076D F0                 1454 	movx	@dptr,a
+   076E 90s00r81           1455 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0034)
+   0771 74 2E              1456 	mov	a,#0x2E
+   0773 F0                 1457 	movx	@dptr,a
+   0774 90s00r82           1458 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0035)
+   0777 74 2E              1459 	mov	a,#0x2E
+   0779 F0                 1460 	movx	@dptr,a
+   077A 90s00r83           1461 	mov	dptr,#(_bddGameboardClear_c_1_1 + 0x0036)
+   077D E4                 1462 	clr	a
+   077E F0                 1463 	movx	@dptr,a
+                    077F   1464 	C$gameboard.c$191$1$1 ==.
+                           1465 ;	../gameboard.c:191: BDD_clear();
+   077F 12s00r00           1466 	lcall	_BDD_clear
+                    0782   1467 	C$gameboard.c$192$1$1 ==.
+                           1468 ;	../gameboard.c:192: GMB_clear(BDD_SCREEN_X + 1, BDD_SCREEN_Y + 1, BDD_SCREEN_X + BDD_SCREEN_WIDTH - 2, BDD_SCREEN_Y + BDD_SCREEN_HEIGHT - 2);
+   0782 90s00r08           1469 	mov	dptr,#_GMB_clear_PARM_2
+   0785 74 0B              1470 	mov	a,#0x0B
+   0787 F0                 1471 	movx	@dptr,a
+   0788 90s00r09           1472 	mov	dptr,#_GMB_clear_PARM_3
+   078B 74 1B              1473 	mov	a,#0x1B
+   078D F0                 1474 	movx	@dptr,a
+   078E 90s00r0A           1475 	mov	dptr,#_GMB_clear_PARM_4
+   0791 74 0D              1476 	mov	a,#0x0D
+   0793 F0                 1477 	movx	@dptr,a
+   0794 75 82 14           1478 	mov	dpl,#0x14
+   0797 12s01rBD           1479 	lcall	_GMB_clear
+                    079A   1480 	C$gameboard.c$193$1$1 ==.
+                           1481 ;	../gameboard.c:193: return BDD_assert(c, "GMBC");
+   079A 90s00r00           1482 	mov	dptr,#_BDD_assert_PARM_2
+   079D 74r05              1483 	mov	a,#__str_5
+   079F F0                 1484 	movx	@dptr,a
+   07A0 A3                 1485 	inc	dptr
+   07A1 74s00              1486 	mov	a,#(__str_5 >> 8)
+   07A3 F0                 1487 	movx	@dptr,a
+   07A4 A3                 1488 	inc	dptr
+   07A5 74 80              1489 	mov	a,#0x80
+   07A7 F0                 1490 	movx	@dptr,a
+   07A8 90s00r4D           1491 	mov	dptr,#_bddGameboardClear_c_1_1
+   07AB 75 F0 00           1492 	mov	b,#0x00
+                    07AE   1493 	C$gameboard.c$194$1$1 ==.
+                    07AE   1494 	XG$bddGameboardClear$0$0 ==.
+   07AE 02s00r00           1495 	ljmp	_BDD_assert
+                           1496 ;------------------------------------------------------------
+                           1497 ;Allocation info for local variables in function 'bddGameboardDisplay'
+                           1498 ;------------------------------------------------------------
+                           1499 ;c                         Allocated with name '_bddGameboardDisplay_c_1_1'
+                           1500 ;------------------------------------------------------------
+                    07B1   1501 	G$bddGameboardDisplay$0$0 ==.
+                    07B1   1502 	C$gameboard.c$196$1$1 ==.
+                           1503 ;	../gameboard.c:196: int bddGameboardDisplay() {
+                           1504 ;	-----------------------------------------
+                           1505 ;	 function bddGameboardDisplay
+                           1506 ;	-----------------------------------------
+   07B1                    1507 _bddGameboardDisplay:
+                    07B1   1508 	C$gameboard.c$197$1$1 ==.
+                           1509 ;	../gameboard.c:197: BddExpectedContent c = {
+   07B1 90s00r84           1510 	mov	dptr,#_bddGameboardDisplay_c_1_1
+   07B4 74 2E              1511 	mov	a,#0x2E
+   07B6 F0                 1512 	movx	@dptr,a
+   07B7 90s00r85           1513 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0001)
+   07BA 74 2E              1514 	mov	a,#0x2E
+   07BC F0                 1515 	movx	@dptr,a
+   07BD 90s00r86           1516 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0002)
+   07C0 74 2E              1517 	mov	a,#0x2E
+   07C2 F0                 1518 	movx	@dptr,a
+   07C3 90s00r87           1519 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0003)
+   07C6 74 2E              1520 	mov	a,#0x2E
+   07C8 F0                 1521 	movx	@dptr,a
+   07C9 90s00r88           1522 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0004)
+   07CC 74 2E              1523 	mov	a,#0x2E
+   07CE F0                 1524 	movx	@dptr,a
+   07CF 90s00r89           1525 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0005)
+   07D2 74 2E              1526 	mov	a,#0x2E
+   07D4 F0                 1527 	movx	@dptr,a
+   07D5 90s00r8A           1528 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0006)
+   07D8 74 2E              1529 	mov	a,#0x2E
+   07DA F0                 1530 	movx	@dptr,a
+   07DB 90s00r8B           1531 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0007)
+   07DE 74 2E              1532 	mov	a,#0x2E
+   07E0 F0                 1533 	movx	@dptr,a
+   07E1 90s00r8C           1534 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0008)
+   07E4 74 2E              1535 	mov	a,#0x2E
+   07E6 F0                 1536 	movx	@dptr,a
+   07E7 90s00r8D           1537 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0009)
+   07EA 74 2E              1538 	mov	a,#0x2E
+   07EC F0                 1539 	movx	@dptr,a
+   07ED 90s00r8E           1540 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x000a)
+   07F0 E4                 1541 	clr	a
+   07F1 F0                 1542 	movx	@dptr,a
+   07F2 90s00r8F           1543 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x000b)
+   07F5 74 2E              1544 	mov	a,#0x2E
+   07F7 F0                 1545 	movx	@dptr,a
+   07F8 90s00r90           1546 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x000c)
+   07FB 74 32              1547 	mov	a,#0x32
+   07FD F0                 1548 	movx	@dptr,a
+   07FE 90s00r91           1549 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x000d)
+   0801 74 32              1550 	mov	a,#0x32
+   0803 F0                 1551 	movx	@dptr,a
+   0804 90s00r92           1552 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x000e)
+   0807 74 32              1553 	mov	a,#0x32
+   0809 F0                 1554 	movx	@dptr,a
+   080A 90s00r93           1555 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x000f)
+   080D 74 32              1556 	mov	a,#0x32
+   080F F0                 1557 	movx	@dptr,a
+   0810 90s00r94           1558 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0010)
+   0813 74 32              1559 	mov	a,#0x32
+   0815 F0                 1560 	movx	@dptr,a
+   0816 90s00r95           1561 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0011)
+   0819 74 32              1562 	mov	a,#0x32
+   081B F0                 1563 	movx	@dptr,a
+   081C 90s00r96           1564 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0012)
+   081F 74 32              1565 	mov	a,#0x32
+   0821 F0                 1566 	movx	@dptr,a
+   0822 90s00r97           1567 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0013)
+   0825 74 2E              1568 	mov	a,#0x2E
+   0827 F0                 1569 	movx	@dptr,a
+   0828 90s00r98           1570 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0014)
+   082B 74 2E              1571 	mov	a,#0x2E
+   082D F0                 1572 	movx	@dptr,a
+   082E 90s00r99           1573 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0015)
+   0831 E4                 1574 	clr	a
+   0832 F0                 1575 	movx	@dptr,a
+   0833 90s00r9A           1576 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0016)
+   0836 74 2E              1577 	mov	a,#0x2E
+   0838 F0                 1578 	movx	@dptr,a
+   0839 90s00r9B           1579 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0017)
+   083C 74 32              1580 	mov	a,#0x32
+   083E F0                 1581 	movx	@dptr,a
+   083F 90s00r9C           1582 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0018)
+   0842 74 20              1583 	mov	a,#0x20
+   0844 F0                 1584 	movx	@dptr,a
+   0845 90s00r9D           1585 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0019)
+   0848 74 54              1586 	mov	a,#0x54
+   084A F0                 1587 	movx	@dptr,a
+   084B 90s00r9E           1588 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x001a)
+   084E 74 58              1589 	mov	a,#0x58
+   0850 F0                 1590 	movx	@dptr,a
+   0851 90s00r9F           1591 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x001b)
+   0854 74 54              1592 	mov	a,#0x54
+   0856 F0                 1593 	movx	@dptr,a
+   0857 90s00rA0           1594 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x001c)
+   085A 74 20              1595 	mov	a,#0x20
+   085C F0                 1596 	movx	@dptr,a
+   085D 90s00rA1           1597 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x001d)
+   0860 74 32              1598 	mov	a,#0x32
+   0862 F0                 1599 	movx	@dptr,a
+   0863 90s00rA2           1600 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x001e)
+   0866 74 2E              1601 	mov	a,#0x2E
+   0868 F0                 1602 	movx	@dptr,a
+   0869 90s00rA3           1603 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x001f)
+   086C 74 2E              1604 	mov	a,#0x2E
+   086E F0                 1605 	movx	@dptr,a
+   086F 90s00rA4           1606 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0020)
+   0872 E4                 1607 	clr	a
+   0873 F0                 1608 	movx	@dptr,a
+   0874 90s00rA5           1609 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0021)
+   0877 74 2E              1610 	mov	a,#0x2E
+   0879 F0                 1611 	movx	@dptr,a
+   087A 90s00rA6           1612 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0022)
+   087D 74 32              1613 	mov	a,#0x32
+   087F F0                 1614 	movx	@dptr,a
+   0880 90s00rA7           1615 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0023)
+   0883 74 32              1616 	mov	a,#0x32
+   0885 F0                 1617 	movx	@dptr,a
+   0886 90s00rA8           1618 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0024)
+   0889 74 32              1619 	mov	a,#0x32
+   088B F0                 1620 	movx	@dptr,a
+   088C 90s00rA9           1621 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0025)
+   088F 74 32              1622 	mov	a,#0x32
+   0891 F0                 1623 	movx	@dptr,a
+   0892 90s00rAA           1624 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0026)
+   0895 74 32              1625 	mov	a,#0x32
+   0897 F0                 1626 	movx	@dptr,a
+   0898 90s00rAB           1627 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0027)
+   089B 74 32              1628 	mov	a,#0x32
+   089D F0                 1629 	movx	@dptr,a
+   089E 90s00rAC           1630 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0028)
+   08A1 74 32              1631 	mov	a,#0x32
+   08A3 F0                 1632 	movx	@dptr,a
+   08A4 90s00rAD           1633 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0029)
+   08A7 74 2E              1634 	mov	a,#0x2E
+   08A9 F0                 1635 	movx	@dptr,a
+   08AA 90s00rAE           1636 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x002a)
+   08AD 74 2E              1637 	mov	a,#0x2E
+   08AF F0                 1638 	movx	@dptr,a
+   08B0 90s00rAF           1639 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x002b)
+   08B3 E4                 1640 	clr	a
+   08B4 F0                 1641 	movx	@dptr,a
+   08B5 90s00rB0           1642 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x002c)
+   08B8 74 2E              1643 	mov	a,#0x2E
+   08BA F0                 1644 	movx	@dptr,a
+   08BB 90s00rB1           1645 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x002d)
+   08BE 74 2E              1646 	mov	a,#0x2E
+   08C0 F0                 1647 	movx	@dptr,a
+   08C1 90s00rB2           1648 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x002e)
+   08C4 74 2E              1649 	mov	a,#0x2E
+   08C6 F0                 1650 	movx	@dptr,a
+   08C7 90s00rB3           1651 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x002f)
+   08CA 74 2E              1652 	mov	a,#0x2E
+   08CC F0                 1653 	movx	@dptr,a
+   08CD 90s00rB4           1654 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0030)
+   08D0 74 2E              1655 	mov	a,#0x2E
+   08D2 F0                 1656 	movx	@dptr,a
+   08D3 90s00rB5           1657 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0031)
+   08D6 74 2E              1658 	mov	a,#0x2E
+   08D8 F0                 1659 	movx	@dptr,a
+   08D9 90s00rB6           1660 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0032)
+   08DC 74 2E              1661 	mov	a,#0x2E
+   08DE F0                 1662 	movx	@dptr,a
+   08DF 90s00rB7           1663 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0033)
+   08E2 74 2E              1664 	mov	a,#0x2E
+   08E4 F0                 1665 	movx	@dptr,a
+   08E5 90s00rB8           1666 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0034)
+   08E8 74 2E              1667 	mov	a,#0x2E
+   08EA F0                 1668 	movx	@dptr,a
+   08EB 90s00rB9           1669 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0035)
+   08EE 74 2E              1670 	mov	a,#0x2E
+   08F0 F0                 1671 	movx	@dptr,a
+   08F1 90s00rBA           1672 	mov	dptr,#(_bddGameboardDisplay_c_1_1 + 0x0036)
+   08F4 E4                 1673 	clr	a
+   08F5 F0                 1674 	movx	@dptr,a
+                    08F6   1675 	C$gameboard.c$205$1$1 ==.
+                           1676 ;	../gameboard.c:205: BDD_clear();
+   08F6 12s00r00           1677 	lcall	_BDD_clear
+                    08F9   1678 	C$gameboard.c$207$1$1 ==.
+                           1679 ;	../gameboard.c:207: GMB_display(BDD_SCREEN_X + 1, BDD_SCREEN_Y + 1, " TXT ");
+   08F9 90s00r0E           1680 	mov	dptr,#_GMB_display_PARM_2
+   08FC 74 0B              1681 	mov	a,#0x0B
+   08FE F0                 1682 	movx	@dptr,a
+   08FF 90s00r0F           1683 	mov	dptr,#_GMB_display_PARM_3
+   0902 74r0A              1684 	mov	a,#__str_9
+   0904 F0                 1685 	movx	@dptr,a
+   0905 A3                 1686 	inc	dptr
+   0906 74s00              1687 	mov	a,#(__str_9 >> 8)
+   0908 F0                 1688 	movx	@dptr,a
+   0909 A3                 1689 	inc	dptr
+   090A 74 80              1690 	mov	a,#0x80
+   090C F0                 1691 	movx	@dptr,a
+   090D 75 82 14           1692 	mov	dpl,#0x14
+   0910 12s02rE6           1693 	lcall	_GMB_display
+                    0913   1694 	C$gameboard.c$208$1$1 ==.
+                           1695 ;	../gameboard.c:208: return BDD_assert(c, "GMBT");
+   0913 90s00r00           1696 	mov	dptr,#_BDD_assert_PARM_2
+   0916 74r10              1697 	mov	a,#__str_10
+   0918 F0                 1698 	movx	@dptr,a
+   0919 A3                 1699 	inc	dptr
+   091A 74s00              1700 	mov	a,#(__str_10 >> 8)
+   091C F0                 1701 	movx	@dptr,a
+   091D A3                 1702 	inc	dptr
+   091E 74 80              1703 	mov	a,#0x80
+   0920 F0                 1704 	movx	@dptr,a
+   0921 90s00r84           1705 	mov	dptr,#_bddGameboardDisplay_c_1_1
+   0924 75 F0 00           1706 	mov	b,#0x00
+                    0927   1707 	C$gameboard.c$209$1$1 ==.
+                    0927   1708 	XG$bddGameboardDisplay$0$0 ==.
+   0927 02s00r00           1709 	ljmp	_BDD_assert
+                           1710 ;------------------------------------------------------------
+                           1711 ;Allocation info for local variables in function 'testGameboard'
+                           1712 ;------------------------------------------------------------
+                           1713 ;testsInError              Allocated with name '_testGameboard_testsInError_1_1'
+                           1714 ;------------------------------------------------------------
+                    092A   1715 	G$testGameboard$0$0 ==.
+                    092A   1716 	C$gameboard.c$211$1$1 ==.
+                           1717 ;	../gameboard.c:211: int testGameboard() {
+                           1718 ;	-----------------------------------------
+                           1719 ;	 function testGameboard
+                           1720 ;	-----------------------------------------
+   092A                    1721 _testGameboard:
+                    092A   1722 	C$gameboard.c$214$1$1 ==.
+                           1723 ;	../gameboard.c:214: testsInError += bddGameboardDraw();
+   092A 12s04rC3           1724 	lcall	_bddGameboardDraw
+   092D AA 82              1725 	mov	r2,dpl
+   092F AB 83              1726 	mov	r3,dph
+                    0931   1727 	C$gameboard.c$215$1$1 ==.
+                           1728 ;	../gameboard.c:215: testsInError += bddGameboardClear();
+   0931 C0 02              1729 	push	ar2
+   0933 C0 03              1730 	push	ar3
+   0935 12s06r3A           1731 	lcall	_bddGameboardClear
+   0938 AC 82              1732 	mov	r4,dpl
+   093A AD 83              1733 	mov	r5,dph
+   093C D0 03              1734 	pop	ar3
+   093E D0 02              1735 	pop	ar2
+   0940 EC                 1736 	mov	a,r4
+   0941 2A                 1737 	add	a,r2
+   0942 FA                 1738 	mov	r2,a
+   0943 ED                 1739 	mov	a,r5
+   0944 3B                 1740 	addc	a,r3
+   0945 FB                 1741 	mov	r3,a
+                    0946   1742 	C$gameboard.c$216$1$1 ==.
+                           1743 ;	../gameboard.c:216: testsInError += bddGameboardDisplay();
+   0946 C0 02              1744 	push	ar2
+   0948 C0 03              1745 	push	ar3
+   094A 12s07rB1           1746 	lcall	_bddGameboardDisplay
+   094D AC 82              1747 	mov	r4,dpl
+   094F AD 83              1748 	mov	r5,dph
+   0951 D0 03              1749 	pop	ar3
+   0953 D0 02              1750 	pop	ar2
+   0955 EC                 1751 	mov	a,r4
+   0956 2A                 1752 	add	a,r2
+   0957 FA                 1753 	mov	r2,a
+   0958 ED                 1754 	mov	a,r5
+   0959 3B                 1755 	addc	a,r3
+                    095A   1756 	C$gameboard.c$218$1$1 ==.
+                           1757 ;	../gameboard.c:218: return testsInError;
+                    095A   1758 	C$gameboard.c$219$1$1 ==.
+                    095A   1759 	XG$testGameboard$0$0 ==.
+   095A 8A 82              1760 	mov	dpl,r2
+   095C F5 83              1761 	mov	dph,a
+   095E 22                 1762 	ret
+                           1763 	.area CSEG    (CODE)
+                           1764 	.area CONST   (CODE)
+                    0000   1765 Fgameboard$_str_2$0$0 == .
+   0000                    1766 __str_2:
+   0000 47 4D 42 44        1767 	.ascii "GMBD"
+   0004 00                 1768 	.db 0x00
+                    0005   1769 Fgameboard$_str_5$0$0 == .
+   0005                    1770 __str_5:
+   0005 47 4D 42 43        1771 	.ascii "GMBC"
+   0009 00                 1772 	.db 0x00
+                    000A   1773 Fgameboard$_str_9$0$0 == .
+   000A                    1774 __str_9:
+   000A 20 54 58 54 20     1775 	.ascii " TXT "
+   000F 00                 1776 	.db 0x00
+                    0010   1777 Fgameboard$_str_10$0$0 == .
+   0010                    1778 __str_10:
+   0010 47 4D 42 54        1779 	.ascii "GMBT"
+   0014 00                 1780 	.db 0x00
+                           1781 	.area XINIT   (CODE)
+                           1782 	.area CABS    (ABS,CODE)

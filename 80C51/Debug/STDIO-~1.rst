@@ -1,7 +1,7 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
                               3 ; Version 3.0.0 #6037 (Oct 31 2010) (MINGW32)
-                              4 ; This file was generated Mon Jan 23 19:50:55 2017
+                              4 ; This file was generated Mon Jan 23 21:01:50 2017
                               5 ;--------------------------------------------------------
                               6 	.module stdio_t6963c
                               7 	.optsdcc -mmcs51 --model-large
@@ -386,14 +386,14 @@
                             386 ;--------------------------------------------------------
                             387 	.area XSEG    (XDATA)
                     0000    388 LSTDIO_startWritingAt$y$1$1==.
-   0000                     389 _STDIO_startWritingAt_PARM_2:
-   0000                     390 	.ds 1
+   1028                     389 _STDIO_startWritingAt_PARM_2:
+   1028                     390 	.ds 1
                     0001    391 LSTDIO_startWritingAt$x$1$1==.
-   0001                     392 _STDIO_startWritingAt_x_1_1:
-   0001                     393 	.ds 1
+   1029                     392 _STDIO_startWritingAt_x_1_1:
+   1029                     393 	.ds 1
                     0002    394 Lputchar$c$1$1==.
-   0002                     395 _putchar_c_1_1:
-   0002                     396 	.ds 1
+   102A                     395 _putchar_c_1_1:
+   102A                     396 	.ds 1
                             397 ;--------------------------------------------------------
                             398 ; absolute external ram data
                             399 ;--------------------------------------------------------
@@ -403,8 +403,8 @@
                             403 ;--------------------------------------------------------
                             404 	.area XISEG   (XDATA)
                     0000    405 G$address$0$0==.
-   0000                     406 _address::
-   0000                     407 	.ds 2
+   125D                     406 _address::
+   125D                     407 	.ds 2
                             408 	.area HOME    (CODE)
                             409 	.area GSINIT0 (CODE)
                             410 	.area GSINIT1 (CODE)
@@ -441,7 +441,7 @@
                             441 ;	-----------------------------------------
                             442 ;	 function STDIO_initialize
                             443 ;	-----------------------------------------
-   0000                     444 _STDIO_initialize:
+   0470                     444 _STDIO_initialize:
                     0002    445 	ar2 = 0x02
                     0003    446 	ar3 = 0x03
                     0004    447 	ar4 = 0x04
@@ -454,7 +454,7 @@
                             454 ;	../stdio-t6963c.c:12: T6963C_initialize();
                     0000    455 	C$stdio_t6963c.c$13$1$1 ==.
                     0000    456 	XG$STDIO_initialize$0$0 ==.
-   0000 02s00r00            457 	ljmp	_T6963C_initialize
+   0470 02 04 15            457 	ljmp	_T6963C_initialize
                             458 ;------------------------------------------------------------
                             459 ;Allocation info for local variables in function 'STDIO_startWritingAt'
                             460 ;------------------------------------------------------------
@@ -467,28 +467,28 @@
                             467 ;	-----------------------------------------
                             468 ;	 function STDIO_startWritingAt
                             469 ;	-----------------------------------------
-   0003                     470 _STDIO_startWritingAt:
-   0003 E5 82               471 	mov	a,dpl
+   0473                     470 _STDIO_startWritingAt:
+   0473 E5 82               471 	mov	a,dpl
                     0005    472 	C$stdio_t6963c.c$22$1$1 ==.
                             473 ;	../stdio-t6963c.c:22: address = x + y * T6963C_COLONNES;
-   0005 90s00r01            474 	mov	dptr,#_STDIO_startWritingAt_x_1_1
-   0008 F0                  475 	movx	@dptr,a
-   0009 FA                  476 	mov	r2,a
-   000A 7B 00               477 	mov	r3,#0x00
-   000C 90s00r00            478 	mov	dptr,#_STDIO_startWritingAt_PARM_2
-   000F E0                  479 	movx	a,@dptr
-   0010 75 F0 1E            480 	mov	b,#0x1E
-   0013 A4                  481 	mul	ab
-   0014 90s00r00            482 	mov	dptr,#_address
-   0017 2A                  483 	add	a,r2
-   0018 F0                  484 	movx	@dptr,a
-   0019 EB                  485 	mov	a,r3
-   001A 35 F0               486 	addc	a,b
-   001C A3                  487 	inc	dptr
-   001D F0                  488 	movx	@dptr,a
+   0475 90 10 29            474 	mov	dptr,#_STDIO_startWritingAt_x_1_1
+   0478 F0                  475 	movx	@dptr,a
+   0479 FA                  476 	mov	r2,a
+   047A 7B 00               477 	mov	r3,#0x00
+   047C 90 10 28            478 	mov	dptr,#_STDIO_startWritingAt_PARM_2
+   047F E0                  479 	movx	a,@dptr
+   0480 75 F0 1E            480 	mov	b,#0x1E
+   0483 A4                  481 	mul	ab
+   0484 90 12 5D            482 	mov	dptr,#_address
+   0487 2A                  483 	add	a,r2
+   0488 F0                  484 	movx	@dptr,a
+   0489 EB                  485 	mov	a,r3
+   048A 35 F0               486 	addc	a,b
+   048C A3                  487 	inc	dptr
+   048D F0                  488 	movx	@dptr,a
                     001E    489 	C$stdio_t6963c.c$23$1$1 ==.
                     001E    490 	XG$STDIO_startWritingAt$0$0 ==.
-   001E 22                  491 	ret
+   048E 22                  491 	ret
                             492 ;------------------------------------------------------------
                             493 ;Allocation info for local variables in function 'putchar'
                             494 ;------------------------------------------------------------
@@ -500,229 +500,229 @@
                             500 ;	-----------------------------------------
                             501 ;	 function putchar
                             502 ;	-----------------------------------------
-   001F                     503 _putchar:
-   001F E5 82               504 	mov	a,dpl
+   048F                     503 _putchar:
+   048F E5 82               504 	mov	a,dpl
                     0021    505 	C$stdio_t6963c.c$30$1$1 ==.
                             506 ;	../stdio-t6963c.c:30: switch(c) {
-   0021 90s00r02            507 	mov	dptr,#_putchar_c_1_1
-   0024 F0                  508 	movx	@dptr,a
-   0025 FA                  509 	mov	r2,a
-   0026 BA E0 03            510 	cjne	r2,#0xE0,00115$
-   0029 02s00rE4            511 	ljmp	00105$
-   002C                     512 00115$:
-   002C BA E9 03            513 	cjne	r2,#0xE9,00116$
-   002F 02s00rBE            514 	ljmp	00104$
-   0032                     515 00116$:
-   0032 BA 09 02            516 	cjne	r2,#0x09,00117$
-   0035 80 72               517 	sjmp	00103$
-   0037                     518 00117$:
-   0037 BA 0A 02            519 	cjne	r2,#0x0A,00118$
-   003A 80 08               520 	sjmp	00101$
-   003C                     521 00118$:
-   003C BA 0D 02            522 	cjne	r2,#0x0D,00119$
-   003F 80 19               523 	sjmp	00102$
-   0041                     524 00119$:
-   0041 02s01r0A            525 	ljmp	00106$
+   0491 90 10 2A            507 	mov	dptr,#_putchar_c_1_1
+   0494 F0                  508 	movx	@dptr,a
+   0495 FA                  509 	mov	r2,a
+   0496 BA E0 03            510 	cjne	r2,#0xE0,00115$
+   0499 02 05 54            511 	ljmp	00105$
+   049C                     512 00115$:
+   049C BA E9 03            513 	cjne	r2,#0xE9,00116$
+   049F 02 05 2E            514 	ljmp	00104$
+   04A2                     515 00116$:
+   04A2 BA 09 02            516 	cjne	r2,#0x09,00117$
+   04A5 80 72               517 	sjmp	00103$
+   04A7                     518 00117$:
+   04A7 BA 0A 02            519 	cjne	r2,#0x0A,00118$
+   04AA 80 08               520 	sjmp	00101$
+   04AC                     521 00118$:
+   04AC BA 0D 02            522 	cjne	r2,#0x0D,00119$
+   04AF 80 19               523 	sjmp	00102$
+   04B1                     524 00119$:
+   04B1 02 05 7A            525 	ljmp	00106$
                     0044    526 	C$stdio_t6963c.c$31$2$2 ==.
                             527 ;	../stdio-t6963c.c:31: case '\n':
-   0044                     528 00101$:
+   04B4                     528 00101$:
                     0044    529 	C$stdio_t6963c.c$32$2$2 ==.
                             530 ;	../stdio-t6963c.c:32: address += T6963C_COLONNES;
-   0044 90s00r00            531 	mov	dptr,#_address
-   0047 E0                  532 	movx	a,@dptr
-   0048 FB                  533 	mov	r3,a
-   0049 A3                  534 	inc	dptr
-   004A E0                  535 	movx	a,@dptr
-   004B FC                  536 	mov	r4,a
-   004C 90s00r00            537 	mov	dptr,#_address
-   004F 74 1E               538 	mov	a,#0x1E
-   0051 2B                  539 	add	a,r3
-   0052 F0                  540 	movx	@dptr,a
-   0053 E4                  541 	clr	a
-   0054 3C                  542 	addc	a,r4
-   0055 A3                  543 	inc	dptr
-   0056 F0                  544 	movx	@dptr,a
+   04B4 90 12 5D            531 	mov	dptr,#_address
+   04B7 E0                  532 	movx	a,@dptr
+   04B8 FB                  533 	mov	r3,a
+   04B9 A3                  534 	inc	dptr
+   04BA E0                  535 	movx	a,@dptr
+   04BB FC                  536 	mov	r4,a
+   04BC 90 12 5D            537 	mov	dptr,#_address
+   04BF 74 1E               538 	mov	a,#0x1E
+   04C1 2B                  539 	add	a,r3
+   04C2 F0                  540 	movx	@dptr,a
+   04C3 E4                  541 	clr	a
+   04C4 3C                  542 	addc	a,r4
+   04C5 A3                  543 	inc	dptr
+   04C6 F0                  544 	movx	@dptr,a
                     0057    545 	C$stdio_t6963c.c$33$2$2 ==.
                             546 ;	../stdio-t6963c.c:33: break;
-   0057 02s01r2F            547 	ljmp	00107$
+   04C7 02 05 9F            547 	ljmp	00107$
                     005A    548 	C$stdio_t6963c.c$35$2$2 ==.
                             549 ;	../stdio-t6963c.c:35: case '\r':
-   005A                     550 00102$:
+   04CA                     550 00102$:
                     005A    551 	C$stdio_t6963c.c$36$2$2 ==.
                             552 ;	../stdio-t6963c.c:36: address /= T6963C_COLONNES;
-   005A 90s00r00            553 	mov	dptr,#_address
-   005D E0                  554 	movx	a,@dptr
-   005E FB                  555 	mov	r3,a
-   005F A3                  556 	inc	dptr
-   0060 E0                  557 	movx	a,@dptr
-   0061 FC                  558 	mov	r4,a
-   0062 90s00r00            559 	mov	dptr,#__divuint_PARM_2
-   0065 74 1E               560 	mov	a,#0x1E
-   0067 F0                  561 	movx	@dptr,a
-   0068 A3                  562 	inc	dptr
-   0069 E4                  563 	clr	a
-   006A F0                  564 	movx	@dptr,a
-   006B 8B 82               565 	mov	dpl,r3
-   006D 8C 83               566 	mov	dph,r4
-   006F C0 02               567 	push	ar2
-   0071 12s00r00            568 	lcall	__divuint
-   0074 E5 82               569 	mov	a,dpl
-   0076 85 83 F0            570 	mov	b,dph
-   0079 90s00r00            571 	mov	dptr,#_address
-   007C F0                  572 	movx	@dptr,a
-   007D A3                  573 	inc	dptr
-   007E E5 F0               574 	mov	a,b
-   0080 F0                  575 	movx	@dptr,a
+   04CA 90 12 5D            553 	mov	dptr,#_address
+   04CD E0                  554 	movx	a,@dptr
+   04CE FB                  555 	mov	r3,a
+   04CF A3                  556 	inc	dptr
+   04D0 E0                  557 	movx	a,@dptr
+   04D1 FC                  558 	mov	r4,a
+   04D2 90 12 19            559 	mov	dptr,#__divuint_PARM_2
+   04D5 74 1E               560 	mov	a,#0x1E
+   04D7 F0                  561 	movx	@dptr,a
+   04D8 A3                  562 	inc	dptr
+   04D9 E4                  563 	clr	a
+   04DA F0                  564 	movx	@dptr,a
+   04DB 8B 82               565 	mov	dpl,r3
+   04DD 8C 83               566 	mov	dph,r4
+   04DF C0 02               567 	push	ar2
+   04E1 12 19 E2            568 	lcall	__divuint
+   04E4 E5 82               569 	mov	a,dpl
+   04E6 85 83 F0            570 	mov	b,dph
+   04E9 90 12 5D            571 	mov	dptr,#_address
+   04EC F0                  572 	movx	@dptr,a
+   04ED A3                  573 	inc	dptr
+   04EE E5 F0               574 	mov	a,b
+   04F0 F0                  575 	movx	@dptr,a
                     0081    576 	C$stdio_t6963c.c$37$2$2 ==.
                             577 ;	../stdio-t6963c.c:37: address *= T6963C_COLONNES;
-   0081 90s00r00            578 	mov	dptr,#_address
-   0084 E0                  579 	movx	a,@dptr
-   0085 FB                  580 	mov	r3,a
-   0086 A3                  581 	inc	dptr
-   0087 E0                  582 	movx	a,@dptr
-   0088 FC                  583 	mov	r4,a
-   0089 90s00r00            584 	mov	dptr,#__mulint_PARM_2
-   008C EB                  585 	mov	a,r3
-   008D F0                  586 	movx	@dptr,a
-   008E A3                  587 	inc	dptr
-   008F EC                  588 	mov	a,r4
-   0090 F0                  589 	movx	@dptr,a
-   0091 90 00 1E            590 	mov	dptr,#0x001E
-   0094 12s00r00            591 	lcall	__mulint
-   0097 E5 82               592 	mov	a,dpl
-   0099 85 83 F0            593 	mov	b,dph
-   009C D0 02               594 	pop	ar2
-   009E 90s00r00            595 	mov	dptr,#_address
-   00A1 F0                  596 	movx	@dptr,a
-   00A2 A3                  597 	inc	dptr
-   00A3 E5 F0               598 	mov	a,b
-   00A5 F0                  599 	movx	@dptr,a
+   04F1 90 12 5D            578 	mov	dptr,#_address
+   04F4 E0                  579 	movx	a,@dptr
+   04F5 FB                  580 	mov	r3,a
+   04F6 A3                  581 	inc	dptr
+   04F7 E0                  582 	movx	a,@dptr
+   04F8 FC                  583 	mov	r4,a
+   04F9 90 12 22            584 	mov	dptr,#__mulint_PARM_2
+   04FC EB                  585 	mov	a,r3
+   04FD F0                  586 	movx	@dptr,a
+   04FE A3                  587 	inc	dptr
+   04FF EC                  588 	mov	a,r4
+   0500 F0                  589 	movx	@dptr,a
+   0501 90 00 1E            590 	mov	dptr,#0x001E
+   0504 12 1B 09            591 	lcall	__mulint
+   0507 E5 82               592 	mov	a,dpl
+   0509 85 83 F0            593 	mov	b,dph
+   050C D0 02               594 	pop	ar2
+   050E 90 12 5D            595 	mov	dptr,#_address
+   0511 F0                  596 	movx	@dptr,a
+   0512 A3                  597 	inc	dptr
+   0513 E5 F0               598 	mov	a,b
+   0515 F0                  599 	movx	@dptr,a
                     00A6    600 	C$stdio_t6963c.c$38$2$2 ==.
                             601 ;	../stdio-t6963c.c:38: break;
-   00A6 02s01r2F            602 	ljmp	00107$
+   0516 02 05 9F            602 	ljmp	00107$
                     00A9    603 	C$stdio_t6963c.c$40$2$2 ==.
                             604 ;	../stdio-t6963c.c:40: case '\t':
-   00A9                     605 00103$:
+   0519                     605 00103$:
                     00A9    606 	C$stdio_t6963c.c$41$2$2 ==.
                             607 ;	../stdio-t6963c.c:41: address += 3;
-   00A9 90s00r00            608 	mov	dptr,#_address
-   00AC E0                  609 	movx	a,@dptr
-   00AD FB                  610 	mov	r3,a
-   00AE A3                  611 	inc	dptr
-   00AF E0                  612 	movx	a,@dptr
-   00B0 FC                  613 	mov	r4,a
-   00B1 90s00r00            614 	mov	dptr,#_address
-   00B4 74 03               615 	mov	a,#0x03
-   00B6 2B                  616 	add	a,r3
-   00B7 F0                  617 	movx	@dptr,a
-   00B8 E4                  618 	clr	a
-   00B9 3C                  619 	addc	a,r4
-   00BA A3                  620 	inc	dptr
-   00BB F0                  621 	movx	@dptr,a
+   0519 90 12 5D            608 	mov	dptr,#_address
+   051C E0                  609 	movx	a,@dptr
+   051D FB                  610 	mov	r3,a
+   051E A3                  611 	inc	dptr
+   051F E0                  612 	movx	a,@dptr
+   0520 FC                  613 	mov	r4,a
+   0521 90 12 5D            614 	mov	dptr,#_address
+   0524 74 03               615 	mov	a,#0x03
+   0526 2B                  616 	add	a,r3
+   0527 F0                  617 	movx	@dptr,a
+   0528 E4                  618 	clr	a
+   0529 3C                  619 	addc	a,r4
+   052A A3                  620 	inc	dptr
+   052B F0                  621 	movx	@dptr,a
                     00BC    622 	C$stdio_t6963c.c$42$2$2 ==.
                             623 ;	../stdio-t6963c.c:42: break;
                     00BC    624 	C$stdio_t6963c.c$44$2$2 ==.
                             625 ;	../stdio-t6963c.c:44: case 'é':
-   00BC 80 71               626 	sjmp	00107$
-   00BE                     627 00104$:
+   052C 80 71               626 	sjmp	00107$
+   052E                     627 00104$:
                     00BE    628 	C$stdio_t6963c.c$45$2$2 ==.
                             629 ;	../stdio-t6963c.c:45: T6963C_dataWrite(T6963C_ZONE_TEXTE + address++, 0x62);
-   00BE 90s00r00            630 	mov	dptr,#_address
-   00C1 E0                  631 	movx	a,@dptr
-   00C2 FB                  632 	mov	r3,a
-   00C3 A3                  633 	inc	dptr
-   00C4 E0                  634 	movx	a,@dptr
-   00C5 FC                  635 	mov	r4,a
-   00C6 90s00r00            636 	mov	dptr,#_address
-   00C9 74 01               637 	mov	a,#0x01
-   00CB 2B                  638 	add	a,r3
-   00CC F0                  639 	movx	@dptr,a
-   00CD E4                  640 	clr	a
-   00CE 3C                  641 	addc	a,r4
-   00CF A3                  642 	inc	dptr
-   00D0 F0                  643 	movx	@dptr,a
-   00D1 90s00r00            644 	mov	dptr,#_T6963C_dataWrite_PARM_2
-   00D4 74 62               645 	mov	a,#0x62
-   00D6 F0                  646 	movx	@dptr,a
-   00D7 8B 82               647 	mov	dpl,r3
-   00D9 8C 83               648 	mov	dph,r4
-   00DB C0 02               649 	push	ar2
-   00DD 12s00r00            650 	lcall	_T6963C_dataWrite
-   00E0 D0 02               651 	pop	ar2
+   052E 90 12 5D            630 	mov	dptr,#_address
+   0531 E0                  631 	movx	a,@dptr
+   0532 FB                  632 	mov	r3,a
+   0533 A3                  633 	inc	dptr
+   0534 E0                  634 	movx	a,@dptr
+   0535 FC                  635 	mov	r4,a
+   0536 90 12 5D            636 	mov	dptr,#_address
+   0539 74 01               637 	mov	a,#0x01
+   053B 2B                  638 	add	a,r3
+   053C F0                  639 	movx	@dptr,a
+   053D E4                  640 	clr	a
+   053E 3C                  641 	addc	a,r4
+   053F A3                  642 	inc	dptr
+   0540 F0                  643 	movx	@dptr,a
+   0541 90 10 0C            644 	mov	dptr,#_T6963C_dataWrite_PARM_2
+   0544 74 62               645 	mov	a,#0x62
+   0546 F0                  646 	movx	@dptr,a
+   0547 8B 82               647 	mov	dpl,r3
+   0549 8C 83               648 	mov	dph,r4
+   054B C0 02               649 	push	ar2
+   054D 12 01 F5            650 	lcall	_T6963C_dataWrite
+   0550 D0 02               651 	pop	ar2
                     00E2    652 	C$stdio_t6963c.c$46$2$2 ==.
                             653 ;	../stdio-t6963c.c:46: break;
                     00E2    654 	C$stdio_t6963c.c$48$2$2 ==.
                             655 ;	../stdio-t6963c.c:48: case 'à':
-   00E2 80 4B               656 	sjmp	00107$
-   00E4                     657 00105$:
+   0552 80 4B               656 	sjmp	00107$
+   0554                     657 00105$:
                     00E4    658 	C$stdio_t6963c.c$49$2$2 ==.
                             659 ;	../stdio-t6963c.c:49: T6963C_dataWrite(T6963C_ZONE_TEXTE + address++, 0x65);
-   00E4 90s00r00            660 	mov	dptr,#_address
-   00E7 E0                  661 	movx	a,@dptr
-   00E8 FB                  662 	mov	r3,a
-   00E9 A3                  663 	inc	dptr
-   00EA E0                  664 	movx	a,@dptr
-   00EB FC                  665 	mov	r4,a
-   00EC 90s00r00            666 	mov	dptr,#_address
-   00EF 74 01               667 	mov	a,#0x01
-   00F1 2B                  668 	add	a,r3
-   00F2 F0                  669 	movx	@dptr,a
-   00F3 E4                  670 	clr	a
-   00F4 3C                  671 	addc	a,r4
-   00F5 A3                  672 	inc	dptr
-   00F6 F0                  673 	movx	@dptr,a
-   00F7 90s00r00            674 	mov	dptr,#_T6963C_dataWrite_PARM_2
-   00FA 74 65               675 	mov	a,#0x65
-   00FC F0                  676 	movx	@dptr,a
-   00FD 8B 82               677 	mov	dpl,r3
-   00FF 8C 83               678 	mov	dph,r4
-   0101 C0 02               679 	push	ar2
-   0103 12s00r00            680 	lcall	_T6963C_dataWrite
-   0106 D0 02               681 	pop	ar2
+   0554 90 12 5D            660 	mov	dptr,#_address
+   0557 E0                  661 	movx	a,@dptr
+   0558 FB                  662 	mov	r3,a
+   0559 A3                  663 	inc	dptr
+   055A E0                  664 	movx	a,@dptr
+   055B FC                  665 	mov	r4,a
+   055C 90 12 5D            666 	mov	dptr,#_address
+   055F 74 01               667 	mov	a,#0x01
+   0561 2B                  668 	add	a,r3
+   0562 F0                  669 	movx	@dptr,a
+   0563 E4                  670 	clr	a
+   0564 3C                  671 	addc	a,r4
+   0565 A3                  672 	inc	dptr
+   0566 F0                  673 	movx	@dptr,a
+   0567 90 10 0C            674 	mov	dptr,#_T6963C_dataWrite_PARM_2
+   056A 74 65               675 	mov	a,#0x65
+   056C F0                  676 	movx	@dptr,a
+   056D 8B 82               677 	mov	dpl,r3
+   056F 8C 83               678 	mov	dph,r4
+   0571 C0 02               679 	push	ar2
+   0573 12 01 F5            680 	lcall	_T6963C_dataWrite
+   0576 D0 02               681 	pop	ar2
                     0108    682 	C$stdio_t6963c.c$50$2$2 ==.
                             683 ;	../stdio-t6963c.c:50: break;
                     0108    684 	C$stdio_t6963c.c$52$2$2 ==.
                             685 ;	../stdio-t6963c.c:52: default:
-   0108 80 25               686 	sjmp	00107$
-   010A                     687 00106$:
+   0578 80 25               686 	sjmp	00107$
+   057A                     687 00106$:
                     010A    688 	C$stdio_t6963c.c$53$2$2 ==.
                             689 ;	../stdio-t6963c.c:53: T6963C_dataWrite(T6963C_ZONE_TEXTE + address++, c - 32);
-   010A 90s00r00            690 	mov	dptr,#_address
-   010D E0                  691 	movx	a,@dptr
-   010E FB                  692 	mov	r3,a
-   010F A3                  693 	inc	dptr
-   0110 E0                  694 	movx	a,@dptr
-   0111 FC                  695 	mov	r4,a
-   0112 90s00r00            696 	mov	dptr,#_address
-   0115 74 01               697 	mov	a,#0x01
-   0117 2B                  698 	add	a,r3
-   0118 F0                  699 	movx	@dptr,a
-   0119 E4                  700 	clr	a
-   011A 3C                  701 	addc	a,r4
-   011B A3                  702 	inc	dptr
-   011C F0                  703 	movx	@dptr,a
-   011D EA                  704 	mov	a,r2
-   011E 24 E0               705 	add	a,#0xe0
-   0120 90s00r00            706 	mov	dptr,#_T6963C_dataWrite_PARM_2
-   0123 F0                  707 	movx	@dptr,a
-   0124 8B 82               708 	mov	dpl,r3
-   0126 8C 83               709 	mov	dph,r4
-   0128 C0 02               710 	push	ar2
-   012A 12s00r00            711 	lcall	_T6963C_dataWrite
-   012D D0 02               712 	pop	ar2
+   057A 90 12 5D            690 	mov	dptr,#_address
+   057D E0                  691 	movx	a,@dptr
+   057E FB                  692 	mov	r3,a
+   057F A3                  693 	inc	dptr
+   0580 E0                  694 	movx	a,@dptr
+   0581 FC                  695 	mov	r4,a
+   0582 90 12 5D            696 	mov	dptr,#_address
+   0585 74 01               697 	mov	a,#0x01
+   0587 2B                  698 	add	a,r3
+   0588 F0                  699 	movx	@dptr,a
+   0589 E4                  700 	clr	a
+   058A 3C                  701 	addc	a,r4
+   058B A3                  702 	inc	dptr
+   058C F0                  703 	movx	@dptr,a
+   058D EA                  704 	mov	a,r2
+   058E 24 E0               705 	add	a,#0xe0
+   0590 90 10 0C            706 	mov	dptr,#_T6963C_dataWrite_PARM_2
+   0593 F0                  707 	movx	@dptr,a
+   0594 8B 82               708 	mov	dpl,r3
+   0596 8C 83               709 	mov	dph,r4
+   0598 C0 02               710 	push	ar2
+   059A 12 01 F5            711 	lcall	_T6963C_dataWrite
+   059D D0 02               712 	pop	ar2
                     012F    713 	C$stdio_t6963c.c$55$1$1 ==.
                             714 ;	../stdio-t6963c.c:55: }
-   012F                     715 00107$:
+   059F                     715 00107$:
                     012F    716 	C$stdio_t6963c.c$56$1$1 ==.
                             717 ;	../stdio-t6963c.c:56: return c;
-   012F 8A 82               718 	mov	dpl,r2
+   059F 8A 82               718 	mov	dpl,r2
                     0131    719 	C$stdio_t6963c.c$57$1$1 ==.
                     0131    720 	XG$putchar$0$0 ==.
-   0131 22                  721 	ret
+   05A1 22                  721 	ret
                             722 	.area CSEG    (CODE)
                             723 	.area CONST   (CODE)
                             724 	.area XINIT   (CODE)
                     0000    725 Fstdio_t6963c$__xinit_address$0$0 == .
-   0000                     726 __xinit__address:
-   0000 00 00               727 	.byte #0x00,#0x00	; 0
+   25F2                     726 __xinit__address:
+   25F2 00 00               727 	.byte #0x00,#0x00	; 0
                             728 	.area CABS    (ABS,CODE)

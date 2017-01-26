@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.0.0 #6037 (Oct 31 2010) (MINGW32)
-; This file was generated Mon Jan 23 19:50:54 2017
+; This file was generated Mon Jan 23 21:01:50 2017
 ;--------------------------------------------------------
 	.module main
 	.optsdcc -mmcs51 --model-large
@@ -446,8 +446,8 @@ __sdcc_program_startup:
 ;testsInError              Allocated with name '_main_testsInError_1_1'
 ;------------------------------------------------------------
 	G$main$0$0 ==.
-	C$main.c$53$0$0 ==.
-;	../main.c:53: void main(void) {
+	C$main.c$42$0$0 ==.
+;	../main.c:42: void main(void) {
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
@@ -460,31 +460,16 @@ _main:
 	ar7 = 0x07
 	ar0 = 0x00
 	ar1 = 0x01
-	C$main.c$55$1$1 ==.
-;	../main.c:55: STDIO_initialize();
+	C$main.c$44$1$1 ==.
+;	../main.c:44: STDIO_initialize();
 	lcall	_STDIO_initialize
-	C$main.c$57$1$1 ==.
-;	../main.c:57: testsInError += testBuffer();
+	C$main.c$46$1$1 ==.
+;	../main.c:46: testsInError += testBuffer();
 	lcall	_testBuffer
 	mov	r2,dpl
 	mov	r3,dph
-	C$main.c$58$1$1 ==.
-;	../main.c:58: testsInError += testSnake();
-	push	ar2
-	push	ar3
-	lcall	_testSnake
-	mov	r4,dpl
-	mov	r5,dph
-	pop	ar3
-	pop	ar2
-	mov	a,r4
-	add	a,r2
-	mov	r2,a
-	mov	a,r5
-	addc	a,r3
-	mov	r3,a
-	C$main.c$59$1$1 ==.
-;	../main.c:59: testsInError += testKeyboard();
+	C$main.c$47$1$1 ==.
+;	../main.c:47: testsInError += testKeyboard();
 	push	ar2
 	push	ar3
 	lcall	_testKeyboard
@@ -498,23 +483,8 @@ _main:
 	mov	a,r5
 	addc	a,r3
 	mov	r3,a
-	C$main.c$60$1$1 ==.
-;	../main.c:60: testsInError += testFruit();
-	push	ar2
-	push	ar3
-	lcall	_testFruit
-	mov	r4,dpl
-	mov	r5,dph
-	pop	ar3
-	pop	ar2
-	mov	a,r4
-	add	a,r2
-	mov	r2,a
-	mov	a,r5
-	addc	a,r3
-	mov	r3,a
-	C$main.c$61$1$1 ==.
-;	../main.c:61: testsInError += testGameboard();
+	C$main.c$48$1$1 ==.
+;	../main.c:48: testsInError += testGameboard();
 	push	ar2
 	push	ar3
 	lcall	_testGameboard
@@ -528,8 +498,8 @@ _main:
 	mov	a,r5
 	addc	a,r3
 	mov	r3,a
-	C$main.c$62$1$1 ==.
-;	../main.c:62: testsInError += testRand();
+	C$main.c$49$1$1 ==.
+;	../main.c:49: testsInError += testRand();
 	push	ar2
 	push	ar3
 	lcall	_testRand
@@ -543,8 +513,8 @@ _main:
 	mov	a,r5
 	addc	a,r3
 	mov	r3,a
-	C$main.c$64$1$1 ==.
-;	../main.c:64: printf("%d tests en erreur", testsInError);
+	C$main.c$51$1$1 ==.
+;	../main.c:51: printf("%d tests en erreur", testsInError);
 	push	ar2
 	push	ar3
 	mov	a,#__str_0
@@ -557,10 +527,10 @@ _main:
 	mov	a,sp
 	add	a,#0xfb
 	mov	sp,a
-	C$main.c$66$1$1 ==.
-;	../main.c:66: while(1);
+	C$main.c$53$1$1 ==.
+;	../main.c:53: while(1);
 00102$:
-	C$main.c$67$1$1 ==.
+	C$main.c$54$1$1 ==.
 	XG$main$0$0 ==.
 	sjmp	00102$
 	.area CSEG    (CODE)

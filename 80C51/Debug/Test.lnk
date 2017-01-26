@@ -16,14 +16,13 @@
 -l libfloat
 main.rel
 t6963c.rel
-stdio-t6963c.rel
+STDIO-~1.rel
 test.rel
 buffer.rel
-snake.rel
+cell.rel
 keyboard.rel
-fruit.rel
 bdd.rel
-gameboard.rel
+GAMEBO~1.rel
 rand.rel
 
 -e

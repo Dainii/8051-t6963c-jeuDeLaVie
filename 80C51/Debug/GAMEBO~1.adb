@@ -90,7 +90,7 @@ S:G$GMB_copyFromRomToCg$0$0({2}DF,SV:S),C,0,0
 S:G$bddGameboardDraw$0$0({2}DF,SI:S),C,0,0
 S:G$bddGameboardClear$0$0({2}DF,SI:S),C,0,0
 S:G$bddGameboardDisplay$0$0({2}DF,SI:S),C,0,0
-S:Fgameboard$_str_3$0$0({5}DA5,SC:S),D,0,0
-S:Fgameboard$_str_6$0$0({5}DA5,SC:S),D,0,0
-S:Fgameboard$_str_11$0$0({6}DA6,SC:S),D,0,0
-S:Fgameboard$_str_12$0$0({5}DA5,SC:S),D,0,0
+S:Fgameboard$_str_2$0$0({5}DA5,SC:S),D,0,0
+S:Fgameboard$_str_5$0$0({5}DA5,SC:S),D,0,0
+S:Fgameboard$_str_9$0$0({6}DA6,SC:S),D,0,0
+S:Fgameboard$_str_10$0$0({5}DA5,SC:S),D,0,0

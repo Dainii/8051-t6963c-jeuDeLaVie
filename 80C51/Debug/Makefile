@@ -16,37 +16,35 @@ LDFLAGS=-mmcs51 --model-large --debug --noinduction --nooverlay --xram-loc 0x100
 ## Processing Tools
 CC=sdcc.exe
 LD=sdcc.exe
-#  E:/heig/APM/Exercices/jeuDeLaVie/80C51/Debug/Test.cdb: TOOL=LD
-#     E:/heig/APM/Exercices/jeuDeLaVie/80C51/Debug/main.rel: TOOL=CC
-#        E:/heig/APM/Exercices/jeuDeLaVie/80C51/main.c
-#     E:/heig/APM/Exercices/jeuDeLaVie/80C51/Debug/t6963c.rel: TOOL=CC
-#        E:/heig/APM/Exercices/jeuDeLaVie/80C51/t6963c.c
-#     E:/heig/APM/Exercices/jeuDeLaVie/80C51/Debug/stdio-t6963c.rel: TOOL=CC
-#        E:/heig/APM/Exercices/jeuDeLaVie/80C51/stdio-t6963c.c
-#     E:/heig/APM/Exercices/jeuDeLaVie/80C51/Debug/test.rel: TOOL=CC
-#        E:/heig/APM/Exercices/jeuDeLaVie/80C51/test.c
-#     E:/heig/APM/Exercices/jeuDeLaVie/80C51/Debug/buffer.rel: TOOL=CC
-#        E:/heig/APM/Exercices/jeuDeLaVie/80C51/buffer.c
-#     E:/heig/APM/Exercices/jeuDeLaVie/80C51/Debug/snake.rel: TOOL=CC
-#        E:/heig/APM/Exercices/jeuDeLaVie/80C51/snake.c
-#     E:/heig/APM/Exercices/jeuDeLaVie/80C51/Debug/keyboard.rel: TOOL=CC
-#        E:/heig/APM/Exercices/jeuDeLaVie/80C51/keyboard.c
-#     E:/heig/APM/Exercices/jeuDeLaVie/80C51/Debug/fruit.rel: TOOL=CC
-#        E:/heig/APM/Exercices/jeuDeLaVie/80C51/fruit.c
-#     E:/heig/APM/Exercices/jeuDeLaVie/80C51/Debug/bdd.rel: TOOL=CC
-#        E:/heig/APM/Exercices/jeuDeLaVie/80C51/bdd.c
-#     E:/heig/APM/Exercices/jeuDeLaVie/80C51/Debug/gameboard.rel: TOOL=CC
-#        E:/heig/APM/Exercices/jeuDeLaVie/80C51/gameboard.c
-#     E:/heig/APM/Exercices/jeuDeLaVie/80C51/Debug/rand.rel: TOOL=CC
-#        E:/heig/APM/Exercices/jeuDeLaVie/80C51/rand.c
+#  C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/Debug/Test.cdb: TOOL=LD
+#     C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/Debug/main.rel: TOOL=CC
+#        C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/main.c
+#     C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/Debug/t6963c.rel: TOOL=CC
+#        C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/t6963c.c
+#     C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/Debug/STDIO-~1.rel: TOOL=CC
+#        C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/stdio-t6963c.c
+#     C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/Debug/test.rel: TOOL=CC
+#        C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/test.c
+#     C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/Debug/buffer.rel: TOOL=CC
+#        C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/buffer.c
+#     C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/Debug/cell.rel: TOOL=CC
+#        C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/cell.c
+#     C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/Debug/keyboard.rel: TOOL=CC
+#        C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/keyboard.c
+#     C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/Debug/bdd.rel: TOOL=CC
+#        C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/bdd.c
+#     C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/Debug/GAMEBO~1.rel: TOOL=CC
+#        C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/gameboard.c
+#     C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/Debug/rand.rel: TOOL=CC
+#        C:/Users/Frederic Noyer/CloudStation/HEIG-VD/3eme/APM/JeuDeLaVie/80C51/rand.c
 
 # Build tree:
 all:	Debug
 
 Debug:	Test.cdb
 
-Test.cdb:	main.rel t6963c.rel stdio-t6963c.rel test.rel buffer.rel snake.rel keyboard.rel fruit.rel bdd.rel gameboard.rel rand.rel 
-	$(LD) -Wl"-u" --out-fmt-ihx $(LDFLAGS)  -o "./Test.hex" "main.rel" "t6963c.rel" "stdio-t6963c.rel" "test.rel" "buffer.rel" "snake.rel" "keyboard.rel" "fruit.rel" "bdd.rel" "gameboard.rel" "rand.rel"
+Test.cdb:	main.rel t6963c.rel STDIO-~1.rel test.rel buffer.rel cell.rel keyboard.rel bdd.rel GAMEBO~1.rel rand.rel 
+	$(LD) -Wl"-u" --out-fmt-ihx $(LDFLAGS)  -o "./Test.hex" "main.rel" "t6963c.rel" "STDIO-~1.rel" "test.rel" "buffer.rel" "cell.rel" "keyboard.rel" "bdd.rel" "GAMEBO~1.rel" "rand.rel"
 
 main.rel:	../main.c 
 	$(CC) $(CCFLAGS)  -o "main.rel" "../main.c"
@@ -54,8 +52,8 @@ main.rel:	../main.c
 t6963c.rel:	../t6963c.c 
 	$(CC) $(CCFLAGS)  -o "t6963c.rel" "../t6963c.c"
 
-stdio-t6963c.rel:	../stdio-t6963c.c 
-	$(CC) $(CCFLAGS)  -o "stdio-t6963c.rel" "../stdio-t6963c.c"
+STDIO-~1.rel:	../stdio-t6963c.c 
+	$(CC) $(CCFLAGS)  -o "STDIO-~1.rel" "../stdio-t6963c.c"
 
 test.rel:	../test.c 
 	$(CC) $(CCFLAGS)  -o "test.rel" "../test.c"
@@ -63,20 +61,17 @@ test.rel:	../test.c
 buffer.rel:	../buffer.c 
 	$(CC) $(CCFLAGS)  -o "buffer.rel" "../buffer.c"
 
-snake.rel:	../snake.c 
-	$(CC) $(CCFLAGS)  -o "snake.rel" "../snake.c"
+cell.rel:	../cell.c 
+	$(CC) $(CCFLAGS)  -o "cell.rel" "../cell.c"
 
 keyboard.rel:	../keyboard.c 
 	$(CC) $(CCFLAGS)  -o "keyboard.rel" "../keyboard.c"
 
-fruit.rel:	../fruit.c 
-	$(CC) $(CCFLAGS)  -o "fruit.rel" "../fruit.c"
-
 bdd.rel:	../bdd.c 
 	$(CC) $(CCFLAGS)  -o "bdd.rel" "../bdd.c"
 
-gameboard.rel:	../gameboard.c 
-	$(CC) $(CCFLAGS)  -o "gameboard.rel" "../gameboard.c"
+GAMEBO~1.rel:	../gameboard.c 
+	$(CC) $(CCFLAGS)  -o "GAMEBO~1.rel" "../gameboard.c"
 
 rand.rel:	../rand.c 
 	$(CC) $(CCFLAGS)  -o "rand.rel" "../rand.c"
@@ -111,21 +106,16 @@ tidy:
 	rm -rf ./buffer.sym
 	rm -rf ./buffer.asm
 	rm -rf ./buffer.adb
-	rm -rf ./snake.lst
-	rm -rf ./snake.rst
-	rm -rf ./snake.sym
-	rm -rf ./snake.asm
-	rm -rf ./snake.adb
+	rm -rf ./cell.lst
+	rm -rf ./cell.rst
+	rm -rf ./cell.sym
+	rm -rf ./cell.asm
+	rm -rf ./cell.adb
 	rm -rf ./keyboard.lst
 	rm -rf ./keyboard.rst
 	rm -rf ./keyboard.sym
 	rm -rf ./keyboard.asm
 	rm -rf ./keyboard.adb
-	rm -rf ./fruit.lst
-	rm -rf ./fruit.rst
-	rm -rf ./fruit.sym
-	rm -rf ./fruit.asm
-	rm -rf ./fruit.adb
 	rm -rf ./bdd.lst
 	rm -rf ./bdd.rst
 	rm -rf ./bdd.sym
@@ -147,13 +137,12 @@ clean:	tidy
 	rm -rf Test.cdb
 	rm -rf main.rel
 	rm -rf t6963c.rel
-	rm -rf stdio-t6963c.rel
+	rm -rf STDIO-~1.rel
 	rm -rf test.rel
 	rm -rf buffer.rel
-	rm -rf snake.rel
+	rm -rf cell.rel
 	rm -rf keyboard.rel
-	rm -rf fruit.rel
 	rm -rf bdd.rel
-	rm -rf gameboard.rel
+	rm -rf GAMEBO~1.rel
 	rm -rf rand.rel
 	rm -rf Test.hex
