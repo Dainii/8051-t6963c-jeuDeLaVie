@@ -23,7 +23,7 @@ void GMB_copyFromRomToCg(unsigned char positionInRom, unsigned char cgCode) {
  * Initialise les caractères utilisés pendant le jeu.
  */
 void GMB_initialize() {
-	GMB_copyFromRomToCg( 0, COLOR_ALLIVE);
+	GMB_copyFromRomToCg( 0, COLOR_ALIVE);
 	GMB_copyFromRomToCg( 1, COLOR_BORN);
 	GMB_copyFromRomToCg( 2, COLOR_DEAD);
  	GMB_copyFromRomToCg( 3, COLOR_DYING);
@@ -167,11 +167,11 @@ void GMB_display(unsigned char x0, unsigned char y0, char *text) {
 #ifdef TEST
 int bddGameboardDraw() {
 	BddExpectedContent c = {
-		"2222222222",
-		"2........2",
-		"2........2",
-		"2........2",
-		"2222222222"
+		"CCCCCCCCCC",
+		"C........C",
+		"C........C",
+		"C........C",
+		"CCCCCCCCCC"
 	};
 
 	BDD_clear();
@@ -196,9 +196,9 @@ int bddGameboardClear() {
 int bddGameboardDisplay() {
 	BddExpectedContent c = {
 		"..........",
-		".2222222..",
-		".2 TXT 2..",
-		".2222222..",
+		".CCCCCCC..",
+		".C TXT C..",
+		".CCCCCCC..",
 		".........."
 	};
 
