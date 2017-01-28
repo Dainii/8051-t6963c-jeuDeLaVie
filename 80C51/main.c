@@ -1,15 +1,9 @@
 #include <mcs51reg.h>
-#include <time.h>
 #include "stdio-t6963c.h"
 #include "test.h"
-#include "buffer.h"
 #include "cell.h"
 #include "keyboard.h"
-#include "fruit.h"
 #include "gameboard.h"
-#include "rand.h"
-
-// Snake-0
 
 #ifndef TEST
 
@@ -21,20 +15,28 @@ void pause(unsigned int t) {
 void initialize() {
 	STDIO_initialize();
 	GMB_initialize();
+	CELL_initialize();
+	CELL_initLine();
 }
 
 void play() {
-
-   /* A COMPLETER */
+      
+      /*
+      while(1){
+	 CELL_iterate();
+	 pause(20000);
+	 CELL_iterateStatus();
+	 pause(20000);
+      }
+      */
+      
 }
 
 void main(void) {
-   /*
 	initialize();
 	play();
 
 	while(1);
-   */
 }
 
 #else
@@ -42,11 +44,11 @@ void main(void) {
 void main(void) {
 	int testsInError = 0;
 	STDIO_initialize();
+	CELL_initialize();
 
-	testsInError += testBuffer();
 	testsInError += testKeyboard();
 	testsInError += testGameboard();
-	testsInError += testRand();
+	testsInError += testCell();
 
 	printf("%d tests en erreur", testsInError);
 
