@@ -1,8 +1,11 @@
 #ifndef ___CELL_H
 #define ___CELL_H
 
-#include "keyboard.h"
 #include "main.h"
+
+#ifdef TEST
+int testCell();
+#endif
 
 typedef enum {
 	ALIVE,
@@ -17,12 +20,13 @@ typedef struct {
 	Status prochain;
 } Cell;
 
-void CELL_liveOrDie(Cell *cell);
-void CELL_next_status(Cell *cell);
-void CELL_switch_status(Cell *cell);
-
-#ifdef TEST
-int testSnake();
-#endif
+void CELL_initialize();
+void CELL_initLine();
+void CELL_iterate();
+void CELL_iterateStatus();
+unsigned char CELL_nearAliveCell(Cell *cell);
+void CELL_printCell(Cell *cell);
+void CELL_nextStatus(Cell *cell);
+void CELL_switchStatus(Cell *cell);
 
 #endif
