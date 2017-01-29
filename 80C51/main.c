@@ -16,20 +16,25 @@ void initialize() {
 	STDIO_initialize();
 	GMB_initialize();
 	CELL_initialize();
-	CELL_initLine();
 }
 
 void play() {
+      // Choix du model de base
+   
+      // Imprime une ligne de 3
+      // CELL_initLine();
+   
+      // Imprime une grenouile
+      CELL_initFrog();
+   
+      pause(20000);
       
-      /*
       while(1){
 	 CELL_iterate();
-	 pause(20000);
+	 pause(30000);
 	 CELL_iterateStatus();
-	 pause(20000);
+	 pause(30000);
       }
-      */
-      
 }
 
 void main(void) {
