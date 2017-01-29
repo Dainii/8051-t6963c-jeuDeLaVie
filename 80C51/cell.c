@@ -11,6 +11,15 @@ Cell __xdata board[BOARD_X1][BOARD_Y1];
 
 
 /**
+ * Met en pause le temps de la boucle
+ * @param t: nombre de boucle à faire
+ */
+void pause(unsigned int t) {
+	unsigned int n;
+	for (n=0; n < t; n++);
+}
+
+/**
  * Rempli le tableau de cellules
  */
 void CELL_initialize(){
@@ -285,25 +294,51 @@ void CELL_printCell(Cell *cell){
 
 /**
  * Effectue une itération sur le plateau de jeu
- * @param board: pointeur sur le tableau de jeu
  */
 void CELL_iterate() {
+    CELL_iterateNextStatus();
+    CELL_printBoard();
+    pause(50000);
+    CELL_iterateSwitchStatus();
+    CELL_printBoard();
+    pause(50000);
+}
+
+
+/**
+ * Calcul tous les changements de status
+ */
+void CELL_iterateNextStatus(){
     unsigned char x, y;
    
     for(x = 0; x < BOARD_X1; x++){
       for(y = 0; y < BOARD_Y1; y++){
 	 CELL_nextStatus(&board[x][y]);
-	 // CELL_printCell(&board[x][y]);
       }
     }
 }
- 
-void CELL_iterateStatus(){
+
+/**
+ * Applique les changements de status
+ */
+void CELL_iterateSwitchStatus(){
     unsigned char x, y;
    
-    for(x = 1; x < BOARD_X1; x++){
-      for(y = 1; y < BOARD_Y1; y++){
+    for(x = 0; x < BOARD_X1; x++){
+      for(y = 0; y < BOARD_Y1; y++){
 	 CELL_switchStatus(&board[x][y]);
+      }
+    }
+}
+
+/**
+ * Imprime le plateau
+ */
+void CELL_printBoard(){
+   unsigned char x, y;
+   
+   for(x = 0; x < BOARD_X1; x++){
+      for(y = 0; y < BOARD_Y1; y++){
 	 CELL_printCell(&board[x][y]);
       }
     }

@@ -20,11 +20,15 @@ typedef struct {
 	Status prochain;
 } Cell;
 
+void pause(unsigned int t);
+
 void CELL_initialize();
 void CELL_initLine();
 void CELL_initFrog();
 void CELL_iterate();
-void CELL_iterateStatus();
+void CELL_iterateSwitchStatus();
+void CELL_iterateNextStatus();
+void CELL_printBoard();
 unsigned char CELL_nearAliveCell(Cell *cell);
 void CELL_printCell(Cell *cell);
 void CELL_nextStatus(Cell *cell);

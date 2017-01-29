@@ -7,11 +7,6 @@
 
 #ifndef TEST
 
-void pause(unsigned int t) {
-	unsigned int n;
-	for (n=0; n < t; n++);
-}
-
 void initialize() {
 	STDIO_initialize();
 	GMB_initialize();
@@ -26,14 +21,10 @@ void play() {
    
       // Imprime une grenouile
       CELL_initFrog();
-   
-      pause(20000);
       
+      // Lance le traitement jusqu'à coupure de la simulation
       while(1){
 	 CELL_iterate();
-	 pause(30000);
-	 CELL_iterateStatus();
-	 pause(30000);
       }
 }
 

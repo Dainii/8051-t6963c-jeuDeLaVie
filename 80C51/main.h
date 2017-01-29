@@ -11,6 +11,4 @@ typedef struct {
 	unsigned char y;
 } Position;
 
-void pause(unsigned int t);
-
 #endif
