@@ -42,6 +42,43 @@ void CELL_initLine(){
 }
 
 /**
+ * Crée une grenouille
+ */
+void CELL_initFrog(){
+
+      // Premier point
+      board[2][4].actuel = ALIVE;
+      board[2][4].prochain = ALIVE;
+      CELL_printCell(&board[2][4]);
+   
+      // Deuxieme point
+      board[2][3].actuel = ALIVE;
+      board[2][3].prochain = ALIVE;
+      CELL_printCell(&board[2][3]);
+   
+      // Troisieme point
+      board[3][5].actuel = ALIVE;
+      board[3][5].prochain = ALIVE;
+      CELL_printCell(&board[3][5]);
+   
+      // Quatrieme point
+      board[4][2].actuel = ALIVE;
+      board[4][2].prochain = ALIVE;
+      CELL_printCell(&board[4][2]);
+   
+      // Cinquieme point
+      board[5][3].actuel = ALIVE;
+      board[5][3].prochain = ALIVE;
+      CELL_printCell(&board[5][3]);
+      
+      // Sixieme point
+      board[5][4].actuel = ALIVE;
+      board[5][4].prochain = ALIVE;
+      CELL_printCell(&board[5][4]);
+
+}
+
+/**
  * Calcul le nombre de cellules voisine vivantes
  * @param *cell: La cellule concernée
  * @return nearAliveCell: Retourne le nombre ce cellules voisines vivantes
@@ -52,6 +89,7 @@ unsigned char CELL_nearAliveCell(Cell *cell){
    
    // Cas de la première colonne
    if(cell->position.x == 0){
+      // Coin en haut à gauche
       if(cell->position.y == 0){
 	 for(x = 0; x <= 1; x++){
 	    // la ligne du dessous
@@ -60,6 +98,7 @@ unsigned char CELL_nearAliveCell(Cell *cell){
 	    }
 	 }
       }
+      // coin en bas à gauche
       else if (cell->position.y == BOARD_Y1 - 1) {
 	 for(x = 0; x <= 1; x++){
 	    // la ligne du dessus
@@ -68,13 +107,28 @@ unsigned char CELL_nearAliveCell(Cell *cell){
 	    }
 	 }	 
       }
+      // le reste de la colonne de gauche
+      else {
+	 for(x = 0; x <= 1; x++){
+	    // la ligne du dessus
+	    if(board[cell->position.x + x][cell->position.y - 1].actuel == ALIVE){
+	       nearAliveCell++;
+	    }
+	    // la ligne du dessous
+	    if(board[cell->position.x + x][cell->position.y + 1].actuel == ALIVE){
+	       nearAliveCell++;
+	    }
+	 }
+      }
       // Celle de droite
       if(board[cell->position.x + 1][cell->position.y].actuel == ALIVE){
 	 nearAliveCell++;
       }
    }
+   
    // Cas de la dernière colonne
    else if(cell->position.x == BOARD_X1 - 1){
+      // coin en haut à droite
       if(cell->position.y == 0){
 	 for(x = -1; x <= 0; x++){
 	    // la ligne du dessous
@@ -83,6 +137,7 @@ unsigned char CELL_nearAliveCell(Cell *cell){
 	    }
 	 }
       }
+      // coin en bas à droit
       else if (cell->position.y == BOARD_Y1 - 1) {
 	 for(x = -1; x <= 0; x++){
 	    // la ligne du dessus
@@ -91,11 +146,63 @@ unsigned char CELL_nearAliveCell(Cell *cell){
 	    }
 	 }
       }
+      // le reste de la colonne de droite
+      else {
+	 for(x = -1; x <= 0; x++){
+	    // la ligne du dessus
+	    if(board[cell->position.x + x][cell->position.y - 1].actuel == ALIVE){
+	       nearAliveCell++;
+	    }
+	    // la ligne du dessous
+	    if(board[cell->position.x + x][cell->position.y + 1].actuel == ALIVE){
+	       nearAliveCell++;
+	    }
+	 }
+	 
+      }
       // Celle de gauche
       if(board[cell->position.x - 1][cell->position.y].actuel == ALIVE){
 	 nearAliveCell++;
       }
    } 
+   
+   // cas de la première ligne sans les coin
+   else if(cell->position.y == 0){
+      for(x = -1; x <= 1; x++){
+	 // la ligne du dessous
+	 if(board[cell->position.x + x][cell->position.y + 1].actuel == ALIVE){
+	    nearAliveCell++;
+	 }
+      }
+       // Celle de gauche
+      if(board[cell->position.x - 1][cell->position.y].actuel == ALIVE){
+	 nearAliveCell++;
+      }
+      // Celle de droite
+      if(board[cell->position.x + 1][cell->position.y].actuel == ALIVE){
+	 nearAliveCell++;
+      }
+   }
+   
+   // cas de la dernière ligne sans les coin
+   else if(cell->position.y == BOARD_Y1 - 1){
+      for(x = -1; x <= 1; x++){
+	 // la ligne du dessus
+	 if(board[cell->position.x + x][cell->position.y - 1].actuel == ALIVE){
+	    nearAliveCell++;
+	 }
+      }
+       // Celle de gauche
+      if(board[cell->position.x - 1][cell->position.y].actuel == ALIVE){
+	 nearAliveCell++;
+      }
+      // Celle de droite
+      if(board[cell->position.x + 1][cell->position.y].actuel == ALIVE){
+	 nearAliveCell++;
+      }
+   }
+   
+   // l'intérieur du tableau
    else {
       for(x = -1; x < 2; x++){
 	 // la ligne du dessus
@@ -186,7 +293,7 @@ void CELL_iterate() {
     for(x = 0; x < BOARD_X1; x++){
       for(y = 0; y < BOARD_Y1; y++){
 	 CELL_nextStatus(&board[x][y]);
-	 CELL_printCell(&board[x][y]);
+	 // CELL_printCell(&board[x][y]);
       }
     }
 }

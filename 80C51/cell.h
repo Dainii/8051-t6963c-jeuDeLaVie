@@ -22,6 +22,7 @@ typedef struct {
 
 void CELL_initialize();
 void CELL_initLine();
+void CELL_initFrog();
 void CELL_iterate();
 void CELL_iterateStatus();
 unsigned char CELL_nearAliveCell(Cell *cell);
