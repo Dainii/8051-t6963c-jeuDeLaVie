@@ -20,7 +20,10 @@ void play() {
       // CELL_initLine();
    
       // Imprime une grenouile
-      CELL_initFrog();
+      // CELL_initFrog();
+   
+      // Imprime un vaisseau qui avance horizontalement
+      CELL_initShip();
       
       // Lance le traitement jusqu'à coupure de la simulation
       while(1){

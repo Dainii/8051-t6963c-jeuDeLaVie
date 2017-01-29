@@ -88,6 +88,57 @@ void CELL_initFrog(){
 }
 
 /**
+ * Crée un vaisseau avançant linéairement
+ */
+void CELL_initShip(){
+   
+      // Premier point
+      board[0][3].actuel = ALIVE;
+      board[0][3].prochain = ALIVE;
+      CELL_printCell(&board[0][3]);
+   
+      // Deuxieme point
+      board[0][5].actuel = ALIVE;
+      board[0][5].prochain = ALIVE;
+      CELL_printCell(&board[0][5]);
+   
+      // Troisieme point
+      board[1][6].actuel = ALIVE;
+      board[1][6].prochain = ALIVE;
+      CELL_printCell(&board[1][6]);
+   
+      // Quatrieme point
+      board[2][6].actuel = ALIVE;
+      board[2][6].prochain = ALIVE;
+      CELL_printCell(&board[2][6]);
+   
+      // Cinquieme point
+      board[3][3].actuel = ALIVE;
+      board[3][3].prochain = ALIVE;
+      CELL_printCell(&board[3][3]);
+      
+      // Sixieme point
+      board[3][6].actuel = ALIVE;
+      board[3][6].prochain = ALIVE;
+      CELL_printCell(&board[3][6]);
+      
+      // Septime point
+      board[4][4].actuel = ALIVE;
+      board[4][4].prochain = ALIVE;
+      CELL_printCell(&board[4][4]);
+      
+      // Huitieme point
+      board[4][5].actuel = ALIVE;
+      board[4][5].prochain = ALIVE;
+      CELL_printCell(&board[4][5]);
+      
+      // Neuxieme point
+      board[4][6].actuel = ALIVE;
+      board[4][6].prochain = ALIVE;
+      CELL_printCell(&board[4][6]);
+}
+
+/**
  * Calcul le nombre de cellules voisine vivantes
  * @param *cell: La cellule concernée
  * @return nearAliveCell: Retourne le nombre ce cellules voisines vivantes
@@ -297,8 +348,8 @@ void CELL_printCell(Cell *cell){
  */
 void CELL_iterate() {
     CELL_iterateNextStatus();
-    CELL_printBoard();
-    pause(50000);
+    // CELL_printBoard();
+    // pause(50000);
     CELL_iterateSwitchStatus();
     CELL_printBoard();
     pause(50000);
@@ -368,6 +419,7 @@ int testCellNextStatus() {
 	// Crée trois cellules allignées
 	for(x = 2; x < 5; x++){
 	   board[x][2].actuel = ALIVE;
+	   board[x][2].prochain = ALIVE;
 	}
 	
 	// Calcul tous les changements d'état
@@ -381,9 +433,12 @@ int testCellNextStatus() {
 	testsInError += assertEquals(board[2][2].prochain, DYING, "CNT001");
 	testsInError += assertEquals(board[4][2].prochain, DYING, "CNT002");
 	
-	// Celui au milieu dessus et dessous doivent naitre
+	// Celles au milieu dessus et dessous doivent naitre
 	testsInError += assertEquals(board[3][1].prochain, BORN, "CNT003");
 	testsInError += assertEquals(board[3][3].prochain, BORN, "CNT004");
+	
+	// Celle du millieu doit rester en vie
+	testsInError += assertEquals(board[3][2].prochain, ALIVE, "CNT005");
 	
 	return testsInError;
 }

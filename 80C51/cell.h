@@ -25,6 +25,7 @@ void pause(unsigned int t);
 void CELL_initialize();
 void CELL_initLine();
 void CELL_initFrog();
+void CELL_initShip();
 void CELL_iterate();
 void CELL_iterateSwitchStatus();
 void CELL_iterateNextStatus();
