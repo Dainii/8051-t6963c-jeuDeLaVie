@@ -15,7 +15,6 @@ typedef enum {
 } Status;
 
 typedef struct {
-	Position position;
 	Status actuel;
 	Status prochain;
 } Cell;
@@ -30,9 +29,9 @@ void CELL_iterate();
 void CELL_iterateSwitchStatus();
 void CELL_iterateNextStatus();
 void CELL_printBoard();
-unsigned char CELL_nearAliveCell(Cell *cell);
-void CELL_printCell(Cell *cell);
-void CELL_nextStatus(Cell *cell);
+unsigned char CELL_nearAliveCell(unsigned char x, unsigned char y);
+void CELL_printCell(Cell *cell, unsigned char x, unsigned char y);
+void CELL_nextStatus(Cell *cell, unsigned char x, unsigned char y);
 void CELL_switchStatus(Cell *cell);
 
 #endif
