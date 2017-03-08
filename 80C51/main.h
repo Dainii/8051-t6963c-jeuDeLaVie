@@ -6,9 +6,8 @@
 #define BOARD_X1 30
 #define BOARD_Y1 10
 
-typedef struct {
-	unsigned char x;
-	unsigned char y;
-} Position;
+#ifndef TEST
+void pause(unsigned int t);
+#endif
 
 #endif

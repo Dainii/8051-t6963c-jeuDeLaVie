@@ -24,9 +24,7 @@ void GMB_copyFromRomToCg(unsigned char positionInRom, unsigned char cgCode) {
  */
 void GMB_initialize() {
 	GMB_copyFromRomToCg( 0, COLOR_ALIVE);
-	GMB_copyFromRomToCg( 1, COLOR_BORN);
 	GMB_copyFromRomToCg( 2, COLOR_DEAD);
- 	GMB_copyFromRomToCg( 3, COLOR_DYING);
 	GMB_copyFromRomToCg( 4, MUR);
 }
 

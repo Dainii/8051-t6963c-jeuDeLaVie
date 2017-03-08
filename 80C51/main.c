@@ -5,29 +5,48 @@
 #include "keyboard.h"
 #include "gameboard.h"
 
+// Initialisation des doubles pointeurs
+unsigned char __xdata cellTab1[BOARD_X1][BOARD_Y1];
+unsigned char __xdata cellTab2[BOARD_X1][BOARD_Y1];
+
+
 #ifndef TEST
+
+/**
+ * Met en pause le temps de la boucle
+ * @param t: nombre de boucle à faire
+ */
+void pause(unsigned int t) {
+	unsigned int n;
+	for (n=0; n < t; n++);
+}
+
 
 void initialize() {
 	STDIO_initialize();
 	GMB_initialize();
-	CELL_initialize();
-}
-
-void play() {
+	CELL_initialize(&cellTab1);
+	CELL_initialize(&cellTab2);
+   
       // Choix du model de base
    
       // Imprime une ligne de 3
-      // CELL_initLine();
+      // CELL_initLine(&cellTab1);
    
       // Imprime une grenouile
-      // CELL_initFrog();
+      /// CELL_initFrog(&cellTab1);
    
       // Imprime un vaisseau qui avance horizontalement
-      CELL_initShip();
-      
+      CELL_initShip(&cellTab1);
+}
+
+void play() {
       // Lance le traitement jusqu'à coupure de la simulation
       while(1){
-	 CELL_iterate();
+	 	pause(50000);
+	 	CELL_iterate(&cellTab1, &cellTab2);
+	 	pause(50000);
+	 	CELL_iterate(&cellTab2, &cellTab1);
       }
 }
 

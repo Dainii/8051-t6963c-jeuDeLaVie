@@ -7,31 +7,15 @@
 int testCell();
 #endif
 
-typedef enum {
-	ALIVE,
-	DEAD,
-	BORN,
-	DYING
-} Status;
-
-typedef struct {
-	Status actuel;
-	Status prochain;
-} Cell;
-
-void pause(unsigned int t);
-
-void CELL_initialize();
-void CELL_initLine();
-void CELL_initFrog();
-void CELL_initShip();
-void CELL_iterate();
-void CELL_iterateSwitchStatus();
-void CELL_iterateNextStatus();
-void CELL_printBoard();
-unsigned char CELL_nearAliveCell(unsigned char x, unsigned char y);
-void CELL_printCell(Cell *cell, unsigned char x, unsigned char y);
-void CELL_nextStatus(Cell *cell, unsigned char x, unsigned char y);
-void CELL_switchStatus(Cell *cell);
+void CELL_initialize(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]);
+void CELL_initLine(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]);
+void CELL_initFrog(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]);
+void CELL_initShip(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]);
+unsigned char CELL_nearAliveCell(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1], unsigned char x, unsigned char y);
+void CELL_nextStatus(unsigned char (*cellTab1)[BOARD_X1][BOARD_Y1], unsigned char (*cellTab2)[BOARD_X1][BOARD_Y1], unsigned char x, unsigned char y);
+void CELL_iterate(unsigned char (*cellTab1)[BOARD_X1][BOARD_Y1], unsigned char (*cellTab2)[BOARD_X1][BOARD_Y1]);
+void CELL_iterateNextStatus(unsigned char (*cellTab1)[BOARD_X1][BOARD_Y1], unsigned char (*cellTab2)[BOARD_X1][BOARD_Y1]);
+void CELL_printCell(unsigned char cell, unsigned char x, unsigned char y);
+void CELL_printBoard(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]);
 
 #endif

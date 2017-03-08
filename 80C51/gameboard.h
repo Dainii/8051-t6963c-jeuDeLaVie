@@ -9,8 +9,6 @@ int testGameboard();
 
 #define COLOR_ALIVE 	0x21
 #define COLOR_DEAD 	0x00
-#define COLOR_DYING 	0x24
-#define COLOR_BORN 	0x22
 
 #define MUR 0x23
 
