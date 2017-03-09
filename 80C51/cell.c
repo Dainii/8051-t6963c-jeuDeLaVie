@@ -6,258 +6,259 @@
 
 /**
  * Rempli le tableau de cellules
+ * @param (*cellTab)[BOARD_X1][BOARD_Y1]: Pointeur sur tableau de taille fixe
  */
 void CELL_initialize(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]){
-   unsigned char x, y;
-   
-   for(x = 0; x < BOARD_X1; x++){
-      for(y = 0; y < BOARD_Y1; y++){
-	     (*cellTab)[x][y] = 0;
-      }
-   }
+	unsigned char x, y;
+	 
+	for(x = 0; x < BOARD_X1; x++){
+		for(y = 0; y < BOARD_Y1; y++){
+			(*cellTab)[x][y] = 0;
+		}
+	}
 }
 
 
 
 /**
  * Crée une ligne de 3 cellules en vie
+ * @param (*cellTab)[BOARD_X1][BOARD_Y1]: Pointeur sur tableau de taille fixe
  */
 void CELL_initLine(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]){
-   unsigned char x;
-   
-   // Crée trois cellules allignées
-   for(x = 5; x < 8; x++){
-      (*cellTab)[x][5] = 0x01;
-      CELL_printCell((*cellTab)[x][5], x, 5);
-   }
-
+	unsigned char x;
+	 
+	// Crée trois cellules allignées
+	for(x = 5; x < 8; x++){
+		(*cellTab)[x][5] = 0x01;
+		CELL_printCell((*cellTab)[x][5], x, 5);
+	}
 }
 
 
 /**
  * Crée une grenouille
+ * @param (*cellTab)[BOARD_X1][BOARD_Y1]: Pointeur sur tableau de taille fixe
  */
 void CELL_initFrog(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]){
+	// Premier point
+	(*cellTab)[2][4] = 1;
+	CELL_printCell((*cellTab)[2][4], 2, 4);
 
-      // Premier point
-      (*cellTab)[2][4] = 1;
-      CELL_printCell((*cellTab)[2][4], 2, 4);
-   
-      // Deuxieme point
-      (*cellTab)[2][3] = 1;
-      CELL_printCell((*cellTab)[2][3], 2, 3);
-   
-      // Troisieme point
-      (*cellTab)[3][5] = 1;
-      CELL_printCell((*cellTab)[3][5], 3, 5);
-   
-      // Quatrieme point
-      (*cellTab)[4][2] = 1;
-      CELL_printCell((*cellTab)[4][2], 4, 2);
-   
-      // Cinquieme point
-      (*cellTab)[5][3] = 1;
-      CELL_printCell((*cellTab)[5][3], 5, 3);
-      
-      // Sixieme point
-      (*cellTab)[5][4] = 1;
-      CELL_printCell((*cellTab)[5][4], 5, 4);
+	// Deuxieme point
+	(*cellTab)[2][3] = 1;
+	CELL_printCell((*cellTab)[2][3], 2, 3);
 
+	// Troisieme point
+	(*cellTab)[3][5] = 1;
+	CELL_printCell((*cellTab)[3][5], 3, 5);
+
+	// Quatrieme point
+	(*cellTab)[4][2] = 1;
+	CELL_printCell((*cellTab)[4][2], 4, 2);
+
+	// Cinquieme point
+	(*cellTab)[5][3] = 1;
+	CELL_printCell((*cellTab)[5][3], 5, 3);
+	
+	// Sixieme point
+	(*cellTab)[5][4] = 1;
+	CELL_printCell((*cellTab)[5][4], 5, 4);
 }
 
 
 
 /**
  * Crée un vaisseau avançant linéairement
+ * @param (*cellTab)[BOARD_X1][BOARD_Y1]: Pointeur sur tableau de taille fixe
  */
 void CELL_initShip(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]){
-   
-      // Premier point
-     (*cellTab)[0][3] = 1;
-      CELL_printCell((*cellTab)[0][3], 0, 3);
-   
-      // Deuxieme point
-     (*cellTab)[0][5] = 1;
-      CELL_printCell((*cellTab)[0][5], 0, 5);
-   
-      // Troisieme point
-     (*cellTab)[1][6] = 1;
-      CELL_printCell((*cellTab)[1][6], 1, 6);
-   
-      // Quatrieme point
-     (*cellTab)[2][6] = 1;
-      CELL_printCell((*cellTab)[2][6], 2, 6);
-   
-      // Cinquieme point
-     (*cellTab)[3][3] = 1;
-      CELL_printCell((*cellTab)[3][3], 3, 3);
-      
-      // Sixieme point
-     (*cellTab)[3][6] = 1;
-      CELL_printCell((*cellTab)[3][6], 3, 6);
-      
-      // Septime point
-     (*cellTab)[4][4] = 1;
-      CELL_printCell((*cellTab)[4][4], 4, 4);
-      
-      // Huitieme point
-     (*cellTab)[4][5] = 1;
-      CELL_printCell((*cellTab)[4][5], 4, 5);
-      
-      // Neuxieme point
-     (*cellTab)[4][6] = 1;
-      CELL_printCell((*cellTab)[4][6], 4, 6);
+		// Premier point
+		(*cellTab)[0][3] = 1;
+		CELL_printCell((*cellTab)[0][3], 0, 3);
+	 
+		// Deuxieme point
+		(*cellTab)[0][5] = 1;
+		CELL_printCell((*cellTab)[0][5], 0, 5);
+	 
+		// Troisieme point
+		(*cellTab)[1][6] = 1;
+		CELL_printCell((*cellTab)[1][6], 1, 6);
+	 
+		// Quatrieme point
+		(*cellTab)[2][6] = 1;
+		CELL_printCell((*cellTab)[2][6], 2, 6);
+	 
+		// Cinquieme point
+		(*cellTab)[3][3] = 1;
+		CELL_printCell((*cellTab)[3][3], 3, 3);
+			
+		// Sixieme point
+		(*cellTab)[3][6] = 1;
+		CELL_printCell((*cellTab)[3][6], 3, 6);
+			
+		// Septime point
+		(*cellTab)[4][4] = 1;
+		CELL_printCell((*cellTab)[4][4], 4, 4);
+			
+		// Huitieme point
+		(*cellTab)[4][5] = 1;
+		CELL_printCell((*cellTab)[4][5], 4, 5);
+			
+		// Neuxieme point
+		(*cellTab)[4][6] = 1;
+		CELL_printCell((*cellTab)[4][6], 4, 6);
 }
 
 
 
 /**
  * Calcul le nombre de cellules voisine vivantes
- * @param *cell: La cellule concernée
+ * @param (*cellTab)[BOARD_X1][BOARD_Y1]: Pointeur sur tableau de taille fixe
+ * @param x, y: Les coordonnées de la cellule dans le tableau
  * @return nearAliveCell: Retourne le nombre ce cellules voisines vivantes
  */
 unsigned char CELL_nearAliveCell(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1], unsigned char x, unsigned char y){
-   char z;
-   unsigned char nearAliveCell = 0;
-   
-   // Cas de la première colonne
-   if(x == 0){
-      // Coin en haut à gauche
-      if(y == 0){
-	 for(z = 0; z <= 1; z++){
-	    // la ligne du dessous
-	    if((*cellTab)[x + z][y + 1] == 1){
-	       nearAliveCell++;
-	    }
-	 }
-      }
-      // coin en bas à gauche
-      else if (y == BOARD_Y1 - 1) {
-	 for(z = 0; z <= 1; z++){
-	    // la ligne du dessus
-	    if((*cellTab)[x + z][y - 1] == 1){
-	       nearAliveCell++;
-	    }
-	 }	 
-      }
-      // le reste de la colonne de gauche
-      else {
-	 for(z = 0; z <= 1; z++){
-	    // la ligne du dessus
-	    if((*cellTab)[x + z][y - 1] == 1){
-	       nearAliveCell++;
-	    }
-	    // la ligne du dessous
-	    if((*cellTab)[x + z][y + 1] == 1){
-	       nearAliveCell++;
-	    }
-	 }
-      }
-      // Celle de droite
-      if((*cellTab)[x + 1][y] == 1){
-	 nearAliveCell++;
-      }
-   }
-   
-   // Cas de la dernière colonne
-   else if(x == BOARD_X1 - 1){
-      // coin en haut à droite
-      if(y == 0){
-	 for(z = -1; z <= 0; z++){
-	    // la ligne du dessous
-	    if((*cellTab)[x + z][y + 1] == 1){
-	       nearAliveCell++;
-	    }
-	 }
-      }
-      // coin en bas à droit
-      else if (y == BOARD_Y1 - 1) {
-	 for(z = -1; z <= 0; z++){
-	    // la ligne du dessus
-	    if((*cellTab)[x + z][y - 1] == 1){
-	       nearAliveCell++;
-	    }
-	 }
-      }
-      // le reste de la colonne de droite
-      else {
-	 for(z = -1; z <= 0; z++){
-	    // la ligne du dessus
-	    if((*cellTab)[x + z][y - 1] == 1){
-	       nearAliveCell++;
-	    }
-	    // la ligne du dessous
-	    if((*cellTab)[x + z][y + 1] == 1){
-	       nearAliveCell++;
-	    }
-	 }
+	char z;
+	unsigned char nearAliveCell = 0;
 	 
-      }
-      // Celle de gauche
-      if((*cellTab)[x - 1][y] == 1){
-	 nearAliveCell++;
-      }
-   } 
-   
-   // cas de la première ligne sans les coin
-   else if(y == 0){
-      for(z = -1; z <= 1; z++){
-	 // la ligne du dessous
-	 if((*cellTab)[x + z][y + 1] == 1){
-	    nearAliveCell++;
-	 }
-      }
-       // Celle de gauche
-      if((*cellTab)[x - 1][y] == 1){
-	 nearAliveCell++;
-      }
-      // Celle de droite
-      if((*cellTab)[x + 1][y] == 1){
-	 nearAliveCell++;
-      }
-   }
-   
-   // cas de la dernière ligne sans les coin
-   else if(y == BOARD_Y1 - 1){
-      for(z = -1; z <= 1; z++){
-	 // la ligne du dessus
-	 if((*cellTab)[x + z][y - 1] == 1){
-	    nearAliveCell++;
-	 }
-      }
-       // Celle de gauche
-      if((*cellTab)[x - 1][y] == 1){
-	 nearAliveCell++;
-      }
-      // Celle de droite
-      if((*cellTab)[x + 1][y] == 1){
-	 nearAliveCell++;
-      }
-   }
-   
-   // l'intérieur du tableau
-   else {
-      for(z = -1; z < 2; z++){
-	 // la ligne du dessus
-	 if((*cellTab)[x + z][y - 1] == 1){
-	    nearAliveCell++;
-	 }
-	 // la ligne du dessous
-	 if((*cellTab)[x + z][y + 1] == 1){
-	    nearAliveCell++;
-	 }
-      }
-      // Celle de gauche
-      if((*cellTab)[x - 1][y] == 1){
-	 nearAliveCell++;
-      }
-      // Celle de droite
-      if((*cellTab)[x + 1][y] == 1){
-	 nearAliveCell++;
-      }
-   }
-   
-   return nearAliveCell;
+	// Cas de la première colonne
+	if(x == 0){
+		// Coin en haut à gauche
+		if(y == 0){
+	 		for(z = 0; z <= 1; z++){
+				// la ligne du dessous
+				if((*cellTab)[x + z][y + 1] == 1){
+					nearAliveCell++;
+				}
+	 		}
+		}
+		// coin en bas à gauche
+		else if (y == BOARD_Y1 - 1) {
+	 		for(z = 0; z <= 1; z++){
+				// la ligne du dessus
+				if((*cellTab)[x + z][y - 1] == 1){
+					nearAliveCell++;
+				}
+	 		}	 
+		}
+		// le reste de la colonne de gauche
+		else {
+	 		for(z = 0; z <= 1; z++){
+				// la ligne du dessus
+				if((*cellTab)[x + z][y - 1] == 1){
+					nearAliveCell++;
+				}
+				// la ligne du dessous
+				if((*cellTab)[x + z][y + 1] == 1){
+					nearAliveCell++;
+				}
+	 		}
+		}
+		// Celle de droite
+			if((*cellTab)[x + 1][y] == 1){
+	 			nearAliveCell++;
+			}
+	}
+	 
+	// Cas de la dernière colonne
+	else if(x == BOARD_X1 - 1){
+		// coin en haut à droite
+		if(y == 0){
+	 		for(z = -1; z <= 0; z++){
+				// la ligne du dessous
+				if((*cellTab)[x + z][y + 1] == 1){
+					nearAliveCell++;
+				}
+	 		}
+		}
+		// coin en bas à droit
+		else if (y == BOARD_Y1 - 1) {
+	 		for(z = -1; z <= 0; z++){
+				// la ligne du dessus
+				if((*cellTab)[x + z][y - 1] == 1){
+					nearAliveCell++;
+				}
+	 		}
+		}
+		// le reste de la colonne de droite
+		else {
+	 		for(z = -1; z <= 0; z++){
+				// la ligne du dessus
+				if((*cellTab)[x + z][y - 1] == 1){
+					nearAliveCell++;
+				}
+				// la ligne du dessous
+				if((*cellTab)[x + z][y + 1] == 1){
+					nearAliveCell++;
+				}
+	 		}
+		}
+		// Celle de gauche
+		if((*cellTab)[x - 1][y] == 1){
+	 		nearAliveCell++;
+		}
+	} 
+	 
+	// cas de la première ligne sans les coins
+	else if(y == 0){
+		for(z = -1; z <= 1; z++){
+	 		// la ligne du dessous
+	 		if((*cellTab)[x + z][y + 1] == 1){
+				nearAliveCell++;
+	 		}
+		}
+		// Celle de gauche
+		if((*cellTab)[x - 1][y] == 1){
+	 		nearAliveCell++;
+		}
+		// Celle de droite
+		if((*cellTab)[x + 1][y] == 1){
+	 		nearAliveCell++;
+		}
+	}
+	 
+	// cas de la dernière ligne sans les coin
+	else if(y == BOARD_Y1 - 1){
+		for(z = -1; z <= 1; z++){
+	 		// la ligne du dessus
+	 		if((*cellTab)[x + z][y - 1] == 1){
+				nearAliveCell++;
+	 		}
+		}
+		// Celle de gauche
+		if((*cellTab)[x - 1][y] == 1){
+	 		nearAliveCell++;
+		}
+		// Celle de droite
+		if((*cellTab)[x + 1][y] == 1){
+	 		nearAliveCell++;
+		}
+	}
+	 
+	// l'intérieur du tableau
+	else {
+		for(z = -1; z < 2; z++){
+	 		// la ligne du dessus
+	 		if((*cellTab)[x + z][y - 1] == 1){
+				nearAliveCell++;
+	 		}
+	 		// la ligne du dessous
+	 		if((*cellTab)[x + z][y + 1] == 1){
+				nearAliveCell++;
+	 		}
+		}
+		// Celle de gauche
+		if((*cellTab)[x - 1][y] == 1){
+	 		nearAliveCell++;
+		}
+		// Celle de droite
+		if((*cellTab)[x + 1][y] == 1){
+	 		nearAliveCell++;
+		}
+	}
+	 
+	// Retourne le nombre de cellules vivantes voisines
+	return nearAliveCell;
 }
 
 
@@ -265,19 +266,23 @@ unsigned char CELL_nearAliveCell(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1], u
  * Calul l'état prochain de la cellule en fonction de son état actuel et du nombre de cellule
  * adjacante vivante autour d'elle
  */
-void CELL_nextStatus(unsigned char (*cellTab1)[BOARD_X1][BOARD_Y1], unsigned char (*cellTab2)[BOARD_X1][BOARD_Y1], unsigned char x, unsigned char y){
-   unsigned char nearAliveCell = CELL_nearAliveCell(cellTab1, x, y);
-   
-   // DETERMINER ET ASSIGNER L'ETAT SUIVANT
-   if((*cellTab1)[x][y] == 0 && nearAliveCell == 3){	// CAS OU LA CELLULE ETAIT MORTE AU DEPART
-      (*cellTab2)[x][y] = 1;
-   } else if((*cellTab1)[x][y] == 1 && !(nearAliveCell == 2 || nearAliveCell == 3)){ // CAS OU NOTRE CELLULE ETAIT VIVANTE AU DEPART
-      (*cellTab2)[x][y] = 0;
-   } else if((*cellTab1)[x][y] == 1 && (nearAliveCell == 2 || nearAliveCell == 3)){
-      (*cellTab2)[x][y] = 1;
-   } else {
-      (*cellTab2)[x][y] = 0;
-   }
+void CELL_nextStatus(unsigned char (*oldCellTab)[BOARD_X1][BOARD_Y1], unsigned char (*newCellTab)[BOARD_X1][BOARD_Y1], unsigned char x, unsigned char y){
+	// Obitent le nombre de cellules vivantes voisines
+	unsigned char nearAliveCell = CELL_nearAliveCell(oldCellTab1, x, y);
+	 
+	// Détermine le prochain état
+	// Si la cellule était morte, devient en vie si elle a 3 voisines vivantes
+	if((*oldCellTab)[x][y] == 0 && nearAliveCell == 3){	
+		(*newCellTab)[x][y] = 1;
+	} 
+	// CAS OU NOTRE CELLULE ETAIT VIVANTE AU DEPART
+	 else if((*oldCellTab)[x][y] == 1 && !(nearAliveCell == 2 || nearAliveCell == 3)){ 
+			(*newCellTab)[x][y] = 0;
+	 } else if((*oldCellTab)[x][y] == 1 && (nearAliveCell == 2 || nearAliveCell == 3)){
+			(*newCellTab)[x][y] = 1;
+	 } else {
+			(*newCellTab)[x][y] = 0;
+	 }
 }
 
 
@@ -287,17 +292,17 @@ void CELL_nextStatus(unsigned char (*cellTab1)[BOARD_X1][BOARD_Y1], unsigned cha
  * @param *cell: pointeur sur la cellule
  */
 void CELL_printCell(unsigned char cell, unsigned char x, unsigned char y){
-   switch (cell) {
-      case 0x01 :
+	 switch (cell) {
+			case 0x01 :
 	T6963C_writeAt(x, y, COLOR_ALIVE);
 	break;
-      case 0x00 :
+			case 0x00 :
 	T6963C_writeAt(x, y, COLOR_DEAD);
 	break;
-      default: 
+			default: 
 	break;
-   }
-   
+	 }
+	 
 }
 
 
@@ -305,8 +310,8 @@ void CELL_printCell(unsigned char cell, unsigned char x, unsigned char y){
  * Effectue une itération sur le plateau de jeu
  */
 void CELL_iterate(unsigned char (*cellTab1)[BOARD_X1][BOARD_Y1], unsigned char (*cellTab2)[BOARD_X1][BOARD_Y1]){
-    CELL_iterateNextStatus(cellTab1, cellTab2);
-    CELL_printBoard(cellTab2);
+		CELL_iterateNextStatus(cellTab1, cellTab2);
+		CELL_printBoard(cellTab2);
 }
 
 
@@ -315,13 +320,13 @@ void CELL_iterate(unsigned char (*cellTab1)[BOARD_X1][BOARD_Y1], unsigned char (
  * Calcul tous les changements de status
  */
 void CELL_iterateNextStatus(unsigned char (*cellTab1)[BOARD_X1][BOARD_Y1], unsigned char (*cellTab2)[BOARD_X1][BOARD_Y1]){
-    unsigned char x, y;
-   
-    for(x = 0; x < BOARD_X1; x++){
-      for(y = 0; y < BOARD_Y1; y++){
+		unsigned char x, y;
+	 
+		for(x = 0; x < BOARD_X1; x++){
+			for(y = 0; y < BOARD_Y1; y++){
 	 CELL_nextStatus(cellTab1, cellTab2, x, y);
-      }
-    }
+			}
+		}
 }
 
 
@@ -331,13 +336,13 @@ void CELL_iterateNextStatus(unsigned char (*cellTab1)[BOARD_X1][BOARD_Y1], unsig
  * Imprime le plateau
  */
 void CELL_printBoard(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]){
-   unsigned char x, y;
-   
-   for(x = 0; x < BOARD_X1; x++){
-      for(y = 0; y < BOARD_Y1; y++){
+	 unsigned char x, y;
+	 
+	 for(x = 0; x < BOARD_X1; x++){
+			for(y = 0; y < BOARD_Y1; y++){
 	 CELL_printCell((*cellTab)[x][y], x, y);
-      }
-    }
+			}
+		}
 }
 
 
@@ -347,7 +352,7 @@ void CELL_printBoard(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]){
 int testCellSwitchStatus() {
 	int testsInError = 0;
 	Cell cell;
-   
+	 
 	cell.prochain = DYING;
 	CELL_switchStatus(&cell);
 	testsInError += assertEquals(cell.prochain, 0, "CSS001");
@@ -363,18 +368,18 @@ int testCellSwitchStatus() {
 int testCellNextStatus() {
 	int testsInError = 0;
 	unsigned char x, y;
-   
+	 
 	// Crée trois cellules allignées
 	for(x = 2; x < 5; x++){
-	   board[x][2] = 1;
-	   board[x][2].prochain = 1;
+		 board[x][2] = 1;
+		 board[x][2].prochain = 1;
 	}
 	
 	// Calcul tous les changements d'état
 	for(x = 0; x < BOARD_X1 - 1; x++){
-	    for(y = 0; y < BOARD_Y1 - 1; y++){
-	       CELL_nextStatus(&board[x][y], x, y);
-	    }
+			for(y = 0; y < BOARD_Y1 - 1; y++){
+				 CELL_nextStatus(&board[x][y], x, y);
+			}
 	}
 	
 	// Les deux du coté doivent mourir
@@ -393,22 +398,22 @@ int testCellNextStatus() {
 
 int testCellPrint() {
 	int testsInError = 0;
-   
+	 
 	// Test d'une cellule vivante
 	board[1][1].prochain = 1;
 	CELL_printCell(&board[1][1], 1, 1);
 	testsInError += assertEquals(T6963C_readFrom(1, 1), COLOR_1, "CP001");
-   
+	 
 	// Test d'une cellule morte
 	board[1][2].prochain = 0;
 	CELL_printCell(&board[1][2], 1, 2);
 	testsInError += assertEquals(T6963C_readFrom(1, 2), COLOR_0, "CP002");
-   
+	 
 	// Test d'une cellule naissante
 	board[1][3].prochain = BORN;
 	CELL_printCell(&board[1][3], 1, 3);
 	testsInError += assertEquals(T6963C_readFrom(1, 3), COLOR_BORN, "CP003");
-   
+	 
 	// Test d'une cellule moursnte
 	board[1][4].prochain = DYING;
 	CELL_printCell(&board[1][4], 1, 4);
