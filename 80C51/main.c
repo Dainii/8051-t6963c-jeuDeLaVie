@@ -2,7 +2,6 @@
 #include "stdio-t6963c.h"
 #include "test.h"
 #include "cell.h"
-#include "keyboard.h"
 #include "gameboard.h"
 
 // Initialisation des doubles pointeurs
@@ -64,7 +63,6 @@ void main(void) {
 	STDIO_initialize();
 	CELL_initialize();
 
-	testsInError += testKeyboard();
 	testsInError += testGameboard();
 	testsInError += testCell();
 

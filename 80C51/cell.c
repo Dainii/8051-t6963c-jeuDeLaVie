@@ -18,6 +18,7 @@ void CELL_initialize(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]){
 }
 
 
+
 /**
  * Crée une ligne de 3 cellules en vie
  */
@@ -65,6 +66,7 @@ void CELL_initFrog(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]){
 }
 
 
+
 /**
  * Crée un vaisseau avançant linéairement
  */
@@ -106,6 +108,7 @@ void CELL_initShip(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]){
      (*cellTab)[4][6] = 1;
       CELL_printCell((*cellTab)[4][6], 4, 6);
 }
+
 
 
 /**
@@ -276,6 +279,7 @@ void CELL_nextStatus(unsigned char (*cellTab1)[BOARD_X1][BOARD_Y1], unsigned cha
       (*cellTab2)[x][y] = 0;
    }
 }
+
 
 
 /**
