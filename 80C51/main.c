@@ -61,7 +61,6 @@ void main(void) {
 void main(void) {
 	int testsInError = 0;
 	STDIO_initialize();
-	CELL_initialize();
 
 	testsInError += testGameboard();
 	testsInError += testCell();
