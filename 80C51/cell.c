@@ -20,6 +20,8 @@ void CELL_initialize(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]){
 
 
 
+#ifndef TEST
+
 /**
  * Crée une ligne de 3 cellules en vie
  * @param (*cellTab)[BOARD_X1][BOARD_Y1]: Pointeur sur tableau de taille fixe
@@ -108,6 +110,8 @@ void CELL_initShip(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]){
 	(*cellTab)[4][6] = 1;
 	CELL_printCell((*cellTab)[4][6], 4, 6);
 }
+
+#endif
 
 
 
@@ -271,7 +275,7 @@ unsigned char CELL_nearAliveCell(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1], u
  */
 void CELL_nextStatus(unsigned char (*oldCellTab)[BOARD_X1][BOARD_Y1], unsigned char (*newCellTab)[BOARD_X1][BOARD_Y1], unsigned char x, unsigned char y){
 	// Obitent le nombre de cellules vivantes voisines
-	unsigned char nearAliveCell = CELL_nearAliveCell(oldCellTab1, x, y);
+	unsigned char nearAliveCell = CELL_nearAliveCell(oldCellTab, x, y);
 	 
 	// Détermine le prochain état
 	// Si la cellule était morte, devient vivante si elle a exactement 3 voisines vivantes 
@@ -363,6 +367,11 @@ void CELL_printBoard(unsigned char (*cellTab)[BOARD_X1][BOARD_Y1]){
 
 #ifdef TEST
 
+// Initialisation des doubles pointeurs
+unsigned char __xdata cellTab1[BOARD_X1][BOARD_Y1];
+unsigned char __xdata cellTab2[BOARD_X1][BOARD_Y1];
+
+
 // Test l'initialisation du tableau
 int testTabInitialization() {
 	int testsInError = 0;
@@ -375,7 +384,8 @@ int testTabInitialization() {
 	// Vérifie que toutes les cases sont égale à 0
 	for(x = 0; x < BOARD_X1; x++){
 		for(y = 0; y < BOARD_Y1; y++){
-			((cellTab1[x][y] != 0x00) ? notNullCase++);
+			if(cellTab1[x][y] != 0x00)
+			   notNullCase++;
 		}
 	}
 
@@ -450,12 +460,12 @@ int testCellNearAliveCell() {
  * Ici le but est de vérifier un cas simple. Un ligne verticale doit devenir une ligne horizontale
  * On doit donc passer d'un tableau de type 1 vers un tableau de type 2 puis à 3
  *
- *     1		    2			 3
- *  ####### 	 #######	  #######
- *  # 000 #		 # 010 #	  # 000 #
- *  # 111 # ===> # 010 # ===> # 111 #
- *  # 000 #		 # 010 #	  # 000 #
- *  #######		 #######	  #######
+ *     1	    2		   3
+ *  ####### 	 #######	#######
+ *  # 000 #	 # 010 #	# 000 #
+ *  # 111 # ===> # 010 # ===> 	# 111 #
+ *  # 000 #	 # 010 #	# 000 #
+ *  #######	 #######	#######
  *
  */
 int testCellIteration() {
@@ -539,7 +549,6 @@ int testCell() {
 
 	testsInError += testTabInitialization();
 	testsInError += testCellNearAliveCell();
-	testsInError += testCellNextStatus();
 	testsInError += testCellPrint();
 
 	return testsInError;

@@ -1,15 +1,28 @@
 #include <mcs51reg.h>
 #include "stdio-t6963c.h"
 #include "test.h"
+#include "main.h"
 #include "cell.h"
 #include "gameboard.h"
+
+
+
+#ifndef TEST
 
 // Initialisation des doubles pointeurs
 unsigned char __xdata cellTab1[BOARD_X1][BOARD_Y1];
 unsigned char __xdata cellTab2[BOARD_X1][BOARD_Y1];
 
+/**
+ * Choisis le modèle de départ
+ * 
+ * 1. Ligne horizontale de 3 cellules
+ * 2. La grenouille
+ * 3. L'avion
+ *
+ */
+unsigned char CHOIX = 3;
 
-#ifndef TEST
 
 /**
  * Met en pause le temps de la boucle
@@ -28,15 +41,20 @@ void initialize() {
 	CELL_initialize(&cellTab2);
    
       // Choix du model de base
-   
-      // Imprime une ligne de 3
-      // CELL_initLine(&cellTab1);
-   
-      // Imprime une grenouile
-      /// CELL_initFrog(&cellTab1);
-   
-      // Imprime un vaisseau qui avance horizontalement
-      CELL_initShip(&cellTab1);
+      switch(CHOIX){
+	 case 0x01:
+	    CELL_initLine(&cellTab1);
+	    break;
+	 case 0x02:
+	    CELL_initFrog(&cellTab1);
+	    break;
+	 case 0x03:
+	    CELL_initShip(&cellTab1);
+	    break;
+	 default:
+	    break;
+      }
+      
 }
 
 void play() {

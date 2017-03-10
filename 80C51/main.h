@@ -1,6 +1,7 @@
 #ifndef __MAIN_H
 #define __MAIN_H
 
+
 #ifndef TEST
 	void pause(unsigned int t);
 
@@ -17,7 +18,5 @@
 	#define BOARD_X1 3
 	#define BOARD_Y1 3
 #endif
-
-
 
 #endif
