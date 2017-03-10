@@ -5,14 +5,12 @@
 int testGameboard();
 #endif
 
-#define EMPTY 0x00
+#define EMPTY 			0x00
 
 #define COLOR_ALIVE 	0x21
-#define COLOR_DEAD 	0x00
-#define COLOR_DYING 	0x24
-#define COLOR_BORN 	0x22
+#define COLOR_DEAD 		0x00
 
-#define MUR 0x23
+#define MUR 			0x23
 
 void GMB_initialize();
 void GMB_draw(unsigned char x0, unsigned char y0, unsigned char x1, unsigned char y1);
